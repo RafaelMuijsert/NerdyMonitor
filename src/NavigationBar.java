@@ -4,6 +4,7 @@ import java.awt.*;
 public class NavigationBar extends JPanel {
 	private static final int ICON_SIZE = 32;
 	private static final Color NAVIGATION_BAR_COLOR = Color.LIGHT_GRAY;
+	private static final Color NAVIGATION_BAR_SELECTED_COLOR = Color.GREEN;
 	private static final int NAVIGATION_BAR_MARGIN = 10;
 	private static final int NAVIGATION_BAR_ROUNDING = 40;
 	private MainFrame mainFrame;
@@ -17,7 +18,7 @@ public class NavigationBar extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		this.jbDashboard = new JButton(loadIcon("icons/dashboard.png"));
-		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
+		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 		this.jbDashboard.setOpaque(true);
 		this.jbNewDesign = new JButton(loadIcon("icons/new_design.png"));
 		this.jbNewDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
