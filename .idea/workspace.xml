@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="create project, added basic window and nav bar">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NerdyMonitor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Added navigationbar icons">
+      <change afterPath="$PROJECT_DIR$/src/ComponentStatusPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ComponentViewPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DashboardPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +64,21 @@
       <updated>1682676842637</updated>
       <workItem from="1682676843795" duration="1976000" />
     </task>
+    <task id="LOCAL-00001" summary="Added selected NavigationBar tab color">
+      <created>1682684694376</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682684694376</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added navigationbar icons">
+      <created>1682684732089</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682684732089</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,6 +86,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create project, added basic window and nav bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="create project, added basic window and nav bar" />
+    <MESSAGE value="Added selected NavigationBar tab color" />
+    <MESSAGE value="Added navigationbar icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added navigationbar icons" />
   </component>
 </project>

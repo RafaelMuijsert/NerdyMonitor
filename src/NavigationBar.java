@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class NavigationBar extends JPanel {
+public class NavigationBar extends JPanel implements ActionListener {
 	private static final int ICON_SIZE = 32;
 	private static final Color NAVIGATION_BAR_COLOR = Color.LIGHT_GRAY;
 	private static final Color NAVIGATION_BAR_SELECTED_COLOR = Color.GREEN;
@@ -20,12 +22,15 @@ public class NavigationBar extends JPanel {
 		this.jbDashboard = new JButton(loadIcon("icons/dashboard.png"));
 		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 		this.jbDashboard.setOpaque(true);
+		this.jbDashboard.addActionListener(this);
 		this.jbNewDesign = new JButton(loadIcon("icons/new_design.png"));
 		this.jbNewDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
 		this.jbNewDesign.setOpaque(true);
+		this.jbNewDesign.addActionListener(this);
 		this.jbOpenDesign = new JButton(loadIcon("icons/open_design.png"));
 		this.jbOpenDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
 		this.jbOpenDesign.setOpaque(true);
+		this.jbOpenDesign.addActionListener(this);
 
 
 		add(new Box.Filler(
@@ -71,5 +76,14 @@ public class NavigationBar extends JPanel {
 				NavigationBar.NAVIGATION_BAR_ROUNDING,
 				NavigationBar.NAVIGATION_BAR_ROUNDING
 		);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		this.jbOpenDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
+		this.jbNewDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
+		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
+
+		((JButton)e.getSource()).setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 	}
 }
