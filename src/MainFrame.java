@@ -5,6 +5,7 @@ public class MainFrame extends JFrame {
 	private static final String WINDOW_TITLE = "NerdyGadgets monitor";
 	private NavigationBar navBar;
 	private JPanel activeBody;
+
 	public MainFrame(int width, int height) {
 		setSize(width, height);
 		setTitle(MainFrame.WINDOW_TITLE);
@@ -17,7 +18,7 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
-		setActiveBody(new DashboardPanel());
+		setActiveBody(new TestPanel());
 
 		setVisible(true);
 	}
@@ -29,6 +30,7 @@ public class MainFrame extends JFrame {
 		if(this.activeBody != null) {
 			remove(this.activeBody);
 		}
+
 		this.activeBody = activeBody;
 		add(this.activeBody, BorderLayout.CENTER);
 	}
