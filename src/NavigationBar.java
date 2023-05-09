@@ -56,12 +56,12 @@ public class NavigationBar extends JPanel implements ActionListener {
 	private ImageIcon loadIcon(String path) {
 		ImageIcon imageIcon = new ImageIcon(path); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it
-		Image newimg = image.getScaledInstance(
+		Image newImg = image.getScaledInstance(
 				NavigationBar.ICON_SIZE,
 				NavigationBar.ICON_SIZE,
 				java.awt.Image.SCALE_SMOOTH
 		); // scale it the smooth way
-		return new ImageIcon(newimg);  // transform it back
+		return new ImageIcon(newImg);  // transform it back
 	}
 
 	@Override
