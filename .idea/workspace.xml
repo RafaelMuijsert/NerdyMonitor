@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Create dashboard classes, set proper layout">
       <change afterPath="$PROJECT_DIR$/src/InfrastructureDesign.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/InfrastructureStatusPanel.java" afterDir="false" />
@@ -13,6 +14,9 @@
       <change beforePath="$PROJECT_DIR$/src/ComponentViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentViewPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DashboardPanel.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="create project, added basic window and nav bar" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +43,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -55,6 +60,44 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/thijm/Downloads/jfreechart-1.0.1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="NerdyMonitor" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+>>>>>>> Stashed changes
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,7 +107,11 @@
       <option name="presentableId" value="Default" />
       <updated>1682676842637</updated>
       <workItem from="1682676843795" duration="1976000" />
+<<<<<<< Updated upstream
       <workItem from="1683629210946" duration="1606000" />
+=======
+      <workItem from="1683628823685" duration="835000" />
+>>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Added selected NavigationBar tab color">
       <created>1682684694376</created>
