@@ -17,6 +17,8 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
+		setActiveBody(new DashboardPanel());
+
 		setVisible(true);
 	}
 
@@ -24,6 +26,10 @@ public class MainFrame extends JFrame {
 		return activeBody;
 	}
 	public void setActiveBody(JPanel activeBody) {
+		if(this.activeBody != null) {
+			remove(this.activeBody);
+		}
 		this.activeBody = activeBody;
+		add(this.activeBody, BorderLayout.CENTER);
 	}
 }
