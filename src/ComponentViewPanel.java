@@ -26,7 +26,7 @@ public class ComponentViewPanel extends JPanel implements ActionListener {
 		// Wederom voor het testen van het dashboard
 		// Verwijder dit
 		if(e.getSource() == this.jbComponent) {
-			this.dashboardPanel.setStatusPanel(new ComponentStatusPanel());
+			this.dashboardPanel.setStatusPanel(new ComponentStatusPanel(1));
 			revalidate();
 			repaint();
 		}

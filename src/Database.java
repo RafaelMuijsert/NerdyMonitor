@@ -3,50 +3,98 @@ import com.mysql.cj.protocol.Resultset;
 
 import java.lang.reflect.Array;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Database {
+
+    private final static String databaseName = "mydb";
+    private final static String url = "jdbc:mysql://localhost:3306/" + databaseName;
+    private final static String username = "root";
+    private final static String password = "";
+
+    private static Connection connection;
+
     /**
-     * Initialize a connection with Database
+     * Establish a connection with the Database
      */
-    private static String database = "mydb";
-    private static String url = "jdbc:mysql://localhost:3306/" + database;
-    private static String username = "root";
-    private static String password = "";
-
-    private Connection connection;
-
     public Database () {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Establish connection
             connection = DriverManager.getConnection(url, username, password);
-
         } catch(Exception e){
             System.out.println(e);
         }
     }
 
-    public ResultSet find (String[] select, String fromTable, boolean desc, int limit) {
+    /**
+     * Execute query and return a ResultSet Object, which can be used to loop through all the records found.
+     * @param select
+     * @param fromTable
+     * @param where
+     * @param desc
+     * @param limit
+     * @return
+     */
+    public ResultSet find(String[] select, String fromTable, String[][] where, boolean desc, int limit) {
         try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
             // Convert Array into String select
-            String selectedCols = select.length > 1 ? StringUtils.implode(",", select) : select[0];
-            String SQL = "SELECT " + selectedCols + " FROM " + fromTable;
+            String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0];
 
-            if(limit > 0) {
-                SQL += " LIMIT =" + limit;
+            String SQL = "SELECT * FROM Measurement";
+            SQL += " ";
+
+            if(where.length > 0) {
+                int i= 0;
+                for(String[] col : where) {
+                    if(i == 0) {
+                        SQL += "WHERE";
+                    } else {
+                        SQL += "AND";
+                    }
+                    SQL += " ";
+
+                    SQL += col[0];
+                    SQL += col[1];
+                    SQL += col[2];
+
+                    i++;
+                }
             }
             if(desc) {
-                SQL += " ORDER BY DESC";
+                SQL += " ";
+                SQL += "ORDER BY DESC";
             }
-            
-            Statement statement = connection.createStatement();
-            statement.executeQuery(SQL);
+            if(limit > 0) {
+                SQL += "LIMIT =" + limit;
+            }
 
-            return statement.getResultSet();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL);
+
+            return resultSet;
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return null;
+    }
+
+    /**
+     *
+     * @param SQL
+     * @return
+     */
+    public ResultSet findRaw(String SQL) {
+        try {
+            ArrayList<ResultSet> results = new ArrayList<>();
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL);
+
+            return resultSet;
 
         } catch (Exception e) {
             System.out.println(e);

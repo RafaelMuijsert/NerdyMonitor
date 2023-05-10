@@ -3,7 +3,7 @@ package Utils;
 import org.jfree.data.category.DefaultCategoryDataset;
 import java.lang.reflect.Array;
 
-public class ChartHelper {
+public class ChartUtils {
 
     /**
      * Format an array into a dataset object which can be used for creating Charts with JfreeChart.

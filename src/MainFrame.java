@@ -10,7 +10,6 @@ public class MainFrame extends JFrame {
 
 	public MainFrame(int width, int height) {
 		Database db = new Database();
-		System.out.println(db.find(new String[]{"*"}, "Measurement", false, 0 ));
 		setSize(width, height);
 		setTitle(MainFrame.WINDOW_TITLE);
 		// Centered window location
