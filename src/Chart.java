@@ -1,3 +1,4 @@
+import Helpers.ChartHelper;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -8,24 +9,44 @@ import java.awt.*;
 
 public class Chart {
 
-    private String title;
-    public  Chart(String title) {
-        this.title = title;
+    public String getTitle() {
+        return title;
+    }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    private String title, xLabel, yLabel;
+    //@todo meting object array
+
+    public  Chart(String title, String xLabel, String yLabel) {
+        this.title = title;
+        this.xLabel = xLabel;
+        this.yLabel = yLabel;
     }
 
     public ChartPanel createChart () {
+
         JFreeChart lineChart = ChartFactory.createLineChart(
-                this.title,
-                "Years","Number of Schools",
-                createDataset(),
-                PlotOrientation.VERTICAL,
-                true,true,false);
+            this.title,
+            this.xLabel,
+            this.yLabel,
+            createDataset(),
+            PlotOrientation.VERTICAL,
+            true,false,true
+        );
 
-        ChartPanel chartPanel = new ChartPanel( lineChart );
+        ChartPanel chartPanel = new ChartPanel(lineChart);
+
+        // Disable context menu
+        chartPanel.setPopupMenu(null);
+
+        // Disable zoom
+        chartPanel.setDomainZoomable(false);
+        chartPanel.setRangeZoomable(false);
+
         chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
-
-        chartPanel.setDomainZoomable(true);
 
         return chartPanel;
     }

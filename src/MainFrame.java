@@ -7,6 +7,7 @@ public class MainFrame extends JFrame {
 	private JPanel activeBody;
 
 	public MainFrame(int width, int height) {
+		Database db = new Database();
 		setSize(width, height);
 		setTitle(MainFrame.WINDOW_TITLE);
 		// Centered window location
@@ -18,7 +19,7 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
-		setActiveBody(new TestPanel());
+		setActiveBody(new Chart("test", "money", "percentage").createChart());
 
 		setVisible(true);
 	}

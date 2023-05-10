@@ -11,7 +11,7 @@ public class ChartHelper {
      * @param data
      * @return
      */
-    private DefaultCategoryDataset formatDataset(Array data) {
+    public static DefaultCategoryDataset formatDataset(Array data) {
         if(data == null) {
             return null;
         }
