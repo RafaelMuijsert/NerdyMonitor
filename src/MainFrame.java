@@ -1,3 +1,5 @@
+import Utils.StringUtils;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +10,7 @@ public class MainFrame extends JFrame {
 
 	public MainFrame(int width, int height) {
 		Database db = new Database();
+		System.out.println(db.find(new String[]{"*"}, "Measurement", false, 0 ));
 		setSize(width, height);
 		setTitle(MainFrame.WINDOW_TITLE);
 		// Centered window location
@@ -19,7 +22,7 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
-		setActiveBody(new Chart("test", "money", "percentage").createChart());
+		setActiveBody(new DashboardPanel());
 
 		setVisible(true);
 	}

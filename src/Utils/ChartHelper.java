@@ -1,7 +1,6 @@
-package Helpers;
+package Utils;
 
 import org.jfree.data.category.DefaultCategoryDataset;
-
 import java.lang.reflect.Array;
 
 public class ChartHelper {
@@ -11,10 +10,11 @@ public class ChartHelper {
      * @param data
      * @return
      */
-    public static DefaultCategoryDataset formatDataset(Array data) {
+    public static DefaultCategoryDataset formatDataset(Array data, int chartType) {
         if(data == null) {
             return null;
         }
+
 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         dataset.addValue( 15 , "schools" , "1970" );

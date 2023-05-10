@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="create project, added basic window and nav bar">
-      <change beforePath="$PROJECT_DIR$/NerdyMonitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NerdyMonitor.iml" afterDir="false" />
-    </list>
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="create project, added basic window and nav bar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,6 +79,7 @@
       <workItem from="1683628823685" duration="835000" />
       <workItem from="1683665397854" duration="2651000" />
       <workItem from="1683714564966" duration="1923000" />
+      <workItem from="1683722327098" duration="8238000" />
     </task>
     <task id="LOCAL-00001" summary="Added selected NavigationBar tab color">
       <created>1682684694376</created>

@@ -1,13 +1,17 @@
-import Helpers.ChartHelper;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Chart {
+
+    public static final int PIECHART = 0;
+    public static final int LINECHART = 1;
 
     public String getTitle() {
         return title;
@@ -18,26 +22,58 @@ public class Chart {
     }
 
     private String title, xLabel, yLabel;
-    //@todo meting object array
+    private int chartType;
+    private ArrayList<Measurement> data;//@todo meting object array
 
-    public  Chart(String title, String xLabel, String yLabel) {
+    /**
+     * Pie chart constructor
+     * @param title
+     */
+    public  Chart(
+            String title,
+            int chartType
+    ) {
         this.title = title;
+        this.chartType = chartType;
+    }
+    public  Chart(
+        String title,
+        int chartType,
+        String xLabel,
+        String yLabel
+    ) {
+        this.title = title;
+        this.chartType = chartType;
         this.xLabel = xLabel;
         this.yLabel = yLabel;
     }
 
-    public ChartPanel createChart () {
+    public ChartPanel createChart (DefaultPieDataset dataset) {
 
-        JFreeChart lineChart = ChartFactory.createLineChart(
-            this.title,
-            this.xLabel,
-            this.yLabel,
-            createDataset(),
-            PlotOrientation.VERTICAL,
-            true,false,true
-        );
+        JFreeChart chart = null;
 
-        ChartPanel chartPanel = new ChartPanel(lineChart);
+        if(chartType == PIECHART) {
+            DefaultPieDataset pieDataset = new DefaultPieDataset();
+            pieDataset.setValue("Michael", 40);
+            pieDataset.setValue("Test", 60);
+
+            chart = ChartFactory.createPieChart(
+                    this.title,
+                    pieDataset
+            );
+        }
+        else if (chartType == LINECHART) {
+            chart = ChartFactory.createLineChart(
+                    this.title,
+                    this.xLabel,
+                    this.yLabel,
+                    createDataset(),
+                    PlotOrientation.VERTICAL,
+                    true,false,true
+            );
+        }
+
+        ChartPanel chartPanel = new ChartPanel(chart);
 
         // Disable context menu
         chartPanel.setPopupMenu(null);
@@ -47,6 +83,7 @@ public class Chart {
         chartPanel.setRangeZoomable(false);
 
         chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+        chartPanel.setBackground(Color.BLUE);
 
         return chartPanel;
     }
