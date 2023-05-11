@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="create project, added basic window and nav bar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NerdyMonitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NerdyMonitor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComponentStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentStatusPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Measurement.java" afterDir="false" />
@@ -123,5 +124,15 @@
     <MESSAGE value="Added navigationbar icons" />
     <MESSAGE value="Create dashboard classes, set proper layout" />
     <option name="LAST_COMMIT_MESSAGE" value="Create dashboard classes, set proper layout" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
