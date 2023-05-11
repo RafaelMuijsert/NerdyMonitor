@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="create project, added basic window and nav bar">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/apache_commons_text.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NerdyMonitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NerdyMonitor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComponentStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentStatusPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Measurement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MeasurementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeasurementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/ChartUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/StringUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +73,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -98,7 +88,7 @@
       <workItem from="1683714564966" duration="1923000" />
       <workItem from="1683722327098" duration="8238000" />
       <workItem from="1683744554320" duration="9411000" />
-      <workItem from="1683796277382" duration="5322000" />
+      <workItem from="1683796277382" duration="8412000" />
     </task>
     <task id="LOCAL-00001" summary="Added selected NavigationBar tab color">
       <created>1682684694376</created>
@@ -133,15 +123,5 @@
     <MESSAGE value="Added navigationbar icons" />
     <MESSAGE value="Create dashboard classes, set proper layout" />
     <option name="LAST_COMMIT_MESSAGE" value="Create dashboard classes, set proper layout" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

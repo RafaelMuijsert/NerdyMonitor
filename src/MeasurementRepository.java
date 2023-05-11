@@ -24,11 +24,13 @@ public class MeasurementRepository {
                 measurement.setId(resultset.getInt("id"));
                 measurement.setDate(resultset.getDate("date"));
                 measurement.setUptime(resultset.getDate("uptime"));
-                measurement.setDiskspace(resultset.getFloat("diskspace"));
+                measurement.setUsedDiskspaceInGB(resultset.getFloat("used_diskspace_in_GB"));
                 measurement.setProcessorload(resultset.getFloat("processorload"));
+                measurement.setInfrastructureComponent(resultset.getInt("Infrastructuur_component_id"));
 
                 measurements.add(measurement);
             }
+
         } catch (Exception e) {
             System.out.println(e);
         }

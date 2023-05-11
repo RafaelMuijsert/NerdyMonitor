@@ -40,14 +40,14 @@ public class ComponentStatusPanel extends JPanel {
 			dataset = new DefaultCategoryDataset();
 			// Format Measurement Objects into Datasets
 			for (Measurement measurement : measurements) {
-				((DefaultCategoryDataset) dataset).addValue(measurement.getProcessorload(), "Test", measurement.getDate());
+				((DefaultCategoryDataset) dataset).addValue(measurement.getProcessorload(), "ComponentNaam", measurement.getDate());
 			}
 		}
 		else if(chartType == Chart.Type.PIECHART) {
 			dataset = new DefaultPieDataset();
 			Measurement mostRecentMeasurement = measurements.get(measurements.size() - 1);
-			((DefaultPieDataset) dataset).setValue("Gebruikt", mostRecentMeasurement.getDiskspace());
-			((DefaultPieDataset) dataset).setValue("Over", 500 - mostRecentMeasurement.getDiskspace()); // @todo haal van infrastructuur component de totale geheugen op
+			((DefaultPieDataset) dataset).setValue("Used space", mostRecentMeasurement.getUsedDiskspaceInGB());
+			((DefaultPieDataset) dataset).setValue("Free space", 500 - mostRecentMeasurement.getUsedDiskspaceInGB()); // @todo haal van infrastructuur component de totale geheugen op
 		}
 		return (AbstractDataset) dataset;
 	}

@@ -20,12 +20,12 @@ public class Measurement{
         this.processorload = processorload;
     }
 
-    public float getDiskspace() {
-        return diskspace;
+    public float getUsedDiskspaceInGB() {
+        return usedDiskspaceInGB;
     }
 
-    public void setDiskspace(float diskspace) {
-        this.diskspace = diskspace;
+    public void setUsedDiskspaceInGB(float usedDiskspaceInGB) {
+        this.usedDiskspaceInGB = usedDiskspaceInGB;
     }
 
     public Date getDate() {
@@ -45,7 +45,7 @@ public class Measurement{
     }
 
     private float processorload;
-    private float diskspace;
+    private float usedDiskspaceInGB;
     private Date date;
     private Date uptime;
     private int infrastructureComponent; // @todo eventueel updaten naar een object
@@ -66,7 +66,7 @@ public class Measurement{
         return "Measurement{" +
                 "id=" + id +
                 ", processorload=" + processorload +
-                ", diskspace=" + diskspace +
+                ", diskspace=" + usedDiskspaceInGB +
                 ", date=" + date +
                 ", uptime=" + uptime +
                 '}';

@@ -90,7 +90,7 @@ public class Chart {
         }
         // Create from panel from Chart Object
         ChartPanel chartPanel = new ChartPanel(chart);
-        chart.setBackgroundPaint( Color.getColor("F0F0F0") ); // Set Same as main backgroundcolor
+        chart.setBackgroundPaint(Color.getColor("F0F0F0")); // Set Same as main backgroundcolor
 
         // Disable context menu
         chartPanel.setPopupMenu(null);
