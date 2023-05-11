@@ -2,7 +2,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class MeasurementRepository {
-
+    /**
+     * Get all measurements of a given component.
+     * @param componentID
+     * @return
+     */
     public static ArrayList<Measurement> getAllFromComponent(int componentID){
         Database db = new Database();
         ArrayList<Measurement> measurements = new ArrayList<>();
@@ -13,7 +17,7 @@ public class MeasurementRepository {
             };
 
             ResultSet resultset = db.find(new String[]{"*"}, "Measurement", where, false, 0);
-
+            // Loop through each record
             while(resultset.next()) {
                 Measurement measurement = new Measurement();
 

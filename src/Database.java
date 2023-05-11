@@ -1,14 +1,11 @@
 import Utils.StringUtils;
-import com.mysql.cj.protocol.Resultset;
-
-import java.lang.reflect.Array;
 import java.sql.*;
 import java.util.ArrayList;
 
 public class Database {
 
-    private final static String databaseName = "mydb";
-    private final static String url = "jdbc:mysql://localhost:3306/" + databaseName;
+    private final static String database = "mydb";
+    private final static String url = "jdbc:mysql://localhost:3306/" + database;
     private final static String username = "root";
     private final static String password = "";
 
@@ -38,13 +35,14 @@ public class Database {
      */
     public ResultSet find(String[] select, String fromTable, String[][] where, boolean desc, int limit) {
         try {
-
             // Convert Array into String select
             String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0];
-
-            String SQL = "SELECT * FROM Measurement";
+            String SQL = "SELECT * FROM";
+            SQL += " ";
+            SQL += StringUtils.sanitize(fromTable);
             SQL += " ";
 
+            // Concat Where statements
             if(where.length > 0) {
                 int i= 0;
                 for(String[] col : where) {
@@ -55,23 +53,32 @@ public class Database {
                     }
                     SQL += " ";
 
-                    SQL += col[0];
-                    SQL += col[1];
-                    SQL += col[2];
+                    SQL += col[0]; // Column
+                    SQL += col[1]; // Operator
+                    SQL += " ? "; // prepared statement placeholder
 
                     i++;
                 }
             }
+
             if(desc) {
                 SQL += " ";
                 SQL += "ORDER BY DESC";
             }
+
             if(limit > 0) {
-                SQL += "LIMIT =" + limit;
+                SQL += "LIMIT =" + StringUtils.sanitize(String.valueOf(limit));
             }
 
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SQL);
+            PreparedStatement statement = connection.prepareStatement(SQL);
+            int i = 1;
+            for(String[] col : where) {
+                // Replace placeholders with values.
+                statement.setString(i, StringUtils.sanitize(col[2]));
+                i++;
+            }
+
+            ResultSet resultSet = statement.executeQuery();
 
             return resultSet;
 
@@ -83,7 +90,9 @@ public class Database {
     }
 
     /**
+     * <pre>Beware when using!</pre>
      *
+     * Executes a raw SQL select query. Always manually escape content using the sanitize function.
      * @param SQL
      * @return
      */
@@ -102,5 +111,7 @@ public class Database {
 
         return null;
     }
+
+
 
 }
