@@ -1,6 +1,6 @@
 package Utils;
 
-import java.lang.reflect.Array;
+import org.apache.commons.text.StringEscapeUtils;
 import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
@@ -18,10 +18,20 @@ public class StringUtils {
 
         for (String token : data) {
             if (!SPACES_OR_EMPTY.matcher(token).matches()) {
-                sb.add(token);
+                sb.add(sanitize(token));
             }
         }
 
         return sb.toString();
+    }
+
+    /**
+     * @todo Find alternative
+     * @param content
+     * @return
+     */
+    public static String sanitize (String content) {
+        content.replace("'", "''");
+        return (StringEscapeUtils.escapeJava(content));
     }
 }

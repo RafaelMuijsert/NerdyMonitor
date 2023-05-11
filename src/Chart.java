@@ -1,15 +1,15 @@
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.Plot;
+import org.jfree.chart.labels.PieSectionLabelGenerator;
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import org.jfree.chart.plot.PiePlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.AbstractDataset;
 import org.jfree.data.general.PieDataset;
-
 import java.awt.*;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class Chart {
@@ -66,6 +66,17 @@ public class Chart {
                     this.title,
                     (PieDataset) dataset
             );
+            // Create label hints
+            PiePlot plot = (PiePlot) chart.getPlot();
+
+            // Format the content of the labels
+            PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
+                    "{0}: {1} ({2})",
+                    NumberFormat.getInstance(),
+                    NumberFormat.getPercentInstance()
+            );
+
+            plot.setLabelGenerator(gen);
         }
         else if (type == Type.LINECHART) {
             chart = ChartFactory.createLineChart(
@@ -79,7 +90,7 @@ public class Chart {
         }
         // Create from panel from Chart Object
         ChartPanel chartPanel = new ChartPanel(chart);
-        chart.setBackgroundPaint( Color.WHITE ); // Set Same as main backgroundcolor
+        chart.setBackgroundPaint( Color.getColor("F0F0F0") ); // Set Same as main backgroundcolor
 
         // Disable context menu
         chartPanel.setPopupMenu(null);
@@ -88,23 +99,9 @@ public class Chart {
 //        chartPanel.setDomainZoomable(false);
 //        chartPanel.setRangeZoomable(false);
 
-        chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
+        chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ));
 
         return chartPanel;
     }
-
-    //@todo Dummy data
-    private DefaultCategoryDataset createDataset() {
-        //Meting object array,
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset( );
-        dataset.addValue( 15 , "dwa" , "1970" );
-        dataset.addValue( 30 , "schools" , "1980" );
-        dataset.addValue( 60 , "schools" ,  "1990" );
-        dataset.addValue( 120 , "schools" , "2000" );
-        dataset.addValue( 240 , "schools" , "2010" );
-        dataset.addValue( 300 , "schools" , "2014" );
-        return dataset;
-    }
-
 
 }
