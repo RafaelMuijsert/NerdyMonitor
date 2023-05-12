@@ -1,3 +1,5 @@
+import Utils.StringUtils;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -5,7 +7,9 @@ public class MainFrame extends JFrame {
 	private static final String WINDOW_TITLE = "NerdyGadgets monitor";
 	private NavigationBar navBar;
 	private JPanel activeBody;
+
 	public MainFrame(int width, int height) {
+		Database db = new Database();
 		setSize(width, height);
 		setTitle(MainFrame.WINDOW_TITLE);
 		// Centered window location
@@ -29,6 +33,7 @@ public class MainFrame extends JFrame {
 		if(this.activeBody != null) {
 			remove(this.activeBody);
 		}
+
 		this.activeBody = activeBody;
 		add(this.activeBody, BorderLayout.CENTER);
 	}
