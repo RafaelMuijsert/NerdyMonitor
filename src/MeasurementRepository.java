@@ -11,9 +11,13 @@ public class MeasurementRepository {
         Database db = new Database();
         ArrayList<Measurement> measurements = new ArrayList<>();
 
-        try{
-            String[][] where = new String[][]{
-                    new String[]{"infrastructuur_component_id", "=", Integer.toString(componentID)}
+        try {
+            String[][] where = new String[][] {
+                    new String[] {
+                            "infrastructuur_component_id",
+                            "=",
+                            Integer.toString(componentID)
+                    }
             };
 
             ResultSet resultset = db.find(new String[]{"*"}, "Measurement", where, false, 0);

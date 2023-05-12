@@ -65,7 +65,7 @@ public class Database {
 
             if(desc) {
                 SQL += " ";
-                SQL += "ORDER BY DESC";
+                SQL += "ORDER BY id DESC";
             }
 
             if(limit > 0) {
