@@ -12,12 +12,16 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// Border layout
-		setLayout(new BorderLayout());
+		BorderLayout borderLayout = new BorderLayout();
+		borderLayout.setHgap(16);
+		borderLayout.setVgap(16);
+		setLayout(borderLayout);
 
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
-		setActiveBody(new DashboardPanel());
+//		setActiveBody(new DashboardPanel());
+		setActiveBody(new OverviewPanel(new InfrastructureDesign()));
 
 		setVisible(true);
 	}

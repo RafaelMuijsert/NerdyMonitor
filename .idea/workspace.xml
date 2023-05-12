@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Create dashboard classes, set proper layout">
-      <change afterPath="$PROJECT_DIR$/src/InfrastructureDesign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/InfrastructureStatusPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="created OverviewPanel, InfrastructureStatusPanel, InfrastructureDesign classes, improved basic dashboard navigation">
+      <change afterPath="$PROJECT_DIR$/src/InfrastructureComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MaterialColors.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentStatusPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentViewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/dashboard.png" beforeDir="false" afterPath="$PROJECT_DIR$/icons/dashboard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/new_design.png" beforeDir="false" afterPath="$PROJECT_DIR$/icons/new_design.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/open_design.png" beforeDir="false" afterPath="$PROJECT_DIR$/icons/open_design.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -41,20 +48,40 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/thijmen/Code/NerdyMonitor&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="NerdyMonitor" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,7 +91,10 @@
       <option name="presentableId" value="Default" />
       <updated>1682676842637</updated>
       <workItem from="1682676843795" duration="1976000" />
-      <workItem from="1683629210946" duration="1606000" />
+      <workItem from="1683628823685" duration="835000" />
+      <workItem from="1683665397854" duration="2651000" />
+      <workItem from="1683714564966" duration="1923000" />
+      <workItem from="1683886862445" duration="1524000" />
     </task>
     <task id="LOCAL-00001" summary="Added selected NavigationBar tab color">
       <created>1682684694376</created>
@@ -92,6 +122,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create project, added basic window and nav bar" />
