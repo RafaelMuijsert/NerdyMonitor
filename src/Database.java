@@ -37,8 +37,10 @@ public class Database {
         try {
             // Convert Array into String select
             String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0];
-            String SQL = "SELECT * FROM";
-            SQL += " ";
+            String SQL = "SELECT ";
+            SQL += selectedCols;
+
+            SQL += "FROM ";
             SQL += StringUtils.sanitize(fromTable);
             SQL += " ";
 
