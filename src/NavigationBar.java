@@ -23,7 +23,6 @@ public class NavigationBar extends JPanel implements ActionListener {
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
 		this.jbDashboard = new JButton(ImageUtils.getImageIcon("icons/dashboard.png", NavigationBar.ICON_SIZE, NavigationBar.ICON_SIZE));
 		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 		this.jbDashboard.setOpaque(true);

@@ -23,7 +23,7 @@ public class OverviewPanel extends JPanel {
 		glCostOverview.setVgap(4);
 		jpCostOverview.setLayout(glCostOverview);
 		for(int i = 0; i < 80; i++) {
-			jpCostOverview.add(new ComponentOverview(new InfrastructureComponent(), 1));
+			jpCostOverview.add(new ComponentOverview(new Firewall("asdf"), 1));
 		}
 		jpCost.add(new JScrollPane(jpCostOverview), BorderLayout.CENTER);
 //		jpCost.add(jpCostOverview, BorderLayout.CENTER);
