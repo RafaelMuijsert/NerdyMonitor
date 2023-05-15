@@ -5,9 +5,10 @@ public class MainFrame extends JFrame {
 	private static final String WINDOW_TITLE = "NerdyGadgets monitor";
 	private NavigationBar navBar;
 	private JPanel activeBody;
-	public MainFrame(int width, int height) {
-		setSize(width, height);
+	public MainFrame() {
 		setTitle(MainFrame.WINDOW_TITLE);
+		setResizable(false);
+		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 		// Centered window location
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
