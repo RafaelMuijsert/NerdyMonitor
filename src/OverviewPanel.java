@@ -22,9 +22,19 @@ public class OverviewPanel extends JPanel {
 		GridLayout glCostOverview = new GridLayout(0, 1);
 		glCostOverview.setVgap(4);
 		jpCostOverview.setLayout(glCostOverview);
-		for(int i = 0; i < 8; i++) {
-			jpCostOverview.add(new ComponentOverview(new Firewall("asdf"), 1));
+
+		for(Firewall firewall: this.infrastructureDesign.getFirewalls()) {
+			jpCostOverview.add(new ComponentOverview(firewall, 1));
 		}
+
+		for(Databaseserver database: this.infrastructureDesign.getDatabases()) {
+			jpCostOverview.add(new ComponentOverview(database, 1));
+		}
+
+		for(Webserver webserver: this.infrastructureDesign.getWebservers()) {
+			jpCostOverview.add(new ComponentOverview(webserver, 1));
+		}
+
 		jpCost.add(new JScrollPane(jpCostOverview), BorderLayout.CENTER);
 //		jpCost.add(jpCostOverview, BorderLayout.CENTER);
 

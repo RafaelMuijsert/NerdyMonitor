@@ -30,41 +30,41 @@ public class ComponentOverview extends JPanel {
 
 		constraints.anchor = GridBagConstraints.LINE_START;
 		JLabel img = new JLabel();
-		img.setIcon(Utils.ImageUtils.getImageIcon("icons/webserver.png", 128, 128));
+		img.setIcon(this.infrastructureComponent.getImage());
 		this.add(img, constraints);
 
 		constraints.weighty = 0.5;
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_START;
-		this.jlComponentName = new JLabel("Webserver 01");
+		this.jlComponentName = new JLabel(this.infrastructureComponent.getName());
 		this.jlComponentName.setFont(new Font("Montserrat", Font.BOLD, 24));
 
 		this.add(this.jlComponentName, constraints);
 
 		constraints.gridy = 1;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_START;
-		this.jlAvailability = new JLabel("Beschikbaarheid: 58%");
+		this.jlAvailability = new JLabel("Beschikbaarheid: " + this.infrastructureComponent.getAvailability());
 		this.jlAvailability.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlAvailability, constraints);
 
 		constraints.gridy = 2;
 		constraints.anchor = GridBagConstraints.LAST_LINE_START;
-		this.jlComponentNumber = new JLabel("Componentnummer");
+		this.jlComponentNumber = new JLabel(String.valueOf(this.infrastructureComponent.getComponentNumber()));
 		this.jlComponentNumber.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlComponentNumber, constraints);
 
 		constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_END;
-		this.jlPrice = new JLabel("10$");
+		this.jlPrice = new JLabel(String.valueOf(this.infrastructureComponent.getPrice() + "$"));
 		this.jlPrice.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlPrice, constraints);
 
 		constraints.gridx = 2;
 		constraints.gridy = 1;
 		constraints.anchor = GridBagConstraints.LAST_LINE_END;
-		this.jlQuantity = new JLabel("1x");
+		this.jlQuantity = new JLabel(String.valueOf(this.quantity));
 		this.jlQuantity.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(jlQuantity, constraints);
 	}

@@ -1,8 +1,11 @@
 import com.mysql.cj.protocol.Resultset;
 
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
 import java.util.Date;
+
+import static Utils.ImageUtils.getImageIcon;
 
 public abstract class InfrastructureComponent {
     private double price;
@@ -15,7 +18,7 @@ public abstract class InfrastructureComponent {
     private double diskSpace;
     private double diskSpaceUsed;
     private double processorLoad;
-
+    protected String imagePath;
     public InfrastructureComponent(int componentID) {
         Database db = new Database();
         try {
@@ -92,5 +95,7 @@ public abstract class InfrastructureComponent {
         return name;
     }
 
-    public abstract void setImage();
+    public ImageIcon getImage() {
+        return getImageIcon(this.imagePath, 128, 128);
+    }
 }
