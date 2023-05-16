@@ -16,11 +16,11 @@ public abstract class InfrastructureComponent {
     private double diskSpaceUsed;
     private double processorLoad;
 
-    public InfrastructureComponent(String name) {
+    public InfrastructureComponent(int componentID) {
         Database db = new Database();
         try {
             ResultSet resultset = db.findRaw("SELECT IC.id ICid, name, availability, annual_price_in_euro " +
-                    "FROM Infrastructure_component IC JOIN Component C ON IC.component=C.id WHERE C.name=" + name + ";");
+                    "FROM Infrastructure_component IC JOIN Component C ON IC.component=C.id WHERE IC.id=" + componentID + "LIMIT 1");
             while (resultset.next()) {
                 this.name = resultset.getString("name");
                 this.availability = resultset.getDouble("availability");
