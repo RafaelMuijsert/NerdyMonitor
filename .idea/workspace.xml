@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Update NavigationBar styling, created basic OverviewPanel">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Fix constructor and update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Databaseserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databaseserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firewall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firewall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Webserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Webserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682687402372</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix constructor and update gitignore">
+      <created>1684243946183</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684243946183</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +143,7 @@
     <MESSAGE value="Added selected NavigationBar tab color" />
     <MESSAGE value="Added navigationbar icons" />
     <MESSAGE value="Create dashboard classes, set proper layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create dashboard classes, set proper layout" />
+    <MESSAGE value="Fix constructor and update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix constructor and update gitignore" />
   </component>
 </project>

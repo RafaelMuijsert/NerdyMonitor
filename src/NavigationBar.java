@@ -85,7 +85,10 @@ public class NavigationBar extends JPanel implements ActionListener {
 		} else if(e.getSource() == this.jbNewDesign) {
 			JOptionPane.showMessageDialog(this.mainFrame, "New Design :O");
 		} else if(e.getSource() == this.jbOpenDesign) {
-			JOptionPane.showMessageDialog(this.mainFrame, "Open Design :O");
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.showOpenDialog(this.mainFrame);
+			JOptionPane.showMessageDialog(this.mainFrame, jFileChooser.getSelectedFile());
+			// Load the selected file
 		}
 	}
 }
