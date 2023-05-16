@@ -4,7 +4,7 @@ import java.io.File;
 public class Firewall extends InfrastructureComponent{
 
     public Firewall(String name) {
-        super(name);
+        super(0);
     }
 
     @Override
