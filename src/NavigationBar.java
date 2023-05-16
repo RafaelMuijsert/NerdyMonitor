@@ -81,9 +81,9 @@ public class NavigationBar extends JPanel implements ActionListener {
 		((JButton)e.getSource()).setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 
 		if(e.getSource() == this.jbDashboard) {
-			JOptionPane.showMessageDialog(this.mainFrame, "Dashboard :O");
+			this.mainFrame.setActiveBody(new DashboardPanel());
 		} else if(e.getSource() == this.jbNewDesign) {
-			JOptionPane.showMessageDialog(this.mainFrame, "New Design :O");
+			this.mainFrame.setActiveBody(new NewDesignPanel());
 		} else if(e.getSource() == this.jbOpenDesign) {
 			JFileChooser jFileChooser = new JFileChooser();
 			jFileChooser.showOpenDialog(this.mainFrame);

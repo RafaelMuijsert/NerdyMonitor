@@ -36,8 +36,9 @@ public class MainFrame extends JFrame {
 		if(this.activeBody != null) {
 			remove(this.activeBody);
 		}
-
 		this.activeBody = activeBody;
 		add(this.activeBody, BorderLayout.CENTER);
+		repaint();
+		revalidate();
 	}
 }

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Fix constructor and update gitignore">
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Open design basics">
+      <change afterPath="$PROJECT_DIR$/src/NewDesignPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684243946183</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Open design basics">
+      <created>1684244392609</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684244392609</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +153,7 @@
     <MESSAGE value="Added navigationbar icons" />
     <MESSAGE value="Create dashboard classes, set proper layout" />
     <MESSAGE value="Fix constructor and update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix constructor and update gitignore" />
+    <MESSAGE value="Open design basics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Open design basics" />
   </component>
 </project>
