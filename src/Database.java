@@ -15,13 +15,27 @@ public class Database {
      * Establish a connection with the Database
      */
     public Database () {
+        // A connection is already established.
+        if(isConnected(connection)) {
+            return;
+        }
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-
             connection = DriverManager.getConnection(url, username, password);
         } catch(Exception e){
             System.out.println(e);
         }
+    }
+
+    public boolean isConnected(Connection con) {
+        try {
+            return con != null && !con.isClosed();
+        } catch (SQLException ignored) {
+            System.out.println(ignored);
+        }
+
+        return false;
     }
 
     /**
