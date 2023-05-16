@@ -22,7 +22,7 @@ public class OverviewPanel extends JPanel {
 		GridLayout glCostOverview = new GridLayout(0, 1);
 		glCostOverview.setVgap(4);
 		jpCostOverview.setLayout(glCostOverview);
-		for(int i = 0; i < 80; i++) {
+		for(int i = 0; i < 8; i++) {
 			jpCostOverview.add(new ComponentOverview(new Firewall("asdf"), 1));
 		}
 		jpCost.add(new JScrollPane(jpCostOverview), BorderLayout.CENTER);
@@ -47,6 +47,20 @@ public class OverviewPanel extends JPanel {
 		jpOverviewInfo.add(jlOverview);
 
 		jpOverview.add(jpOverviewInfo, BorderLayout.NORTH);
+		//
+
+		JPanel jpOverviewSummary = new JPanel();
+		GridLayout grOverviewSummary = new GridLayout(0, 2);
+		grOverviewSummary.setVgap(4);
+		jpOverviewSummary.setLayout(grOverviewSummary);
+		jpOverviewSummary.add(new JLabel("Totaalprijs"));
+		jpOverviewSummary.add(new JLabel("400$"));
+		jpOverviewSummary.add(new JLabel("Totale beschikbaarheid"));
+		jpOverviewSummary.add(new JLabel("99.98%"));
+		jpOverviewSummary.add(new JLabel("Totaal componenten"));
+		jpOverviewSummary.add(new JLabel("4"));
+		//
+		jpOverview.add(jpOverviewSummary, BorderLayout.CENTER);
 		jpOverview.add(jpOverviewControls, BorderLayout.SOUTH);
 
 		jpOverview.setPreferredSize(new Dimension(500, 0));

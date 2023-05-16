@@ -23,8 +23,8 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
-		setActiveBody(new DashboardPanel());
-//		setActiveBody(new OverviewPanel(new InfrastructureDesign()));
+//		setActiveBody(new DashboardPanel());
+		setActiveBody(new OverviewPanel(new InfrastructureDesign()));
 
 		setVisible(true);
 	}
