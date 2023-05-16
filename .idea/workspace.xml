@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="Update NavigationBar styling, created basic OverviewPanel">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Databaseserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databaseserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Firewall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firewall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Webserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Webserver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
