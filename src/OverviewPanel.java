@@ -35,8 +35,9 @@ public class OverviewPanel extends JPanel {
 			jpCostOverview.add(new ComponentOverview(webserver, 1));
 		}
 
-		jpCost.add(new JScrollPane(jpCostOverview), BorderLayout.CENTER);
-//		jpCost.add(jpCostOverview, BorderLayout.CENTER);
+		JScrollPane scrollPane = new JScrollPane(jpCostOverview);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(8);
+		jpCost.add(scrollPane, BorderLayout.CENTER);
 
 
 		BorderLayout jpOverviewLayout = new BorderLayout();
