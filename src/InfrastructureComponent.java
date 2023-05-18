@@ -6,6 +6,69 @@ import java.util.Date;
 import static Utils.ImageUtils.getImageIcon;
 
 public  class InfrastructureComponent extends Component {
+    public final static String TABLE = "Component_types_id";
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public Float getAvailability() {
+        return (float) availability;
+    }
+
+    public void setAvailability(double availability) {
+        this.availability = availability;
+    }
+
+    public void setComponentNumber(int componentNumber) {
+        this.componentNumber = componentNumber;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public void setUptime(Date uptime) {
+        this.uptime = uptime;
+    }
+
+    public void setDiskSpace(double diskSpace) {
+        this.diskSpace = diskSpace;
+    }
+
+    public void setDiskSpaceUsed(double diskSpaceUsed) {
+        this.diskSpaceUsed = diskSpaceUsed;
+    }
+
+    public void setProcessorLoad(double processorLoad) {
+        this.processorLoad = processorLoad;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public Component getComponent() {
+        return component;
+    }
+
+    public void setComponent(Component component) {
+        this.component = component;
+    }
+
     private double price;
     private double availability;
     private int componentNumber;
@@ -26,7 +89,7 @@ public  class InfrastructureComponent extends Component {
             String SQL = "SELECT IC.id ICid, name, availability, annual_price_in_euro, uptime, total_diskspace_in_GB, used_diskspace_in_GB, processorload, Component_types_id" + " " +
                     "FROM Infrastructure_component IC " +
                     "JOIN Component C ON IC.Component_id=C.id " +
-                    "JOIN Measurement M on IC.id = M.Infrastructure_component_id " +
+                    "JOIN Measurement M on M.id = (SELECT id from Measurement where Infrastructure_component_id = IC.id ORDER BY M.date DESC limit 1) " +
                     "WHERE IC.id=" + infrastructureComponentId+ " " +
                     "LIMIT 1";
 
@@ -54,6 +117,7 @@ public  class InfrastructureComponent extends Component {
         }
 
     }
+    public InfrastructureComponent(){}
 
     public void update() {
         Database db = new Database();
