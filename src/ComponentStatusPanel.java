@@ -5,6 +5,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ComponentStatusPanel extends JPanel {
@@ -33,19 +34,19 @@ public class ComponentStatusPanel extends JPanel {
 		chartsPanel.add(lineChart.createChart(getDataSet(measurements, Chart.Type.LINECHART)));
 		chartsPanel.add(pieChart.createChart(getDataSet(measurements, Chart.Type.PIECHART)));
 
-		JPanel detailsPanel = new JPanel();
-		detailsPanel.setBorder(borderTop);
-		detailsPanel.setLayout(new BoxLayout(detailsPanel, BoxLayout.Y_AXIS));
+		String[][] data = {
+				{ "Processorbelasting", mostRecentMeasurement.getProcessorload(true)},
+				{ "CPU temperatuur", mostRecentMeasurement.getTemperature() + " \u2103" },
+				{ "Diskruimte", mostRecentMeasurement.getUsedDiskspaceInGB(true)},
+				{ "Uptime", new SimpleDateFormat("dd-MM-yyyy").format(mostRecentMeasurement.getUptime()) }
+		};
 
-		detailsPanel.add(new JLabel("Processorbelasting: " + mostRecentMeasurement.getProcessorload(true) ));
-		detailsPanel.add(new JLabel("CPU temperatuur: " + mostRecentMeasurement.getProcessorload() + " \u2103"));
-		detailsPanel.add(new JLabel("Diskruimte: " + mostRecentMeasurement.getUsedDiskspaceInGB(true)));
-		detailsPanel.add(new JLabel("Uptime: " + mostRecentMeasurement.getUptime()));
-
+		JTable details = new JTable(data, new String[] { "Measurement", "Value"} );
+		details.setDefaultEditor(Object.class, null);
 
 		add(new ComponentPanel(infrastructureComponent));
 		add(chartsPanel);
-		add(detailsPanel);
+		add(details);
 	}
 
 	private AbstractDataset getDataSet(ArrayList<Measurement> measurements, Chart.Type chartType) {
