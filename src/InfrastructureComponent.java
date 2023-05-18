@@ -1,8 +1,11 @@
 import com.mysql.cj.protocol.Resultset;
 
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
 import java.util.Date;
+
+import static Utils.ImageUtils.getImageIcon;
 
 public abstract class InfrastructureComponent {
     private double price;
@@ -15,12 +18,12 @@ public abstract class InfrastructureComponent {
     private double diskSpace;
     private double diskSpaceUsed;
     private double processorLoad;
-
-    public InfrastructureComponent(String name) {
+    protected String imagePath;
+    public InfrastructureComponent(int componentID) {
         Database db = new Database();
         try {
             ResultSet resultset = db.findRaw("SELECT IC.id ICid, name, availability, annual_price_in_euro " +
-                    "FROM Infrastructure_component IC JOIN Component C ON IC.component=C.id WHERE C.name=" + name + ";");
+                    "FROM Infrastructure_component IC JOIN Component C ON IC.component=C.id WHERE IC.id=" + componentID + "LIMIT 1");
             while (resultset.next()) {
                 this.name = resultset.getString("name");
                 this.availability = resultset.getDouble("availability");
@@ -92,5 +95,7 @@ public abstract class InfrastructureComponent {
         return name;
     }
 
-    public abstract void setImage();
+    public ImageIcon getImage() {
+        return getImageIcon(this.imagePath, 128, 128);
+    }
 }

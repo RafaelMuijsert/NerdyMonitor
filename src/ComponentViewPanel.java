@@ -9,14 +9,15 @@ public class ComponentViewPanel extends JPanel implements ActionListener {
 	private JButton jbComponent;
 	private DashboardPanel dashboardPanel;
 	public ComponentViewPanel(DashboardPanel dashboardPanel) {
+		// Vertoon alle componenten binnen de infrastructure
+
 		// DashboardPanel is nodig om de ComponentStatusPanel aan te passen
 		// als op een infrastructuurcomponent wordt geklikt.
 		this.dashboardPanel = dashboardPanel;
 		// Dit is allemaal voor het testen van het dashboard
 		// Verwijder alles bij daadwerkelijke implementatie
 		setLayout(new FlowLayout());
-		setBackground(Color.PINK);
-		this.jbComponent = new JButton("Infrastructure Component");
+		this.jbComponent = new JButton("Voorbeeld Infrastructure Component");
 		this.jbComponent.addActionListener(this);
 		add(this.jbComponent);
 	}

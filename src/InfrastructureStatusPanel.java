@@ -8,7 +8,6 @@ public class InfrastructureStatusPanel extends JPanel {
 	public InfrastructureStatusPanel() {
 		setLayout(new FlowLayout());
 		System.out.println("Infrastructure Status Panel");
-		setBackground(Color.ORANGE);
 		add(new JLabel("Infrastructure status: alive"));
 	}
 }

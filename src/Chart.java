@@ -31,7 +31,7 @@ public class Chart {
 
     private String title, xLabel, yLabel;
     private Type type;
-    private ArrayList<Measurement> data;//@todo meting object array
+    private Color color;
 
     /**
      * Pie chart constructor
@@ -39,19 +39,31 @@ public class Chart {
      */
     public  Chart(
             String title,
-            Type type
+            Type type,
+            Color color
     ) {
         this.title = title;
         this.type = type;
+        this.color = color;
     }
+
+    /**
+     * Line chart constructor
+     * @param title
+     * @param type
+     * @param xLabel
+     * @param yLabel
+     */
     public  Chart(
         String title,
         Type type,
+        Color color,
         String xLabel,
         String yLabel
     ) {
         this.title = title;
         this.type = type;
+        this.color = color;
         this.xLabel = xLabel;
         this.yLabel = yLabel;
     }
@@ -90,7 +102,7 @@ public class Chart {
         }
         // Create from panel from Chart Object
         ChartPanel chartPanel = new ChartPanel(chart);
-        chart.setBackgroundPaint(Color.getColor("F0F0F0")); // Set Same as main backgroundcolor
+        chart.setBackgroundPaint(color);
 
         // Disable context menu
         chartPanel.setPopupMenu(null);
