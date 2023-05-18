@@ -20,7 +20,7 @@ public class MeasurementRepository {
                     }
             };
 
-            ResultSet resultset = db.find(new String[]{"*"}, "Measurement", where, false, 0);
+            ResultSet resultset = db.find(new String[]{"*"}, Measurement.TABLE, where, false, 0);
 
             // Could not find measurements
             if(resultset == null) {
