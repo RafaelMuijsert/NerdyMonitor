@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Measurement{
+    public final static String TABLE = "Measurement";
 
     public int getId() {
         return id;

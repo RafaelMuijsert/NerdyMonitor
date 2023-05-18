@@ -81,6 +81,18 @@ public  class InfrastructureComponent extends Component {
     protected String imagePath;
     private Component component;
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
     public InfrastructureComponent(int infrastructureComponentId){
         Database db = new Database();
         System.out.println();
@@ -89,9 +101,11 @@ public  class InfrastructureComponent extends Component {
             String SQL = "SELECT IC.id ICid, name, availability, annual_price_in_euro, uptime, total_diskspace_in_GB, used_diskspace_in_GB, processorload, Component_types_id" + " " +
                     "FROM Infrastructure_component IC " +
                     "JOIN Component C ON IC.Component_id=C.id " +
-                    "JOIN Measurement M on M.id = (SELECT id from Measurement where Infrastructure_component_id = IC.id ORDER BY M.date DESC limit 1) " +
+                    "LEFT JOIN Measurement M on IC.id = M.Infrastructure_component_id " +
                     "WHERE IC.id=" + infrastructureComponentId+ " " +
+                    "GROUP by Infrastructure_component_id " +
                     "LIMIT 1";
+
 
             ResultSet resultset = db.findRaw(SQL);
 
@@ -100,15 +114,17 @@ public  class InfrastructureComponent extends Component {
             }
 
             while(resultset.next()) {
-                super.setName(resultset.getString("name"));
-                super.setComponentTypesId(resultset.getInt("Component_types_id"));
 
-                this.availability = resultset.getDouble("availability");
-                this.price = resultset.getDouble("annual_price_in_euro");
-                this.componentNumber = resultset.getInt("ICid"); // dunno wat de punt van dit uberhaupt is
-                this.uptime = resultset.getDate("uptime");
-                this.diskSpace = resultset.getDouble("total_diskspace_in_GB");
-                this.processorLoad = resultset.getDouble("processorload");
+                this.setId(resultset.getInt("ICid"));
+                this.setName(resultset.getString("name"));
+                this.setComponentTypesId(resultset.getInt("Component_types_id"));
+
+                this.setAvailability(resultset.getFloat("availability"));
+                this.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
+                this.setUptime(resultset.getDate("uptime"));
+                this.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
+                this.setProcessorLoad(resultset.getDouble("processorload"));
+                this.setAvailable((this.getUptime() != null));
 
             }
 
@@ -118,20 +134,36 @@ public  class InfrastructureComponent extends Component {
 
     }
     public InfrastructureComponent(){}
+    public void setDataFromResultSet(ResultSet resultset) {
+        try{
+                InfrastructureComponent infrastructureComponent = new InfrastructureComponent();
 
-    public void update() {
-        Database db = new Database();
-        try {
-            ResultSet resultset = db.findRaw("SELECT processorload, diskspace_in_GB, uptime" +
-                    "FROM Measurement M JOIN Infrastructure_component IC ON IC.id=M.infrastructure_component " +
-                    "WHERE IC.id=" + String.valueOf(this.componentNumber) + " ORDER BY M.id DESC LIMIT 1");
-            this.uptime = resultset.getDate("uptime");
-            this.diskSpace = resultset.getDouble("diskspace_in_GB");
-            this.processorLoad = resultset.getDouble("processorload");
-        } catch (Exception e) {
-            System.out.println(e);
+                infrastructureComponent.setId(resultset.getInt("ICid"));
+                infrastructureComponent.setName(resultset.getString("name"));
+                infrastructureComponent.setComponentTypesId(resultset.getInt("Component_types_id"));
+
+                infrastructureComponent.setAvailability(resultset.getFloat("availability"));
+                infrastructureComponent.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
+                infrastructureComponent.setUptime(resultset.getDate("uptime"));
+                infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
+                infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));
+        } catch (Exception e){
+
         }
     }
+//    public void update() {
+//        Database db = new Database();
+//        try {
+//            ResultSet resultset = db.findRaw("SELECT processorload, diskspace_in_GB, uptime" +
+//                    "FROM Measurement M JOIN Infrastructure_component IC ON IC.id=M.infrastructure_component " +
+//                    "WHERE IC.id=" + String.valueOf(this.componentNumber) + " ORDER BY M.id DESC LIMIT 1");
+//            this.uptime = resultset.getDate("uptime");
+//            this.diskSpace = resultset.getDouble("diskspace_in_GB");
+//            this.processorLoad = resultset.getDouble("processorload");
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
 
     public Date getUptime() {
         return uptime;
