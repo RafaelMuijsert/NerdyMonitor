@@ -1,24 +1,25 @@
-import Utils.ImageUtils;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.AbstractDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class ComponentStatusPanel extends JPanel {
 	public ComponentStatusPanel(int infrastructureComponentId) {
-		Database db = new Database();
-		try{
-		}catch (Exception e) {
 
-		}
+		// Get Component from database
+		InfrastructureComponent infrastructureComponent = new InfrastructureComponent(infrastructureComponentId);
+
 		// Retrieve all Measurements of the current Component
 		ArrayList<Measurement> measurements = MeasurementRepository.getAllFromComponent(infrastructureComponentId);
 		Measurement mostRecentMeasurement = (measurements.size() >= 1) ? measurements.get(measurements.size() - 1) : null;
+		if(mostRecentMeasurement == null) {
+			return;
+		}
+
 		MatteBorder borderTop = new MatteBorder(1, 0, 0, 0, Color.black);
 		JPanel chartsPanel = new JPanel(new GridLayout(1, 2));
 
@@ -32,22 +33,23 @@ public class ComponentStatusPanel extends JPanel {
 		chartsPanel.add(lineChart.createChart(getDataSet(measurements, Chart.Type.LINECHART)));
 		chartsPanel.add(pieChart.createChart(getDataSet(measurements, Chart.Type.PIECHART)));
 
-		JPanel costsPanel = new JPanel();
-		costsPanel.setBorder(borderTop);
-		costsPanel.setLayout(new BoxLayout(costsPanel, BoxLayout.Y_AXIS));
+		JPanel detailsPanel = new JPanel();
+		detailsPanel.setBorder(borderTop);
+		detailsPanel.setLayout(new BoxLayout(detailsPanel, BoxLayout.Y_AXIS));
 
-		costsPanel.add(new JLabel("Processorbelasting: " + mostRecentMeasurement.getProcessorload() + " %"));
-		costsPanel.add(new JLabel("CPU temperatuur: " + mostRecentMeasurement.getProcessorload() + " \u2103"));
-		costsPanel.add(new JLabel("Diskruimte: " + mostRecentMeasurement.getUsedDiskspaceInGB() + " GB"));
-		costsPanel.add(new JLabel("Uptime: " + mostRecentMeasurement.getUptime()));
+		detailsPanel.add(new JLabel("Processorbelasting: " + mostRecentMeasurement.getProcessorload(true) ));
+		detailsPanel.add(new JLabel("CPU temperatuur: " + mostRecentMeasurement.getProcessorload() + " \u2103"));
+		detailsPanel.add(new JLabel("Diskruimte: " + mostRecentMeasurement.getUsedDiskspaceInGB(true)));
+		detailsPanel.add(new JLabel("Uptime: " + mostRecentMeasurement.getUptime()));
 
 
-		add(new JLabel(ImageUtils.getImageIcon("icons/ComponentTypes/"+ 1 +".png", 150, 150))); // @todo component placeholder image
+		add(new ComponentPanel(infrastructureComponent));
 		add(chartsPanel);
-		add(costsPanel);
+		add(detailsPanel);
 	}
 
 	private AbstractDataset getDataSet(ArrayList<Measurement> measurements, Chart.Type chartType) {
+		//  Can't create datasets without data being provided : )
 		if(measurements.size() == 0){
 			return null;
 		}
@@ -65,7 +67,7 @@ public class ComponentStatusPanel extends JPanel {
 			dataset = new DefaultPieDataset();
 			Measurement mostRecentMeasurement = measurements.get(measurements.size() - 1);
 			((DefaultPieDataset) dataset).setValue("Used space", mostRecentMeasurement.getUsedDiskspaceInGB());
-			((DefaultPieDataset) dataset).setValue("Free space", 500 - mostRecentMeasurement.getUsedDiskspaceInGB()); // @todo haal van infrastructuur component de totale geheugen op
+			((DefaultPieDataset) dataset).setValue("Space left", mostRecentMeasurement.getTotalDiskspaceInGB() - mostRecentMeasurement.getUsedDiskspaceInGB());
 		}
 		return (AbstractDataset) dataset;
 	}

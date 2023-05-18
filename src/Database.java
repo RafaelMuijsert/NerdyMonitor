@@ -1,4 +1,8 @@
+
 import Utils.StringUtils;
+import org.jfree.data.json.JSONUtils;
+import org.jfree.data.json.impl.JSONArray;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -28,6 +32,11 @@ public class Database {
         }
     }
 
+    /**
+     * Check if connection a connection has been established and isn't closed.
+     * @param con
+     * @return
+     */
     public boolean isConnected(Connection con) {
         try {
             return con != null && !con.isClosed();
@@ -87,6 +96,7 @@ public class Database {
             }
 
             PreparedStatement statement = connection.prepareStatement(SQL);
+
             int i = 1;
             for(String[] col : where) {
                 // Replace placeholders with values.
@@ -114,8 +124,6 @@ public class Database {
      */
     public ResultSet findRaw(String SQL) {
         try {
-            ArrayList<ResultSet> results = new ArrayList<>();
-
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL);
 
