@@ -9,7 +9,8 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		Database db = new Database();
 		setTitle(MainFrame.WINDOW_TITLE);
-		setResizable(false);
+		setResizable(true);
+		setMinimumSize(new Dimension(1280, 540));
 		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 		// Centered window location
 		setLocationRelativeTo(null);
