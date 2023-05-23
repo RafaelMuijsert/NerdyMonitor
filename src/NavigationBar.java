@@ -83,7 +83,7 @@ public class NavigationBar extends JPanel implements ActionListener {
 		if(e.getSource() == this.jbDashboard) {
 			this.mainFrame.setActiveBody(new DashboardPanel());
 		} else if(e.getSource() == this.jbNewDesign) {
-			this.mainFrame.setActiveBody(new NewDesignPanel());
+			this.mainFrame.setActiveBody(new NewDesignPanel(this.mainFrame));
 		} else if(e.getSource() == this.jbOpenDesign) {
 			JFileChooser jFileChooser = new JFileChooser();
 			jFileChooser.showOpenDialog(this.mainFrame);
