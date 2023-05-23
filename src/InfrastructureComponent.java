@@ -135,7 +135,7 @@ public  class InfrastructureComponent extends Component {
     }
     public InfrastructureComponent(){}
     public void setDataFromResultSet(ResultSet resultset) {
-        try{
+        try {
                 InfrastructureComponent infrastructureComponent = new InfrastructureComponent();
 
                 infrastructureComponent.setId(resultset.getInt("ICid"));

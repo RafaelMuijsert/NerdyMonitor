@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +16,7 @@ public class NewDesignPanel extends JPanel implements ActionListener {
 
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.X_AXIS));
-		centerPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+		centerPanel.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT);
 
 		Dimension dimension = new Dimension(300, 300);
 
