@@ -13,7 +13,7 @@ public class Measurement{
 
     private int id;
 
-    public float getProcessorload() {
+    public double getProcessorload() {
         return processorload;
     }
     public String getProcessorload(boolean format) {
@@ -21,11 +21,11 @@ public class Measurement{
 
     }
 
-    public void setProcessorload(float processorload) {
+    public void setProcessorload(double processorload) {
         this.processorload = processorload;
     }
 
-    public float getUsedDiskspaceInGB() {
+    public double getUsedDiskspaceInGB() {
         return usedDiskspaceInGB;
     }
     public String getUsedDiskspaceInGB(boolean format) {
@@ -43,7 +43,7 @@ public class Measurement{
     }
 
 
-    public void setUsedDiskspaceInGB(float usedDiskspaceInGB) {
+    public void setUsedDiskspaceInGB(double usedDiskspaceInGB) {
         this.usedDiskspaceInGB = usedDiskspaceInGB;
     }
 
@@ -63,31 +63,31 @@ public class Measurement{
         this.uptime = uptime;
     }
 
-    private float processorload;
-    private float usedDiskspaceInGB;
+    private double processorload;
+    private double usedDiskspaceInGB;
 
-    public float getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(float temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    private float temperature;
+    private double temperature;
     private Date date;
     private Date uptime;
     private int infrastructureComponent; // @todo eventueel updaten naar een object
 
-    public float getTotalDiskspaceInGB() {
+    public double getTotalDiskspaceInGB() {
         return totalDiskspaceInGB;
     }
 
-    public void setTotalDiskspaceInGB(float totalDiskspaceInGB) {
+    public void setTotalDiskspaceInGB(double totalDiskspaceInGB) {
         this.totalDiskspaceInGB = totalDiskspaceInGB;
     }
 
-    private float totalDiskspaceInGB;
+    private double totalDiskspaceInGB;
     public int getInfrastructureComponent() {
         return infrastructureComponent;
     }

@@ -25,8 +25,8 @@ public class InfrastructureComponentRepository {
                 infrastructureComponent.setName(resultset.getString("name"));
                 infrastructureComponent.setComponentTypesId(resultset.getInt("Component_types_id"));
 
-                infrastructureComponent.setAvailability(resultset.getFloat("availability"));
-                infrastructureComponent.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
+                infrastructureComponent.setAvailability(resultset.getDouble("availability"));
+                infrastructureComponent.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
                 infrastructureComponent.setUptime(resultset.getDate("uptime"));
                 infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));

@@ -24,8 +24,8 @@ public class ComponentRepository {
 
                 component.setId(resultset.getInt("id"));
                 component.setName(resultset.getString("name"));
-                component.setAvailability(resultset.getFloat("availability"));
-                component.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
+                component.setAvailability(resultset.getDouble("availability"));
+                component.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
                 component.setComponentTypesId(resultset.getInt("Component_types_id"));
                 component.setDiskspaceInGB(resultset.getDouble("diskspace_in_GB"));
             }
