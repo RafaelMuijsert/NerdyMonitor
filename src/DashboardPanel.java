@@ -54,12 +54,12 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-
+		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-
+		this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 	}
 
 	public void updateStatusPanel(Component component){

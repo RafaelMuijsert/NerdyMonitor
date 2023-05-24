@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="edited query in constructor InfrastructureComponent" />
+    <list default="true" id="c8f7495f-835e-4b34-877f-911c3a33c7f6" name="Changes" comment="edited query in constructor InfrastructureComponent">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DashboardPanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "draganddrop",
     "last_opened_file_path": "/home/thijmen/Code/NerdyMonitor",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -103,6 +108,8 @@
       <workItem from="1683886862445" duration="1524000" />
       <workItem from="1684146260380" duration="3311000" />
       <workItem from="1684842124498" duration="2300000" />
+      <workItem from="1684918594853" duration="44000" />
+      <workItem from="1684918644929" duration="276000" />
     </task>
     <task id="LOCAL-00001" summary="Added selected NavigationBar tab color">
       <created>1682684694376</created>
