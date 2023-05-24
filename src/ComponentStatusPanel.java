@@ -17,7 +17,11 @@ public class ComponentStatusPanel extends JPanel {
 		// Retrieve all Measurements of the current Component
 		ArrayList<Measurement> measurements = MeasurementRepository.getAllFromComponent(infrastructureComponentId);
 		Measurement mostRecentMeasurement = (measurements.size() >= 1) ? measurements.get(measurements.size() - 1) : null;
+
 		if(mostRecentMeasurement == null) {
+			JLabel text = new JLabel("Could not find any measurements for this Component");
+			text.setFont(new Font("Verdana",1,20));
+			add(text);
 			return;
 		}
 
@@ -44,6 +48,10 @@ public class ComponentStatusPanel extends JPanel {
 		JTable details = new JTable(data, new String[] { "Measurement", "Value"} );
 		details.setDefaultEditor(Object.class, null);
 
+		// Disable user select
+		details.setFocusable(false);
+		details.setRowSelectionAllowed(false);
+
 		add(new ComponentPanel(infrastructureComponent));
 		add(chartsPanel);
 		add(details);
@@ -51,7 +59,7 @@ public class ComponentStatusPanel extends JPanel {
 
 	private AbstractDataset getDataSet(ArrayList<Measurement> measurements, Chart.Type chartType) {
 		//  Can't create datasets without data being provided : )
-		if(measurements.size() == 0){
+		if(measurements.size() == 0) {
 			return null;
 		}
 

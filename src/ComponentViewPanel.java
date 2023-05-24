@@ -14,12 +14,25 @@ public class ComponentViewPanel extends JPanel{
 	{
 
 		// Could not find any monitored components
-		if(components.size() == 0){
+		if(infrastructureComponents.size() == 0){
+			JLabel text = new JLabel("Kon geen Infrastructuur componenten vinden");
+			text.setFont(new Font("Verdana",1,20));
+			add(text);
 			return;
 		}
 
 		JPanel content = new JPanel();
-		content.setLayout(new GridLayout(0, 4, 0, 0));
+		content.setLayout(new GridLayout(0, 4, 0, 10));
+
+		for (InfrastructureComponent infrastructureComponent: infrastructureComponents){
+			InfrastructureComponentPanel componentPanel =  new InfrastructureComponentPanel(infrastructureComponent);
+			if(infrastructureComponent.getUptime() == null){
+				componentPanel.setBorder(new LineBorder(Color.RED, 5, true));
+			}
+			else {
+				// On mouse click event, update Component Status panel
+				componentPanel.addMouseListener( this );
+			}
 
 		for (Component component: components) {
 			ComponentPanel componentPanel =  new ComponentPanel(component);
@@ -37,7 +50,17 @@ public class ComponentViewPanel extends JPanel{
 	}
 
 
-	public void remove(Component component) {
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+		if (e.getSource() instanceof ComponentPanel) {
+			InfrastructureComponent component = (InfrastructureComponent) ((ComponentPanel) e.getSource()).getComponent();
+
+			this.dashboardPanel.setStatusPanel(new ComponentStatusPanel(component.getId()));
+			revalidate();
+			repaint();
+
+		}
 	}
 }
 
