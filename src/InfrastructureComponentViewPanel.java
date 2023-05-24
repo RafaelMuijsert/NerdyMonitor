@@ -21,13 +21,14 @@ public class InfrastructureComponentViewPanel extends JPanel{
         JPanel content = new JPanel();
         content.setLayout(new GridLayout(0, 4, 0, 0));
 
-        //		ComponentPanel[] componentPanels = new Com[componenets.size()];
         for (InfrastructureComponent infrastructureComponent: components) {
             InfrastructureComponentPanel componentPanel =  new InfrastructureComponentPanel(infrastructureComponent);
+
             if(infrastructureComponent.getUptime() == null){
-                componentPanel.setBorder(new LineBorder(Color.RED, 5, true));
+                componentPanel.setBorder(new LineBorder(Color.RED, 2, true));
             }
             else {
+                componentPanel.setBorder(new LineBorder(Color.GREEN, 2, true));
                 // On mouse click event, update Component Status panel
                 componentPanel.addMouseListener((MouseListener) dashboardPanel );
             }
