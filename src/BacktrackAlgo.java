@@ -201,7 +201,7 @@ public class BacktrackAlgo {
     public static void main(String[] args) {
         BacktrackAlgo algo = new BacktrackAlgo();
         BacktrackAlgo.availability = 0.9999; //Beschikbaarheid invullen.
-        ArrayList<String> result = BacktrackAlgo.getServerConfiguration();
+        ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
         for (int i = 0; i < result.size(); i++) {
             System.out.println(result.get(i));
         }
