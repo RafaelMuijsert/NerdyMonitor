@@ -14,7 +14,7 @@ public class ComponentViewPanel extends JPanel{
 	{
 
 		// Could not find any monitored components
-		if(components.size() == 0){
+		if(components == null || components.size() == 0){
 			JLabel text = new JLabel("Kon geen Infrastructuur componenten vinden");
 			text.setFont(new Font("Verdana",1,20));
 			add(text);
@@ -22,11 +22,12 @@ public class ComponentViewPanel extends JPanel{
 		}
 
 		JPanel content = new JPanel();
-		content.setLayout(new GridLayout(0, 4, 0, 0));
+		content.setLayout(new GridLayout(0, 4));
 
 		for (Component component: components) {
-			ComponentPanel componentPanel =  new ComponentPanel(component);
 
+			ComponentPanel componentPanel =  new ComponentPanel(component);
+			componentPanel.setSize(100, 100);
 			componentPanel.addMouseListener((MouseListener) parentPanel);
 			content.add(componentPanel);
 		}

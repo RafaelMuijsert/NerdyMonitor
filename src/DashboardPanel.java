@@ -7,9 +7,11 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class DashboardPanel extends JPanel implements ActionListener, MouseListener {
+
 	private static final Color DASHBOARD_BACKGROUND_COLOR = new Color(240, 240, 240);
 	private InfrastructureComponentViewPanel infrastructuurViewPanel;
 	private JPanel statusPanel;
+
 	public DashboardPanel() {
 		setBackground(DashboardPanel.DASHBOARD_BACKGROUND_COLOR);
 		setLayout(new GridLayout(1, 2));

@@ -1,5 +1,6 @@
 
 import Utils.StringUtils;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.jfree.data.json.JSONUtils;
 import org.jfree.data.json.impl.JSONArray;
 
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 public class Database {
 
     private final static String database = "mydb";
-    private final static String url = "jdbc:mysql://localhost:3306/" + database;
-    private final static String username = "root";
-    private final static String password = "";
+    private static String url = "jdbc:mysql://localhost:3306/" + database;
+    private static String username = "root";
+    private static String password = "";
 
     private static Connection connection;
 
@@ -25,6 +26,14 @@ public class Database {
         }
 
         try {
+
+            // Initialize Env file
+            Dotenv dotenv = Dotenv.load();
+            System.out.println(dotenv.get("DATABASE"));
+            this.url = "jdbc:mysql://" + dotenv.get("DATABASE");
+            this.username = dotenv.get("DB_USERNAME");
+            this.password = dotenv.get("DB_PASSWORD");
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
         } catch(Exception e){

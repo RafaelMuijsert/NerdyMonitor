@@ -30,3 +30,5 @@ bin/
 
 ### I dont care ###
 .idea/workspace.xml
+
+.env
