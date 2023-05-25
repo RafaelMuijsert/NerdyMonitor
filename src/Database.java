@@ -29,7 +29,7 @@ public class Database {
 
             // Initialize Env file
             Dotenv dotenv = Dotenv.load();
-            System.out.println(dotenv.get("DATABASE"));
+
             this.url = "jdbc:mysql://" + dotenv.get("DATABASE");
             this.username = dotenv.get("DB_USERNAME");
             this.password = dotenv.get("DB_PASSWORD");
