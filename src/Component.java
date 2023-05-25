@@ -1,4 +1,6 @@
 public class Component {
+    public final static String TABLE = "Component";
+
     public int getId() {
         return id;
     }
@@ -58,6 +60,15 @@ public class Component {
 
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Component{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", availability=" + availability +
+                ", annualPriceInEuro=" + annualPriceInEuro +
+                ", componentTypesId=" + componentTypesId +
+                ", diskspaceInGB=" + diskspaceInGB +
+                '}';
+    }
 }
