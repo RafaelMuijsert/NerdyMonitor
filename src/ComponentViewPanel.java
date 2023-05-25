@@ -5,29 +5,29 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class ComponentViewPanel extends JPanel implements ActionListener, MouseListener{
-	private DashboardPanel dashboardPanel;
-	public ComponentViewPanel(DashboardPanel dashboardPanel) {
-		ArrayList<InfrastructureComponent> infrastructureComponents = InfrastructureComponentRepository.findAll();
+public class ComponentViewPanel extends JPanel{
+
+	public ComponentViewPanel(
+			Object parentPanel,
+			ArrayList<Component> components
+	)
+	{
 
 		// Could not find any monitored components
-		if(infrastructureComponents.size() == 0){
+		if(components.size() == 0){
+			JLabel text = new JLabel("Kon geen Infrastructuur componenten vinden");
+			text.setFont(new Font("Verdana",1,20));
+			add(text);
 			return;
 		}
 
 		JPanel content = new JPanel();
-		content.setLayout(new GridLayout(0, 4, 0, 10));
-		//		ComponentPanel[] componentPanels = new Com[infrastructureComponents.size()];
-		for (InfrastructureComponent infrastructureComponent: infrastructureComponents){
-			InfrastructureComponentPanel componentPanel =  new InfrastructureComponentPanel(infrastructureComponent);
-			if(infrastructureComponent.getUptime() == null){
-				componentPanel.setBorder(new LineBorder(Color.RED, 5, true));
-			}
-			else {
-				// On mouse click event, update Component Status panel
-				componentPanel.addMouseListener( this );
-			}
+		content.setLayout(new GridLayout(0, 4, 0, 0));
 
+		for (Component component: components) {
+			ComponentPanel componentPanel =  new ComponentPanel(component);
+
+			componentPanel.addMouseListener((MouseListener) parentPanel);
 			content.add(componentPanel);
 		}
 
@@ -35,59 +35,12 @@ public class ComponentViewPanel extends JPanel implements ActionListener, MouseL
 		scrollPane.getVerticalScrollBar().setUnitIncrement(8);
 		add(scrollPane);
 
-		this.dashboardPanel = dashboardPanel;
 
 		setLayout(new GridLayout(1, 2));
 	}
 
-	public void updateStatusPanel(Component component){
-		this.dashboardPanel.setStatusPanel(new ComponentStatusPanel(component.getId()));
-		revalidate();
-		repaint();
-	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// Wederom voor het testen van het dashboard
-		// Verwijder dit
-
-		if (e.getSource() instanceof ComponentPanel) {
-			InfrastructureComponent component = (InfrastructureComponent) ((ComponentPanel) e.getSource()).getComponent();
-
-			this.dashboardPanel.setStatusPanel(new ComponentStatusPanel(component.getId()));
-			revalidate();
-			repaint();
-
-		}
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// A component has been clicked
-		if(e.getSource() instanceof ComponentPanel) {
-			Component component = ((ComponentPanel) e.getSource()).getComponent();
-			updateStatusPanel(component);
-		}
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-
+	public void remove(Component component) {
 	}
 }
 

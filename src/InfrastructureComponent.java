@@ -12,9 +12,8 @@ public  class InfrastructureComponent extends Component {
         this.price = price;
     }
 
-    @Override
-    public Float getAvailability() {
-        return (float) availability;
+    public double getAvailability() {
+        return  availability;
     }
 
     public void setAvailability(double availability) {
@@ -119,8 +118,8 @@ public  class InfrastructureComponent extends Component {
                 this.setName(resultset.getString("name"));
                 this.setComponentTypesId(resultset.getInt("Component_types_id"));
 
-                this.setAvailability(resultset.getFloat("availability"));
-                this.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
+                this.setAvailability(resultset.getDouble("availability"));
+                this.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
                 this.setUptime(resultset.getDate("uptime"));
                 this.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 this.setProcessorLoad(resultset.getDouble("processorload"));
@@ -142,8 +141,8 @@ public  class InfrastructureComponent extends Component {
                 infrastructureComponent.setName(resultset.getString("name"));
                 infrastructureComponent.setComponentTypesId(resultset.getInt("Component_types_id"));
 
-                infrastructureComponent.setAvailability(resultset.getFloat("availability"));
-                infrastructureComponent.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
+                infrastructureComponent.setAvailability(resultset.getDouble("availability"));
+                infrastructureComponent.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
                 infrastructureComponent.setUptime(resultset.getDate("uptime"));
                 infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));

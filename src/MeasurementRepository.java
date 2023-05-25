@@ -34,11 +34,11 @@ public class MeasurementRepository {
                 measurement.setId(resultset.getInt("id"));
                 measurement.setDate(resultset.getDate("date"));
                 measurement.setUptime(resultset.getDate("uptime"));
-                measurement.setUsedDiskspaceInGB(resultset.getFloat("used_diskspace_in_GB"));
-                measurement.setTotalDiskspaceInGB(resultset.getFloat("total_diskspace_in_GB"));
-                measurement.setProcessorload(resultset.getFloat("processorload"));
+                measurement.setUsedDiskspaceInGB(resultset.getDouble("used_diskspace_in_GB"));
+                measurement.setTotalDiskspaceInGB(resultset.getDouble("total_diskspace_in_GB"));
+                measurement.setProcessorload(resultset.getDouble("processorload"));
                 measurement.setInfrastructureComponent(resultset.getInt("Infrastructure_component_id"));
-                measurement.setTemperature(resultset.getFloat("temperature"));
+                measurement.setTemperature(resultset.getDouble("temperature"));
 
                 measurements.add(measurement);
             }

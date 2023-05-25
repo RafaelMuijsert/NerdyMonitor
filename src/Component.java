@@ -1,4 +1,6 @@
 public class Component {
+    public final static String TABLE = "Component";
+
     public int getId() {
         return id;
     }
@@ -15,19 +17,19 @@ public class Component {
         this.name = name;
     }
 
-    public Float getAvailability() {
+    public double getAvailability() {
         return availability;
     }
 
-    public void setAvailability(Float availability) {
+    public void setAvailability(double availability) {
         this.availability = availability;
     }
 
-    public float getAnnualPriceInEuro() {
+    public double getAnnualPriceInEuro() {
         return annualPriceInEuro;
     }
 
-    public void setAnnualPriceInEuro(float annualPriceInEuro) {
+    public void setAnnualPriceInEuro(double annualPriceInEuro) {
         this.annualPriceInEuro = annualPriceInEuro;
     }
 
@@ -49,15 +51,24 @@ public class Component {
 
     private int id;
     private String name;
-    private Float availability;
-    private float annualPriceInEuro;
+    private double availability;
+    private double annualPriceInEuro;
     private int componentTypesId;
-    private Double diskspaceInGB;
+    private double diskspaceInGB;
 
     public Component() {
 
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Component{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", availability=" + availability +
+                ", annualPriceInEuro=" + annualPriceInEuro +
+                ", componentTypesId=" + componentTypesId +
+                ", diskspaceInGB=" + diskspaceInGB +
+                '}';
+    }
 }
