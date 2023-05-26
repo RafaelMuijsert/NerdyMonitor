@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec5f8b9-cd87-4c65-bdfa-16b2bbe3dd32" name="Changes" comment="Open design basics">
+    <list default="true" id="7ec5f8b9-cd87-4c65-bdfa-16b2bbe3dd32" name="Changes" comment="AvailabilityDesignPanel beschikbaarheidspercentage">
       <change afterPath="$PROJECT_DIR$/src/Utils/availibility file" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AvailabilityDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AvailabilityDesignPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewDesignPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +63,19 @@
       <option name="presentableId" value="Default" />
       <updated>1685020228573</updated>
     </task>
+    <task id="LOCAL-00001" summary="AvailabilityDesignPanel beschikbaarheidspercentage">
+      <created>1685094223120</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685094223120</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Update AvailabilityDesignPanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update AvailabilityDesignPanel" />
+    <MESSAGE value="AvailabilityDesignPanel beschikbaarheidspercentage" />
+    <option name="LAST_COMMIT_MESSAGE" value="AvailabilityDesignPanel beschikbaarheidspercentage" />
   </component>
 </project>

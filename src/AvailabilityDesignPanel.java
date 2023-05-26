@@ -10,8 +10,12 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
     private int lijnHoogte = 50;
     private JLabel beschikbaarheidsPercentage;
     private JTextField beschikbaarheidsPercentageNummer;
+    private InfrastructureDesign infrastructureDesign;
+    private MainFrame mainFrame;
 
-    public AvailabilityDesignPanel() {
+
+    public AvailabilityDesignPanel(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
         setLayout(new BorderLayout());
 
         // subpanel voor de balk onderaan
@@ -42,24 +46,33 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        InfrastructureDesign exampleDesign = new InfrastructureDesign();
+        exampleDesign.add(new Databaseserver("DB-01"));
+        exampleDesign.add(new Firewall("FW-01"));
+        exampleDesign.add(new Firewall("FW-02"));
+        exampleDesign.add(new Webserver("WS-01"));
+        exampleDesign.add(new Webserver("WS-01"));
+        exampleDesign.add(new Webserver("WS-02"));
         if (e.getSource() == laatOntwerpZien) {
             try {
                 // ophalen en een double getal van maken
                 double nummer = Double.parseDouble(beschikbaarheidsPercentageNummer.getText());
                 BigDecimal decimal = BigDecimal.valueOf(nummer);
                 int scale = decimal.scale();
-                if (nummer >= 0 && nummer <= 100 && scale <= 2) {
+                if (nummer >= 0 && nummer <= 100 && scale <= 4) {
                     // maar 2 decimalen want anders rond het af
-                    String ingevoerdPercentage = String.format("%.2f", nummer);
+                    String ingevoerdPercentage = String.format("%."+scale+"f", nummer);
                     System.out.println("Ingevoerd getal: " + ingevoerdPercentage);
                     // verder code naar volgend scherm
-
+                    this.mainFrame.setActiveBody(new OverviewPanel(exampleDesign));
                 } else { //verkeerd getal
                     JOptionPane.showMessageDialog(this, "Voer een getal in tussen 0 en 100. \n " +
-                            "Het getal mag niet meer dan decimalen achter de komma hebben.");
+                            "Het getal mag niet meer dan vier decimalen achter de komma hebben.");
+                   beschikbaarheidsPercentageNummer.setText("");
                 }
             } catch (NumberFormatException ex) { //letters ingevoerd
                 JOptionPane.showMessageDialog(this, "Ongeldige invoer. Voer een geldig getal in.");
+                beschikbaarheidsPercentageNummer.setText("");
             }
         }
     }
