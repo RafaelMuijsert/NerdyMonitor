@@ -9,10 +9,9 @@ import java.util.ArrayList;
 
 public class Database {
 
-    private final static String database = "mydb";
-    private static String url = "jdbc:mysql://localhost:3306/" + database;
-    private static String username = "root";
-    private static String password = "";
+    private static String url;
+    private static String username;
+    private static String password;
 
     private static Connection connection;
 
@@ -26,7 +25,6 @@ public class Database {
         }
 
         try {
-
             // Initialize Env file
             Dotenv dotenv = Dotenv.load();
 
