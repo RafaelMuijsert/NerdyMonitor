@@ -41,7 +41,6 @@ public class Database {
 
     /**
      * Check if connection a connection has been established and isn't closed.
-     * @param con
      * @return
      */
     public boolean isConnected(Connection con) {

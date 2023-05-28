@@ -3,8 +3,8 @@ import java.io.File;
 
 public class Webserver extends InfrastructureComponent{
 
-    public Webserver(String name) {
-        super(0);
+    public Webserver(int infrastructureComponentId) {
+        super(infrastructureComponentId);
         imagePath = "icons/webserver.png";
     }
 }

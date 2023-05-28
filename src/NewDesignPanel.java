@@ -39,7 +39,7 @@ public class NewDesignPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==jb1) {
-			this.mainFrame.setActiveBody(new EmptyDesignPanel());
+			this.mainFrame.setActiveBody(new EmptyDesignPanel(this.mainFrame));
 		} else if(e.getSource()==jb2) {
 			this.mainFrame.setActiveBody(new AvailabilityDesignPanel());
 		}

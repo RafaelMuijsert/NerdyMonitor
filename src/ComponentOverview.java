@@ -21,6 +21,7 @@ public class ComponentOverview extends JPanel {
 		this.infrastructureComponent = infrastructureComponent;
 		this.quantity = quantity;
 		this.setLayout(new GridBagLayout());
+		this.setMaximumSize(new Dimension(0, 500));
 
 		GridBagConstraints constraints = new GridBagConstraints();
 
@@ -48,23 +49,23 @@ public class ComponentOverview extends JPanel {
 		this.jlAvailability.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlAvailability, constraints);
 
-		constraints.gridy = 2;
-		constraints.anchor = GridBagConstraints.LAST_LINE_START;
-		this.jlComponentNumber = new JLabel(String.valueOf(this.infrastructureComponent.getComponentNumber()));
-		this.jlComponentNumber.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
-		this.add(this.jlComponentNumber, constraints);
+//		constraints.gridy = 2;
+//		constraints.anchor = GridBagConstraints.LAST_LINE_START;
+//		this.jlComponentNumber = new JLabel(String.valueOf(this.infrastructureComponent.typ()));
+//		this.jlComponentNumber.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
+//		this.add(this.jlComponentNumber, constraints);
 
 		constraints.gridx = 2;
 		constraints.gridy = 0;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_END;
-		this.jlPrice = new JLabel(String.valueOf(this.infrastructureComponent.getPrice() + "$"));
+		this.jlPrice = new JLabel("€" + String.valueOf(this.infrastructureComponent.getAnnualPriceInEuro()));
 		this.jlPrice.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlPrice, constraints);
 
 		constraints.gridx = 2;
 		constraints.gridy = 1;
 		constraints.anchor = GridBagConstraints.LAST_LINE_END;
-		this.jlQuantity = new JLabel(String.valueOf(this.quantity));
+		this.jlQuantity = new JLabel(String.valueOf(this.quantity) + "x");
 		this.jlQuantity.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(jlQuantity, constraints);
 	}

@@ -1,13 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class OverviewPanel extends JPanel {
+public class OverviewPanel extends JPanel implements ActionListener {
 	private InfrastructureDesign infrastructureDesign;
+	private final Object goBackPanel;
+	private final MainFrame parentPanel;
 	private ArrayList<InfrastructureComponent> components;
 	private static final Font TITLE_FONT = new Font("Montserrat", Font.PLAIN, 32);
-	public OverviewPanel(InfrastructureDesign infrastructureDesign) {
+	private JButton jbTerug;
+	private JButton jbOpslaan ;
+
+	public OverviewPanel(InfrastructureDesign infrastructureDesign, JPanel goBackPanel, MainFrame parentPanel) {
 		this.infrastructureDesign = infrastructureDesign;
+		this.goBackPanel = goBackPanel;
+		this.parentPanel = parentPanel;
 		setLayout(new BorderLayout());
 
 		JPanel jpCost = new JPanel();
@@ -49,8 +58,14 @@ public class OverviewPanel extends JPanel {
 		JPanel jpOverviewInfo = new JPanel();
 
 		jpOverviewControls.setLayout(new FlowLayout());
-		jpOverviewControls.add(new JButton("Terug"));
-		jpOverviewControls.add(new JButton("Opslaan"));
+
+		jbTerug = new JButton("Terug");
+		jbOpslaan = new JButton("Opslaan");
+
+		jbTerug.addActionListener(this);
+		jbOpslaan.addActionListener(this);
+		jpOverviewControls.add(jbTerug);
+		jpOverviewControls.add(jbOpslaan);
 
 		jpOverviewInfo.setLayout(new GridLayout(2, 0));
 		JLabel jlOverview = new JLabel("Overzicht", SwingConstants.CENTER);
@@ -64,12 +79,14 @@ public class OverviewPanel extends JPanel {
 		GridLayout grOverviewSummary = new GridLayout(0, 2);
 		grOverviewSummary.setVgap(4);
 		jpOverviewSummary.setLayout(grOverviewSummary);
+
+		// @todo dynamishc
 		jpOverviewSummary.add(new JLabel("Totaalprijs"));
-		jpOverviewSummary.add(new JLabel("400$"));
+		jpOverviewSummary.add(new JLabel("€ " +String.valueOf(infrastructureDesign.getTotalCost())));
 		jpOverviewSummary.add(new JLabel("Totale beschikbaarheid"));
-		jpOverviewSummary.add(new JLabel("99.98%"));
+		jpOverviewSummary.add(new JLabel(String.valueOf(infrastructureDesign.getTotalAvailability()) + "%"));
 		jpOverviewSummary.add(new JLabel("Totaal componenten"));
-		jpOverviewSummary.add(new JLabel("4"));
+		jpOverviewSummary.add(new JLabel(String.valueOf(infrastructureDesign.getComponents().size())));
 		//
 		jpOverview.add(jpOverviewSummary, BorderLayout.CENTER);
 		jpOverview.add(jpOverviewControls, BorderLayout.SOUTH);
@@ -78,5 +95,12 @@ public class OverviewPanel extends JPanel {
 
 		add(jpCost, BorderLayout.CENTER);
 		add(jpOverview, BorderLayout.EAST);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == jbTerug){
+			this.parentPanel.setActiveBody((JPanel) this.goBackPanel);
+		}
 	}
 }
