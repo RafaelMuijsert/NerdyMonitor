@@ -1,6 +1,6 @@
-import javax.sound.sampled.Line;
+import Utils.ImageUtils;
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,17 +23,17 @@ public class NavigationBar extends JPanel implements ActionListener {
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		this.jbDashboard = new JButton(loadIcon("icons/dashboard.png"));
-		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
+		this.jbDashboard = new JButton(ImageUtils.getImageIcon("icons/dashboard.png", NavigationBar.ICON_SIZE, NavigationBar.ICON_SIZE));
+		this.jbDashboard.setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 		this.jbDashboard.setOpaque(true);
 		this.jbDashboard.addActionListener(this);
 
-		this.jbNewDesign = new JButton(loadIcon("icons/new_design.png"));
+		this.jbNewDesign = new JButton(ImageUtils.getImageIcon("icons/new_design.png", NavigationBar.ICON_SIZE, NavigationBar.ICON_SIZE));
 		this.jbNewDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
 		this.jbNewDesign.setOpaque(true);
 		this.jbNewDesign.addActionListener(this);
 
-		this.jbOpenDesign = new JButton(loadIcon("icons/open_design.png"));
+		this.jbOpenDesign = new JButton(ImageUtils.getImageIcon("icons/open_design.png", NavigationBar.ICON_SIZE, NavigationBar.ICON_SIZE));
 		this.jbOpenDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
 		this.jbOpenDesign.setOpaque(true);
 		this.jbOpenDesign.addActionListener(this);
@@ -59,17 +59,6 @@ public class NavigationBar extends JPanel implements ActionListener {
 		add(this.jbOpenDesign);
 	}
 
-	private ImageIcon loadIcon(String path) {
-		ImageIcon imageIcon = new ImageIcon(path); // load the image to a imageIcon
-		Image image = imageIcon.getImage(); // transform it
-		Image newimg = image.getScaledInstance(
-				NavigationBar.ICON_SIZE,
-				NavigationBar.ICON_SIZE,
-				java.awt.Image.SCALE_SMOOTH
-		); // scale it the smooth way
-		return new ImageIcon(newimg);  // transform it back
-	}
-
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -92,11 +81,14 @@ public class NavigationBar extends JPanel implements ActionListener {
 		((JButton)e.getSource()).setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
 
 		if(e.getSource() == this.jbDashboard) {
-			JOptionPane.showMessageDialog(this.mainFrame, "Dashboard :O");
+			this.mainFrame.setActiveBody(new DashboardPanel());
 		} else if(e.getSource() == this.jbNewDesign) {
-			JOptionPane.showMessageDialog(this.mainFrame, "New Design :O");
+			this.mainFrame.setActiveBody(new NewDesignPanel(this.mainFrame));
 		} else if(e.getSource() == this.jbOpenDesign) {
-			JOptionPane.showMessageDialog(this.mainFrame, "Open Design :O");
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.showOpenDialog(this.mainFrame);
+			JOptionPane.showMessageDialog(this.mainFrame, jFileChooser.getSelectedFile());
+			// Load the selected file
 		}
 	}
 }

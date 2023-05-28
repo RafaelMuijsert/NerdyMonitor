@@ -5,9 +5,12 @@ public class MainFrame extends JFrame {
 	private static final String WINDOW_TITLE = "NerdyGadgets monitor";
 	private NavigationBar navBar;
 	private JPanel activeBody;
+
 	public MainFrame() {
+		Database db = new Database();
 		setTitle(MainFrame.WINDOW_TITLE);
-		setResizable(false);
+		setResizable(true);
+		setMinimumSize(new Dimension(1280, 540));
 		setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 		// Centered window location
 		setLocationRelativeTo(null);
@@ -21,8 +24,15 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
+		InfrastructureDesign exampleDesign = new InfrastructureDesign();
+		exampleDesign.add(new Databaseserver("DB-01"));
+		exampleDesign.add(new Firewall("FW-01"));
+		exampleDesign.add(new Firewall("FW-02"));
+		exampleDesign.add(new Webserver("WS-01"));
+		exampleDesign.add(new Webserver("WS-01"));
+		exampleDesign.add(new Webserver("WS-02"));
 //		setActiveBody(new DashboardPanel());
-		setActiveBody(new OverviewPanel(new InfrastructureDesign()));
+		setActiveBody(new OverviewPanel(exampleDesign));
 
 		setVisible(true);
 	}
@@ -36,5 +46,7 @@ public class MainFrame extends JFrame {
 		}
 		this.activeBody = activeBody;
 		add(this.activeBody, BorderLayout.CENTER);
+		repaint();
+		revalidate();
 	}
 }

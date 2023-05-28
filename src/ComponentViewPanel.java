@@ -1,35 +1,47 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class ComponentViewPanel extends JPanel implements ActionListener {
-	// Deze buttons zijn om de navigatie van het dashboard te testen
-	// Vervang deze met de daadwerkelijke componenten, m.b.v het TO
-	private JButton jbComponent;
-	private DashboardPanel dashboardPanel;
-	public ComponentViewPanel(DashboardPanel dashboardPanel) {
-		// DashboardPanel is nodig om de ComponentStatusPanel aan te passen
-		// als op een infrastructuurcomponent wordt geklikt.
-		this.dashboardPanel = dashboardPanel;
-		// Dit is allemaal voor het testen van het dashboard
-		// Verwijder alles bij daadwerkelijke implementatie
-		setLayout(new FlowLayout());
-		setBackground(Color.PINK);
-		this.jbComponent = new JButton("Infrastructure Component");
-		this.jbComponent.addActionListener(this);
-		add(this.jbComponent);
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+
+public class ComponentViewPanel extends JPanel{
+
+	public ComponentViewPanel(
+			Object parentPanel,
+			ArrayList<Component> components
+	)
+	{
+
+		// Could not find any monitored components
+		if(components == null || components.size() == 0){
+			JLabel text = new JLabel("Kon geen Infrastructuur componenten vinden");
+			text.setFont(new Font("Verdana",1,20));
+			add(text);
+			return;
+		}
+
+		JPanel content = new JPanel();
+		content.setLayout(new GridLayout(0, 4));
+
+		for (Component component: components) {
+
+			ComponentPanel componentPanel =  new ComponentPanel(component);
+			componentPanel.setSize(100, 100);
+			componentPanel.addMouseListener((MouseListener) parentPanel);
+			content.add(componentPanel);
+		}
+
+		JScrollPane scrollPane = new JScrollPane(content);
+		scrollPane.getVerticalScrollBar().setUnitIncrement(8);
+		add(scrollPane);
+
+
+		setLayout(new GridLayout(1, 2));
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// Wederom voor het testen van het dashboard
-		// Verwijder dit
-		if(e.getSource() == this.jbComponent) {
-			this.dashboardPanel.setStatusPanel(new ComponentStatusPanel());
-			revalidate();
-			repaint();
-		}
+
+	public void remove(Component component) {
 	}
 }
 
