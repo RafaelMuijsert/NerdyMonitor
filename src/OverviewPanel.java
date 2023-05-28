@@ -36,17 +36,6 @@ public class OverviewPanel extends JPanel implements ActionListener {
 			jpCostOverview.add(new ComponentOverview(component, 1));
 
 		}
-//		for(Firewall firewall: this.infrastructureDesign.getFirewalls()) {
-//			jpCostOverview.add(new ComponentOverview(firewall, 1));
-//		}
-//
-//		for(Databaseserver database: this.infrastructureDesign.getDatabases()) {
-//			jpCostOverview.add(new ComponentOverview(database, 1));
-//		}
-//
-//		for(Webserver webserver: this.infrastructureDesign.getWebservers()) {
-//			jpCostOverview.add(new ComponentOverview(webserver, 1));
-//		}
 
 		JScrollPane scrollPane = new JScrollPane(jpCostOverview);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(8);

@@ -4,6 +4,7 @@ public class InfrastructureDesign {
 	private ArrayList<Firewall> firewalls;
 	private ArrayList<Webserver> webservers;
 	private ArrayList<Databaseserver> databases;
+	private ArrayList<Component> components;
 
 	public InfrastructureDesign() {
 		this.firewalls = new ArrayList<Firewall>();
@@ -48,12 +49,6 @@ public class InfrastructureDesign {
 		return totalAvailability / components.size();
 	}
 	public ArrayList<Component>  getComponents() {
-		ArrayList<Component> components = new ArrayList<>();
-
-		components.addAll(getDatabases());
-		components.addAll(getWebservers());
-		components.addAll(getFirewalls());
-
 		return components;
 	}
 
@@ -78,19 +73,17 @@ public class InfrastructureDesign {
 	}
 
 	public void add(ArrayList<Component> components) {
-
+		this.components = components;
 		for (Component component : components) {
-			if(component.getComponentTypesId() == Component.FIREWALL){
+			if (component.getComponentTypesId() == Component.FIREWALL) {
 				this.add(new Firewall(component.getId()));
-			}
-			else if(component.getComponentTypesId() == Component.DBSERVER){
+			} else if (component.getComponentTypesId() == Component.DBSERVER) {
 				this.add(new Databaseserver(component.getId()));
-			}
-			else if(component.getComponentTypesId() == Component.WEBSERVER){
+			} else if (component.getComponentTypesId() == Component.WEBSERVER) {
 				this.add(new Webserver(component.getId()));
 
-			}
 
+			}
 		}
 	}
 }
