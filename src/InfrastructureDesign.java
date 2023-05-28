@@ -45,7 +45,8 @@ public class InfrastructureDesign {
 			totalAvailability += component.getAvailability();
 		}
 
-		return totalAvailability / components.size();	}
+		return totalAvailability / components.size();
+	}
 	public ArrayList<Component>  getComponents() {
 		ArrayList<Component> components = new ArrayList<>();
 

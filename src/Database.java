@@ -65,7 +65,7 @@ public class Database {
     public ResultSet find(String[] select, String fromTable, String[][] where, boolean desc, int limit) {
         try {
             // Convert Array into String select
-            String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0];
+            String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0] + " ";
             String SQL = "SELECT ";
             SQL += selectedCols;
 
@@ -75,7 +75,7 @@ public class Database {
 
             // Concat Where statements
             if(where.length > 0) {
-                int i= 0;
+                int i = 0;
                 for(String[] col : where) {
                     if(i == 0) {
                         SQL += "WHERE";
@@ -90,18 +90,20 @@ public class Database {
 
                     i++;
                 }
+                SQL += " ";
+
             }
 
             if(desc) {
                 SQL += " ";
-                SQL += "ORDER BY id DESC";
+                SQL += "ORDER BY id DESC ";
             }
 
             if(limit > 0) {
-                SQL += "LIMIT =" + StringUtils.sanitize(String.valueOf(limit));
+                SQL += "LIMIT " + StringUtils.sanitize(String.valueOf(limit));
             }
-
             PreparedStatement statement = connection.prepareStatement(SQL);
+            System.out.println(SQL);
 
             int i = 1;
             for(String[] col : where) {

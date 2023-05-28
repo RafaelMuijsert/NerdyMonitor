@@ -1,3 +1,4 @@
+import java.sql.ResultSet;
 
 public class Component {
     public final static String TABLE = "Component";
@@ -64,7 +65,40 @@ public class Component {
 
     public Component() {
 
+}
+    public Component(int id) {
+        Database db = new Database();
+        System.out.println(id);
+        try {
+            String[][] where = new String[][]{
+                    new String[]{
+                            "id",
+                            "=",
+                            Integer.toString(id)
+                    }
+            };
+            ResultSet resultset = db.find(new String[]{"*"}, "Component", where, false, 1);
+
+            if(resultset == null) {
+                return;
+            }
+
+            while (resultset.next()) {
+
+                this.setId(resultset.getInt("id"));
+                this.setName(resultset.getString("name"));
+                this.setAvailability(resultset.getDouble("availability"));
+                this.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
+                this.setComponentTypesId(resultset.getInt("Component_types_id"));
+                this.setDiskspaceInGB(resultset.getDouble("diskspace_in_GB"));
+            }
+            System.out.println(this);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
+
 
     @Override
     public String toString() {
