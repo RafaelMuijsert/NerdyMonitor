@@ -6,7 +6,7 @@ import java.util.Date;
 import static Utils.ImageUtils.getImageIcon;
 
 public  class InfrastructureComponent extends Component {
-    public final static String TABLE = "Component_types_id";
+    public final static String TABLE = "Infrastructure_component";
 
     public void setPrice(double price) {
         this.price = price;

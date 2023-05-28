@@ -55,6 +55,7 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
             InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
 
             infrastructureDesign.add(this.configuration);
+            System.out.println(infrastructureDesign.getComponents());
 
             // Redirect to costs overview page
             this.parentPanel.setActiveBody(new OverviewPanel(infrastructureDesign, this, parentPanel));
