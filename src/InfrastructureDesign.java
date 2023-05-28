@@ -29,11 +29,31 @@ public class InfrastructureDesign {
 	}
 
 	public int getTotalCost() {
-		return 1000;
+		int totalCosts = 0;
+		for (Component component : getComponents()){
+			totalCosts += component.getAnnualPriceInEuro();
+		}
+
+		return totalCosts;
 	}
 
 	public double getTotalAvailability() {
-		return 1.0;
+		int totalAvailability = 0;
+		ArrayList<Component> components = getComponents();
+
+		for (Component component : components){
+			totalAvailability += component.getAvailability();
+		}
+
+		return totalAvailability / components.size();	}
+	public ArrayList<Component>  getComponents() {
+		ArrayList<Component> components = new ArrayList<>();
+
+		components.addAll(getDatabases());
+		components.addAll(getWebservers());
+		components.addAll(getFirewalls());
+
+		return components;
 	}
 
 	public void saveDesign(String path) {
@@ -54,5 +74,22 @@ public class InfrastructureDesign {
 
 	public void add(Databaseserver database) {
 		this.databases.add(database);
+	}
+
+	public void add(ArrayList<Component> components) {
+
+		for (Component component : components) {
+			if(component.getComponentTypesId() == Component.FIREWALL){
+				this.add(new Firewall(component.getId()));
+			}
+			else if(component.getComponentTypesId() == Component.DBSERVER){
+				this.add(new Databaseserver(component.getId()));
+			}
+			else if(component.getComponentTypesId() == Component.WEBSERVER){
+				this.add(new Webserver(component.getId()));
+
+			}
+
+		}
 	}
 }

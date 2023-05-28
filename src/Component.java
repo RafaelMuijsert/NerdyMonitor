@@ -1,5 +1,11 @@
+
 public class Component {
     public final static String TABLE = "Component";
+
+    public static final int FIREWALL = 1;
+    public static final int DBSERVER = 2;
+    public static final int WEBSERVER = 3;
+
 
     public int getId() {
         return id;

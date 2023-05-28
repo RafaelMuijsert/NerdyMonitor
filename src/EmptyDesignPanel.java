@@ -7,13 +7,15 @@ import java.util.ArrayList;
 
 public class EmptyDesignPanel extends JPanel implements ActionListener, MouseListener, MouseMotionListener {
 
+    private final MainFrame parentPanel;
     private ConfigurationViewPanel configurationViewPanel;
     private final ComponentViewPanel componentViewPanel;
     private ArrayList<Component> configuration; // Gebruik dit voor de overazicht
     private JPanel dragAndDropPanel;
     private JPanel redirectPanel;
     private JButton redirectButton;
-    public EmptyDesignPanel() {
+    public EmptyDesignPanel(MainFrame parentPanel) {
+        this.parentPanel = parentPanel;
 
         setLayout(new GridLayout(1, 2));
 
@@ -50,7 +52,12 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == redirectButton){
-            System.out.println(" redirect");
+            InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
+
+            infrastructureDesign.add(this.configuration);
+
+            // Redirect to costs overview page
+            this.parentPanel.setActiveBody(new OverviewPanel(infrastructureDesign, this, parentPanel));
         }
 
     }
@@ -91,25 +98,16 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
                 this.refresh();
             }
         }
-
-
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-//        this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-
-    }
+    public void mouseExited(MouseEvent e) {}
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
         if(e.getSource() instanceof ComponentPanel) {
                 ((ComponentPanel) e.getSource()).setLocation(e.getPoint());
         }
@@ -123,7 +121,6 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
 
     public void refresh(){
         this.configurationViewPanel = new ConfigurationViewPanel(this, configuration);
-
 
         // Refresh
         dragAndDropPanel.removeAll();

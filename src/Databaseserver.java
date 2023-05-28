@@ -3,8 +3,8 @@ import java.io.File;
 
 public class Databaseserver extends InfrastructureComponent{
 
-    public Databaseserver(String name) {
-        super(0);
+    public Databaseserver(int infrastructureComponentId) {
+        super(infrastructureComponentId);
         this.imagePath = "icons/databaseserver.png";
     }
 }
