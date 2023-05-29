@@ -46,13 +46,8 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        InfrastructureDesign exampleDesign = new InfrastructureDesign();
-        exampleDesign.add(new Databaseserver("DB-01"));
-        exampleDesign.add(new Firewall("FW-01"));
-        exampleDesign.add(new Firewall("FW-02"));
-        exampleDesign.add(new Webserver("WS-01"));
-        exampleDesign.add(new Webserver("WS-01"));
-        exampleDesign.add(new Webserver("WS-02"));
+        InfrastructureDesign exampleDesign = new InfrastructureDesign(false);
+
         if (e.getSource() == laatOntwerpZien) {
             try {
                 // ophalen en een double getal van maken
@@ -64,7 +59,7 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                     String ingevoerdPercentage = String.format("%."+scale+"f", nummer);
                     System.out.println("Ingevoerd getal: " + ingevoerdPercentage);
                     // verder code naar volgend scherm
-                    this.mainFrame.setActiveBody(new OverviewPanel(exampleDesign));
+                    this.mainFrame.setActiveBody(new OverviewPanel(exampleDesign, this, this.mainFrame));
                 } else { //verkeerd getal
                     JOptionPane.showMessageDialog(this, "Voer een getal in tussen 0 en 100. \n " +
                             "Het getal mag niet meer dan vier decimalen achter de komma hebben.");
