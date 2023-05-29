@@ -12,7 +12,7 @@ public class OverviewPanel extends JPanel implements ActionListener {
 	private final MainFrame parentPanel;
 	private static final Font TITLE_FONT = new Font("Montserrat", Font.PLAIN, 32);
 	private JButton jbTerug;
-	private JButton jbOpslaan ;
+	private JButton jbOpslaan;
 
 	public OverviewPanel(InfrastructureDesign infrastructureDesign, JPanel goBackPanel, MainFrame parentPanel) {
 		this.infrastructureDesign = infrastructureDesign;
@@ -99,7 +99,7 @@ public class OverviewPanel extends JPanel implements ActionListener {
 		jpOverviewSummary.add(new JLabel("Totaalprijs"));
 		jpOverviewSummary.add(new JLabel("€ " +String.valueOf(infrastructureDesign.getTotalCost())));
 		jpOverviewSummary.add(new JLabel("Totale beschikbaarheid"));
-		jpOverviewSummary.add(new JLabel(String.valueOf(infrastructureDesign.getTotalAvailability()) + "%"));
+		jpOverviewSummary.add(new JLabel(String.format("%.2f", infrastructureDesign.getTotalAvailability())+ "%"));
 		jpOverviewSummary.add(new JLabel("Totaal componenten"));
 		jpOverviewSummary.add(new JLabel(String.valueOf(infrastructureDesign.getComponents().size())));
 		//
