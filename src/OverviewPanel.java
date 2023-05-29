@@ -144,9 +144,6 @@ public class OverviewPanel extends JPanel implements ActionListener {
 			catch (Exception ex) {
 				throw new RuntimeException(ex);
 			}
-
-			System.out.println(jFileChooser.getSelectedFile());
-
 		}
 	}
 }

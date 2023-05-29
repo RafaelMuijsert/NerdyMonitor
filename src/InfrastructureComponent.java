@@ -98,7 +98,6 @@ public  class InfrastructureComponent extends Component {
 
     public InfrastructureComponent(int infrastructureComponentId){
         Database db = new Database();
-        System.out.println();
         try {
 
             String SQL = "SELECT IC.id ICid, name, availability, annual_price_in_euro, uptime, total_diskspace_in_GB, used_diskspace_in_GB, processorload, Component_types_id" + " " +
@@ -129,8 +128,6 @@ public  class InfrastructureComponent extends Component {
                 this.setAvailable((this.getUptime() != null));
 
                 if(this.getUptime() != null){
-                    System.out.println(this.getId());
-                    System.out.println(resultset.getInt("ICid"));
                     ArrayList<Measurement> measurement = MeasurementRepository.getAllFromComponent(this.getId(), 1);
                     if(measurement == null || measurement.size() == 0){
                         continue;

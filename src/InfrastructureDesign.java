@@ -3,6 +3,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -125,10 +126,18 @@ public class InfrastructureDesign {
 		Gson gson = new Gson();
 		ArrayList<Component> importComponents = new ArrayList<>();
 		// create a reader
+		Reader reader = null;
 		try {
-			Reader reader = Files.newBufferedReader(Paths.get(path));
+			reader = Files.newBufferedReader(Paths.get(path));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
-			JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
+		JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
+
+			if(!jsonObject.has("custom") || !jsonObject.has("date_created") || !jsonObject.has("components") ){
+				return false;
+			}
 
 			// Copy details from json to current Object.
 			this.custom = jsonObject.get("custom").getAsBoolean();
@@ -151,9 +160,7 @@ public class InfrastructureDesign {
 
 			add(importComponents);
 
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+
 		return true;
 	}
 

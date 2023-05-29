@@ -44,11 +44,7 @@ public class InfrastructureComponentRepository {
                     if(measurement == null || measurement.size() == 0){
                         continue;
                     }
-                    System.out.println(infrastructureComponent.getUptime());
-                    System.out.println(infrastructureComponent.getName());
-                    System.out.println(measurement.get(0).getDate()); // @todo format
 
-                    System.out.println(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()));
                     // Time elapsed since previous measure is less than
                     if(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
                         infrastructureComponent.setAvailable(true);

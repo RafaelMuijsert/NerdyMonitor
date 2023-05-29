@@ -50,8 +50,8 @@ public class InfrastructureStatusPanel extends JPanel {
 		details.setDefaultEditor(Object.class, null);
 
 		// Disable user select
-//		details.setFocusable(false);
-//		details.setRowSelectionAllowed(false);
+		details.setFocusable(false);
+		details.setRowSelectionAllowed(false);
 		JLabel title = new JLabel("Algemene Infrastructuur", SwingConstants.CENTER);
 		title.setFont(new Font("Montserrat", Font.BOLD, 32));
 
@@ -59,30 +59,6 @@ public class InfrastructureStatusPanel extends JPanel {
 		add(chartsPanel);
 		add(details);
 	}
-
-//	private AbstractDataset getDataSet(ArrayList<Measurement> measurements, Chart.Type chartType) {
-//		//  Can't create datasets without data being provided : )
-//		if(measurements.size() == 0) {
-//			return null;
-//		}
-//
-//		Object dataset = new Object();
-//
-//		if(chartType == Chart.Type.LINECHART) {
-//			dataset = new DefaultCategoryDataset();
-//			// Format Measurement Objects into Datasets
-//			for (Measurement measurement : measurements) {
-//				((DefaultCategoryDataset) dataset).addValue(measurement.getProcessorload(), "Processorbelasting", measurement.getDate());
-//			}
-//		}
-//		else if(chartType == Chart.Type.PIECHART) {
-//			dataset = new DefaultPieDataset();
-//			Measurement mostRecentMeasurement = measurements.get(measurements.size() - 1);
-//			((DefaultPieDataset) dataset).setValue("Used space", mostRecentMeasurement.getUsedDiskspaceInGB());
-//			((DefaultPieDataset) dataset).setValue("Space left", mostRecentMeasurement.getTotalDiskspaceInGB() - mostRecentMeasurement.getUsedDiskspaceInGB());
-//		}
-//		return (AbstractDataset) dataset;
-//	}
 
 	private AbstractDataset getDataSet(ArrayList<InfrastructureComponent> components, Chart.Type chartType) {
 		//  Can't create datasets without data being provided : )
