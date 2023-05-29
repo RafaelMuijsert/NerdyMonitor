@@ -2,6 +2,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class BacktrackAlgo {
+
     public static double availability;
     private static double bestCosts = 1000000;
     private static ArrayList<String> serverConfiguration;

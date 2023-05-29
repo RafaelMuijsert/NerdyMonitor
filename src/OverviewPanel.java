@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class OverviewPanel extends JPanel implements ActionListener {
+
 	private InfrastructureDesign infrastructureDesign;
 	private final Object goBackPanel;
 	private final MainFrame parentPanel;

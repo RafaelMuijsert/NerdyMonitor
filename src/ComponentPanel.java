@@ -25,6 +25,7 @@ public class ComponentPanel extends JPanel {
             "DBserver",
             "webserver",
     }; //@todo dynamic
+
     public JLabel close = new JLabel();
     public ComponentPanel(Component component) {
 
@@ -65,7 +66,6 @@ public class ComponentPanel extends JPanel {
             closePanel.setBackground(Color.red);
             closePanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
 
-//            redirectPanel.setBorder(BorderFactory.createMatteBorder(10, 10, 10, 10, Color.red));
             closePanel.add(close, BorderLayout.EAST);
 
             content.add(closePanel, BorderLayout.EAST);

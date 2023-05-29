@@ -10,12 +10,8 @@ import org.jfree.data.general.AbstractDataset;
 import org.jfree.data.general.PieDataset;
 import java.awt.*;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 
 public class Chart {
-
-    public static final int PIECHART = 0;
-    public static final int LINECHART = 1;
 
     enum Type {
         PIECHART,
