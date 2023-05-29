@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -154,17 +156,16 @@ public class OverviewPanel extends JPanel implements ActionListener {
 			Gson gson = new Gson();
 			try {
 				Map<String, Object> map = new HashMap<>();
-				map.put("title", "Thinking in Java");
-				map.put("date_created", java.time.LocalDateTime.now().toString());
+				map.put("date_created", "Thinking in Java");
+				map.put("isbn", "978-0131872486");
 				map.put("year", 1998);
 				map.put("authors", new String[]{"Bruce Eckel"});
 				gson.toJson(map);
 
 				Gson boeie = new GsonBuilder().setPrettyPrinting().create();
 				String json = gson.toJson(map);
-				System.out.println(json);
-				boeie.toJson(map,  new FileWriter("/home/thijmen/Desktop/test.json") );
-			} catch (IOException ex) {
+
+				Files.write(Path.of(jFileChooser.getSelectedFile().getPath() + ".json"), json.getBytes());			} catch (IOException ex) {
 				throw new RuntimeException(ex);
 			}
 
