@@ -1,11 +1,6 @@
-
 import Utils.StringUtils;
 import io.github.cdimascio.dotenv.Dotenv;
-import org.jfree.data.json.JSONUtils;
-import org.jfree.data.json.impl.JSONArray;
-
 import java.sql.*;
-import java.util.ArrayList;
 
 public class Database {
 
