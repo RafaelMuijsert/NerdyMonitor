@@ -18,7 +18,7 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 		ArrayList<InfrastructureComponent> components = InfrastructureComponentRepository.findAll();
 
 		this.infrastructuurViewPanel = new InfrastructureComponentViewPanel(this, components);
-		this.statusPanel = new InfrastructureStatusPanel();
+		this.statusPanel = new InfrastructureStatusPanel(components);
 
 		add(this.infrastructuurViewPanel);
 		add(this.statusPanel);

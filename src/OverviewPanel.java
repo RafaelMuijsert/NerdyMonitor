@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class OverviewPanel extends JPanel implements ActionListener {
@@ -32,9 +33,12 @@ public class OverviewPanel extends JPanel implements ActionListener {
 		glCostOverview.setVgap(4);
 		jpCostOverview.setLayout(glCostOverview);
 
+		ArrayList<Integer> componentIds = new ArrayList<>();
 		for (Component component : this.infrastructureDesign.getComponents()) {
+			if(componentIds.get(component.getId()) == null){
+				componentIds.add(component.getId());
+			}
 			jpCostOverview.add(new ComponentOverview(component, 1));
-
 		}
 //		for(Firewall firewall: this.infrastructureDesign.getFirewalls()) {
 //			jpCostOverview.add(new ComponentOverview(firewall, 1));
