@@ -1,8 +1,16 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OverviewPanel extends JPanel implements ActionListener {
 	private InfrastructureDesign infrastructureDesign;
@@ -32,10 +40,44 @@ public class OverviewPanel extends JPanel implements ActionListener {
 		glCostOverview.setVgap(4);
 		jpCostOverview.setLayout(glCostOverview);
 
-		for (Component component : this.infrastructureDesign.getComponents()) {
-			jpCostOverview.add(new ComponentOverview(component, 1));
 
+		ArrayList<Integer> componentIds = new ArrayList<>();
+		ArrayList<Component> components = this.infrastructureDesign.getComponents();
+
+		for(int i = 0; i < components.size(); i++){
+			// Only add to known components id's if not added yet or the list is still empty
+			if(componentIds.size() == 0 || !componentIds.contains(components.get(i).getId())){
+				componentIds.add(components.get(i).getId());
+			} else{
+				continue;
+			}
+
+			int quantity = 0;
+			// Loop through the remaining components in the list and increment quantity if it is the same component
+			for(int x = i; x < components.size(); x++) {
+				Component current = components.get(i);
+				Component loop = components.get(x);
+
+				if(current.getId() == loop.getId()){
+					quantity++;
+				}
+			}
+
+			jpCostOverview.add(new ComponentOverview(components.get(i), quantity));
 		}
+
+
+//		for(Firewall firewall: this.infrastructureDesign.getFirewalls()) {
+//			jpCostOverview.add(new ComponentOverview(firewall, 1));
+//		}
+//
+//		for(Databaseserver database: this.infrastructureDesign.getDatabases()) {
+//			jpCostOverview.add(new ComponentOverview(database, 1));
+//		}
+//
+//		for(Webserver webserver: this.infrastructureDesign.getWebservers()) {
+//			jpCostOverview.add(new ComponentOverview(webserver, 1));
+//		}
 
 		JScrollPane scrollPane = new JScrollPane(jpCostOverview);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(8);
@@ -94,6 +136,41 @@ public class OverviewPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == jbTerug){
 			this.parentPanel.setActiveBody((JPanel) this.goBackPanel);
+		}
+		else if(e.getSource() == jbOpslaan){
+
+			UIManager.put("FileChooser.openButtonText","Opslaan");
+			UIManager.put("FileChooser.cancelButtonText","Annuleren");
+
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.setDialogTitle("Opslaan IT-infrastructuur ontwerp");
+
+			jFileChooser.showSaveDialog(this);
+
+			if(jFileChooser.getSelectedFile() == null ){
+				return;
+			}
+
+			Gson gson = new Gson();
+			try {
+				Map<String, Object> map = new HashMap<>();
+				map.put("title", "Thinking in Java");
+				map.put("isbn", "978-0131872486");
+				map.put("year", 1998);
+				map.put("authors", new String[]{"Bruce Eckel"});
+				gson.toJson(map);
+
+				Gson boeie = new GsonBuilder().setPrettyPrinting().create();
+				String json = gson.toJson(map);
+				System.out.println(json);
+				boeie.toJson(map,  new FileWriter("/home/thijmen/Desktop/test.json") );
+			} catch (IOException ex) {
+				throw new RuntimeException(ex);
+			}
+
+			System.out.println(jFileChooser.getSelectedFile());
+//			JOptionPane.showMessageDialog(this, jFileChooser.getSelectedFile());
+
 		}
 	}
 }

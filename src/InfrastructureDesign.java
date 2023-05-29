@@ -49,7 +49,13 @@ public class InfrastructureDesign {
 		return totalAvailability / components.size();
 	}
 	public ArrayList<Component>  getComponents() {
-		return components;
+//		ArrayList<Component> components = new ArrayList<>();
+//
+//		components.addAll(getDatabases());
+//		components.addAll(getWebservers());
+//		components.addAll(getFirewalls());
+
+		return this.components;
 	}
 
 	public void saveDesign(String path) {
@@ -74,6 +80,8 @@ public class InfrastructureDesign {
 
 	public void add(ArrayList<Component> components) {
 		this.components = components;
+
+		// Convert components to component type array
 		for (Component component : components) {
 			if (component.getComponentTypesId() == Component.FIREWALL) {
 				this.add(new Firewall(component.getId()));
