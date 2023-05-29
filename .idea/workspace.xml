@@ -5,28 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95ddb85c-ae02-48b1-ae86-09d740ff5fa0" name="Changes" comment="">
-<<<<<<< Updated upstream
-      <change afterPath="$PROJECT_DIR$/src/Utils/ComponentUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utils/TimeUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d74e5b92-9e47-447c-b967-55e1bac70250.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d74e5b92-9e47-447c-b967-55e1bac70250.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Component.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComponentOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentOverview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Databaseserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Databaseserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmptyDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyDesignPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Firewall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firewall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InfrastructureDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureDesign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewDesignPanel.java" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NerdyMonitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NerdyMonitor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentStatusPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentViewPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConfigurationViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfigurationViewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmptyDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyDesignPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureComponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureComponentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureComponentViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureComponentViewPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InfrastructureDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureDesign.java" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureStatusPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeasurementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeasurementRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Webserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Webserver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,28 +53,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/thijmen/Code/NerdyMonitor&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
@@ -86,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "overview",
+    "git-widget-placeholder": "ImportAndExportDesigns",
     "last_opened_file_path": "/home/thijmen/Code/NerdyMonitor",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,7 +73,6 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "vue.rearranger.settings.migration": "true"
->>>>>>> Stashed changes
   }
 }]]></component>
   <component name="RecentsManager">
@@ -125,7 +101,10 @@
       <option name="presentableId" value="Default" />
       <updated>1685020905605</updated>
       <workItem from="1685020907817" duration="176000" />
-      <workItem from="1685283185031" duration="3828000" />
+      <workItem from="1685283185031" duration="7077000" />
+      <workItem from="1685290489906" duration="10326000" />
+      <workItem from="1685311250640" duration="4239000" />
+      <workItem from="1685347991666" duration="1463000" />
     </task>
     <servers />
   </component>
