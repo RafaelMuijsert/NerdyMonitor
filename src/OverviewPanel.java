@@ -155,7 +155,7 @@ public class OverviewPanel extends JPanel implements ActionListener {
 			try {
 				Map<String, Object> map = new HashMap<>();
 				map.put("title", "Thinking in Java");
-				map.put("isbn", "978-0131872486");
+				map.put("date_created", java.time.LocalDateTime.now().toString());
 				map.put("year", 1998);
 				map.put("authors", new String[]{"Bruce Eckel"});
 				gson.toJson(map);
