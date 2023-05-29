@@ -72,8 +72,8 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                     // maar 2 decimalen want anders rond het af
 
                     BacktrackAlgo algo = new BacktrackAlgo();
-                    BacktrackAlgo.availability = nummer / 100; //Beschikbaarheid invullen.
-                    ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
+                    algo.availability = nummer / 100; //Beschikbaarheid invullen.
+                    ArrayList<String> result = algo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
 
                     ArrayList<Component> bestConfiguration = new ArrayList<>();
                     for(String componentName : result){
@@ -82,6 +82,7 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                         bestConfiguration.add(component);
                     }
 
+                    System.out.println(bestConfiguration);
                     // Convert Components into infrastructureDesign object
                     InfrastructureDesign infrastructureDesign = new InfrastructureDesign(false);
                     infrastructureDesign.add(bestConfiguration);

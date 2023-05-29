@@ -3,17 +3,17 @@ import java.util.ArrayList;
 
 public class BacktrackAlgo {
 
-    public static double availability;
-    private static double bestCosts = 1000000;
-    private static ArrayList<String> serverConfiguration;
-    private static ArrayList<ArrayList<Double>> webservers = new ArrayList<>();
-    private static ArrayList<String> webserversNames = new ArrayList<>();
+    public double availability;
+    private double bestCosts = 1000000;
+    private ArrayList<String> serverConfiguration;
+    private ArrayList<ArrayList<Double>> webservers = new ArrayList<>();
+    private ArrayList<String> webserversNames = new ArrayList<>();
 
-    private static ArrayList<ArrayList<Double>> DBservers = new ArrayList<>();
-    private static ArrayList<String> DBserversNames = new ArrayList<>();
+    private ArrayList<ArrayList<Double>> DBservers = new ArrayList<>();
+    private ArrayList<String> DBserversNames = new ArrayList<>();
 
-    private static ArrayList<ArrayList<Double>> firewalls = new ArrayList<>();
-    private static ArrayList<String> firewallsNames = new ArrayList<>();
+    private ArrayList<ArrayList<Double>> firewalls = new ArrayList<>();
+    private ArrayList<String> firewallsNames = new ArrayList<>();
 
     static ArrayList<String> currentConfig = new ArrayList<>();
 
@@ -77,11 +77,11 @@ public class BacktrackAlgo {
         }
     }
 
-    public static double getBestCosts() {
+    public double getBestCosts() {
         return bestCosts; //Spreekt voor zich, haalt de beste kosten op en returnt deze
     }
 
-    private static void isBetter(ArrayList<String> serverConfig) {
+    private void isBetter(ArrayList<String> serverConfig) {
         /**
          * Deze functie berekent de beschikbaarheid van de configuratie die wordt meegegeven.
          * Als de beschikbaarheid hoger is dan het opgegeven attribuut "availability" dan wordt
@@ -160,12 +160,12 @@ public class BacktrackAlgo {
 
     }
 
-    public static ArrayList<String> getServerConfiguration() {
+    public ArrayList<String> getServerConfiguration() {
         calculateFirewallsConfiguration(6); //bereken de goedkoopste beschikbaarheid voor het opgegeven percentage
         return serverConfiguration; //return de servernamen van de beste configuratie in een arraylist
     }
 
-    public static void calculateFirewallsConfiguration(int maxServers) {
+    public void calculateFirewallsConfiguration(int maxServers) {
         for (int f = 0; f < firewalls.size(); f++) {
             currentConfig.add(firewallsNames.get(f));
             calculateServerConfiguration(maxServers);
@@ -173,7 +173,7 @@ public class BacktrackAlgo {
         }
     }
 
-    private static void calculateServerConfiguration(int maxServers) {
+    private void calculateServerConfiguration(int maxServers) {
         /**
          * De structuur van dit stuk code is gebaseerd op een project waar Mattias vroeger aan heeft gewerkt.
          * In dat project werd namelijk een zoekboom gemaakt waarin de beste optie teruggeven wordt.
@@ -201,12 +201,12 @@ public class BacktrackAlgo {
     //Voorbeeldcode voor de beschikbaarheidspanel.
     public static void main(String[] args) {
         BacktrackAlgo algo = new BacktrackAlgo();
-        BacktrackAlgo.availability = 0.9598; //Beschikbaarheid invullen.
-        ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
+//        availability = 0.9598; //Beschikbaarheid invullen.
+//        ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
 
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println(result.get(i));
-        }
+//        for (int i = 0; i < result.size(); i++) {
+//            System.out.println(result.get(i));
+//        }
 
         System.out.println(algo.getBestCosts());
     }
