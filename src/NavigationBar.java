@@ -95,6 +95,9 @@ public class NavigationBar extends JPanel implements ActionListener {
 			jFileChooser.setFileFilter(filter);
 
 			jFileChooser.showOpenDialog(this.mainFrame);
+			if(jFileChooser.getSelectedFile() == null){
+				return;
+			}
 			String fileName = jFileChooser.getSelectedFile().getPath();
 			String fileType = fileName.substring(fileName.lastIndexOf("."),fileName.length());
 
@@ -110,9 +113,13 @@ public class NavigationBar extends JPanel implements ActionListener {
 
 				boolean successfullyImported = infrastructureDesign.loadDesign(jFileChooser.getSelectedFile().getPath());
 				if(!successfullyImported){
-					JOptionPane.showMessageDialog(this.mainFrame, "Er is een fout opgetreden");
+					JOptionPane.showMessageDialog(this.mainFrame, "De geselecteerde Infrastructuur ontwerp is niet in het juiste formaat!");
 					return;
 				}
+
+				this.jbOpenDesign.setBackground(NavigationBar.NAVIGATION_BAR_COLOR);
+				this.jbNewDesign.setBackground(NavigationBar.NAVIGATION_BAR_SELECTED_COLOR);
+
 				this.mainFrame.setActiveBody(new EmptyDesignPanel(this.mainFrame, infrastructureDesign.getComponents()));
 			}
 			catch (Exception ex){

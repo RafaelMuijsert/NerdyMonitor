@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="95ddb85c-ae02-48b1-ae86-09d740ff5fa0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d74e5b92-9e47-447c-b967-55e1bac70250.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d74e5b92-9e47-447c-b967-55e1bac70250.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InfrastructureStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureStatusPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Statements.sql.groovy&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/thijmen/Code/NerdyMonitor&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -90,6 +91,7 @@
       <workItem from="1685347991666" duration="1463000" />
       <workItem from="1685368367211" duration="10000" />
       <workItem from="1685369066612" duration="545000" />
+      <workItem from="1685370862130" duration="2922000" />
     </task>
     <servers />
   </component>
