@@ -12,7 +12,7 @@ public class OverviewPanel extends JPanel implements ActionListener {
 	private final MainFrame parentPanel;
 	private static final Font TITLE_FONT = new Font("Montserrat", Font.PLAIN, 32);
 	private JButton jbTerug;
-	private JButton jbOpslaan ;
+	private JButton jbOpslaan;
 
 	public OverviewPanel(InfrastructureDesign infrastructureDesign, JPanel goBackPanel, MainFrame parentPanel) {
 		this.infrastructureDesign = infrastructureDesign;
