@@ -76,8 +76,6 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                     BacktrackAlgo.availability = nummer / 100; //Beschikbaarheid invullen.
                     ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
 
-
-                    System.out.println("test");
                     ArrayList<Component> bestConfiguration = new ArrayList<>();
                     for(String componentName : result){
                         // Get component using component name, disgusting

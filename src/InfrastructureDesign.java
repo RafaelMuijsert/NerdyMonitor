@@ -86,10 +86,6 @@ public class InfrastructureDesign {
 		return this.components;
 	}
 
-    public ArrayList<Component> getComponents() {
-        return this.components;
-    }
-
     public void saveDesign(String path) {
         Gson gson = new Gson();
 
