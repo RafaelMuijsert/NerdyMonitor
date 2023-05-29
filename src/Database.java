@@ -103,7 +103,6 @@ public class Database {
                 SQL += "LIMIT " + StringUtils.sanitize(String.valueOf(limit));
             }
             PreparedStatement statement = connection.prepareStatement(SQL);
-            System.out.println(SQL);
 
             int i = 1;
             for(String[] col : where) {

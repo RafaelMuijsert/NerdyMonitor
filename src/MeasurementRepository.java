@@ -7,7 +7,7 @@ public class MeasurementRepository {
      * @param componentID
      * @return
      */
-    public static ArrayList<Measurement> getAllFromComponent(int componentID){
+    public static ArrayList<Measurement> getAllFromComponent(int componentID, int limit){
         Database db = new Database();
         ArrayList<Measurement> measurements = new ArrayList<>();
 
@@ -20,7 +20,7 @@ public class MeasurementRepository {
                     }
             };
 
-            ResultSet resultset = db.find(new String[]{"*"}, Measurement.TABLE, where, false, 0);
+            ResultSet resultset = db.find(new String[]{"*"}, Measurement.TABLE, where, true, limit);
 
             // Could not find measurements
             if(resultset == null) {
@@ -32,8 +32,8 @@ public class MeasurementRepository {
                 Measurement measurement = new Measurement();
 
                 measurement.setId(resultset.getInt("id"));
-                measurement.setDate(resultset.getDate("date"));
-                measurement.setUptime(resultset.getDate("uptime"));
+                measurement.setDate(resultset.getTimestamp("date").toLocalDateTime());
+                measurement.setUptime(resultset.getTimestamp("uptime").toLocalDateTime());
                 measurement.setUsedDiskspaceInGB(resultset.getDouble("used_diskspace_in_GB"));
                 measurement.setTotalDiskspaceInGB(resultset.getDouble("total_diskspace_in_GB"));
                 measurement.setProcessorload(resultset.getDouble("processorload"));

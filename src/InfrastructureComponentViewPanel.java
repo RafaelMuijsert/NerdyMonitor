@@ -15,6 +15,9 @@ public class InfrastructureComponentViewPanel extends JPanel{
 
         // Could not find any monitored components
         if(components.size() == 0){
+            JLabel text = new JLabel("Kon geen Infrastructuur componenten vinden");
+            text.setFont(new Font("Verdana",1,20));
+            add(text);
             return;
         }
 
@@ -24,7 +27,7 @@ public class InfrastructureComponentViewPanel extends JPanel{
         for (InfrastructureComponent infrastructureComponent: components) {
             InfrastructureComponentPanel componentPanel =  new InfrastructureComponentPanel(infrastructureComponent);
 
-            if(infrastructureComponent.getUptime() == null){
+            if(!infrastructureComponent.isAvailable()){
                 componentPanel.setBorder(new LineBorder(Color.RED, 2, true));
             }
             else {

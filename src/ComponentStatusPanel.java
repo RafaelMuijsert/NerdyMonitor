@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ComponentStatusPanel extends JPanel {
@@ -15,7 +17,7 @@ public class ComponentStatusPanel extends JPanel {
 		InfrastructureComponent infrastructureComponent = new InfrastructureComponent(infrastructureComponentId);
 
 		// Retrieve all Measurements of the current Component
-		ArrayList<Measurement> measurements = MeasurementRepository.getAllFromComponent(infrastructureComponentId);
+		ArrayList<Measurement> measurements = MeasurementRepository.getAllFromComponent(infrastructureComponentId, 0);
 		Measurement mostRecentMeasurement = (measurements.size() >= 1) ? measurements.get(measurements.size() - 1) : null;
 
 		if(mostRecentMeasurement == null) {
@@ -38,11 +40,14 @@ public class ComponentStatusPanel extends JPanel {
 		chartsPanel.add(lineChart.createChart(getDataSet(measurements, Chart.Type.LINECHART)));
 		chartsPanel.add(pieChart.createChart(getDataSet(measurements, Chart.Type.PIECHART)));
 
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+
 		String[][] data = {
 				{ "Processorbelasting", mostRecentMeasurement.getProcessorload(true)},
 				{ "CPU temperatuur", mostRecentMeasurement.getTemperature() + " \u2103" },
 				{ "Diskruimte", mostRecentMeasurement.getUsedDiskspaceInGB(true)},
-				{ "Uptime", new SimpleDateFormat("dd-MM-yyyy").format(mostRecentMeasurement.getUptime()) }
+				{ "Uptime", mostRecentMeasurement.getUptime().format(formatter) }
 		};
 
 		JTable details = new JTable(data, new String[] { "Measurement", "Value"} );
@@ -59,7 +64,7 @@ public class ComponentStatusPanel extends JPanel {
 
 	private AbstractDataset getDataSet(ArrayList<Measurement> measurements, Chart.Type chartType) {
 		//  Can't create datasets without data being provided : )
-		if(measurements.size() == 0) {
+		if(measurements == null || measurements.size() == 0) {
 			return null;
 		}
 

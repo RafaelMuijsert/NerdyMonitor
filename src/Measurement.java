@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Measurement{
@@ -47,19 +48,19 @@ public class Measurement{
         this.usedDiskspaceInGB = usedDiskspaceInGB;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public Date getUptime() {
+    public LocalDateTime getUptime() {
         return uptime;
     }
 
-    public void setUptime(Date uptime) {
+    public void setUptime(LocalDateTime uptime) {
         this.uptime = uptime;
     }
 
@@ -75,8 +76,8 @@ public class Measurement{
     }
 
     private double temperature;
-    private Date date;
-    private Date uptime;
+    private LocalDateTime date;
+    private LocalDateTime uptime;
     private int infrastructureComponent; // @todo eventueel updaten naar een object
 
     public double getTotalDiskspaceInGB() {
