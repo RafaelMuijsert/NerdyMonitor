@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class AvailabilityDesignPanel extends JPanel implements ActionListener {
     private JButton laatOntwerpZien;
@@ -63,6 +64,13 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                     // maar 2 decimalen want anders rond het af
                     String ingevoerdPercentage = String.format("%."+scale+"f", nummer);
                     System.out.println("Ingevoerd getal: " + ingevoerdPercentage);
+//                    BacktrackAlgo algo = new BacktrackAlgo();
+//                    BacktrackAlgo.availability = nummer; //Beschikbaarheid invullen.
+//                    ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
+//                    for (int i = 0; i < result.size(); i++) {
+//                        System.out.println(result.get(i));
+//                    }
+//                    System.out.println(algo.getBestCosts());
                     // verder code naar volgend scherm
                     this.mainFrame.setActiveBody(new OverviewPanel(exampleDesign,this,this.mainFrame));
                 } else { //verkeerd getal
