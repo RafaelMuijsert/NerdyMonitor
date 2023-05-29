@@ -1,20 +1,16 @@
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
 public class ComponentViewPanel extends JPanel{
 
-	public ComponentViewPanel(
-			Object parentPanel,
-			ArrayList<Component> components
-	)
+	public ComponentViewPanel(Object parentPanel, ArrayList<Component> components)
 	{
 
 		// Could not find any monitored components
-		if(components.size() == 0){
+		if(components == null || components.size() == 0){
 			JLabel text = new JLabel("Kon geen Infrastructuur componenten vinden");
 			text.setFont(new Font("Verdana",1,20));
 			add(text);
@@ -22,11 +18,12 @@ public class ComponentViewPanel extends JPanel{
 		}
 
 		JPanel content = new JPanel();
-		content.setLayout(new GridLayout(0, 4, 0, 0));
+		content.setLayout(new GridLayout(0, 4));
 
 		for (Component component: components) {
-			ComponentPanel componentPanel =  new ComponentPanel(component);
 
+			ComponentPanel componentPanel =  new ComponentPanel(component);
+			componentPanel.setSize(100, 100);
 			componentPanel.addMouseListener((MouseListener) parentPanel);
 			content.add(componentPanel);
 		}
@@ -39,8 +36,5 @@ public class ComponentViewPanel extends JPanel{
 		setLayout(new GridLayout(1, 2));
 	}
 
-
-	public void remove(Component component) {
-	}
 }
 

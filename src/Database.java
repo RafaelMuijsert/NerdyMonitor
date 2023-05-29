@@ -1,5 +1,6 @@
 
 import Utils.StringUtils;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.jfree.data.json.JSONUtils;
 import org.jfree.data.json.impl.JSONArray;
 
@@ -8,10 +9,9 @@ import java.util.ArrayList;
 
 public class Database {
 
-    private final static String database = "mydb";
-    private final static String url = "jdbc:mysql://localhost:3306/" + database;
-    private final static String username = "root";
-    private final static String password = "";
+    private static String url;
+    private static String username;
+    private static String password;
 
     private static Connection connection;
 
@@ -25,6 +25,13 @@ public class Database {
         }
 
         try {
+            // Initialize Env file
+            Dotenv dotenv = Dotenv.load();
+
+            this.url = "jdbc:mysql://" + dotenv.get("DATABASE");
+            this.username = dotenv.get("DB_USERNAME");
+            this.password = dotenv.get("DB_PASSWORD");
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, username, password);
         } catch(Exception e){
@@ -34,7 +41,6 @@ public class Database {
 
     /**
      * Check if connection a connection has been established and isn't closed.
-     * @param con
      * @return
      */
     public boolean isConnected(Connection con) {
@@ -59,7 +65,7 @@ public class Database {
     public ResultSet find(String[] select, String fromTable, String[][] where, boolean desc, int limit) {
         try {
             // Convert Array into String select
-            String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0];
+            String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0] + " ";
             String SQL = "SELECT ";
             SQL += selectedCols;
 
@@ -69,7 +75,7 @@ public class Database {
 
             // Concat Where statements
             if(where.length > 0) {
-                int i= 0;
+                int i = 0;
                 for(String[] col : where) {
                     if(i == 0) {
                         SQL += "WHERE";
@@ -84,17 +90,18 @@ public class Database {
 
                     i++;
                 }
+                SQL += " ";
+
             }
 
             if(desc) {
                 SQL += " ";
-                SQL += "ORDER BY id DESC";
+                SQL += "ORDER BY id DESC ";
             }
 
             if(limit > 0) {
-                SQL += "LIMIT =" + StringUtils.sanitize(String.valueOf(limit));
+                SQL += "LIMIT " + StringUtils.sanitize(String.valueOf(limit));
             }
-
             PreparedStatement statement = connection.prepareStatement(SQL);
 
             int i = 1;

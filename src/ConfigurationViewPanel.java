@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class ConfigurationViewPanel extends JPanel implements ActionListener, MouseListener{
     private final ArrayList<Component> components;
     private final EmptyDesignPanel parent;
-    private ArrayList<Component> boeie;
     private JPanel content;
     public ConfigurationViewPanel (
             Object parentPanel,
@@ -71,12 +70,8 @@ public class ConfigurationViewPanel extends JPanel implements ActionListener, Mo
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
+    public void mouseExited(MouseEvent e) {}
 }

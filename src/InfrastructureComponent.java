@@ -1,12 +1,16 @@
+import Utils.TimeUtils;
+
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static Utils.ImageUtils.getImageIcon;
 
 public  class InfrastructureComponent extends Component {
-    public final static String TABLE = "Component_types_id";
+    public final static String TABLE = "Infrastructure_component";
+    public final static int MeasurementIntervalMinutes = 1;
 
     public void setPrice(double price) {
         this.price = price;
@@ -94,7 +98,6 @@ public  class InfrastructureComponent extends Component {
 
     public InfrastructureComponent(int infrastructureComponentId){
         Database db = new Database();
-        System.out.println();
         try {
 
             String SQL = "SELECT IC.id ICid, name, availability, annual_price_in_euro, uptime, total_diskspace_in_GB, used_diskspace_in_GB, processorload, Component_types_id" + " " +
@@ -104,7 +107,6 @@ public  class InfrastructureComponent extends Component {
                     "WHERE IC.id=" + infrastructureComponentId+ " " +
                     "GROUP by Infrastructure_component_id " +
                     "LIMIT 1";
-
 
             ResultSet resultset = db.findRaw(SQL);
 
@@ -125,6 +127,17 @@ public  class InfrastructureComponent extends Component {
                 this.setProcessorLoad(resultset.getDouble("processorload"));
                 this.setAvailable((this.getUptime() != null));
 
+                if(this.getUptime() != null){
+                    ArrayList<Measurement> measurement = MeasurementRepository.getAllFromComponent(this.getId(), 1);
+                    if(measurement == null || measurement.size() == 0){
+                        continue;
+                    }
+
+                    // Time elapsed since previous measure is less than
+                    if(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
+                        this.setAvailable(true);
+                    }
+                }
             }
 
         } catch (Exception e) {

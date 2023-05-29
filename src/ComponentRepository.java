@@ -58,7 +58,6 @@ public class ComponentRepository {
                 component.setAvailability(resultset.getFloat("availability"));
                 component.setAnnualPriceInEuro(resultset.getFloat("annual_price_in_euro"));
 
-                System.out.println(component);
                 components.add(component);
             }
 

@@ -1,10 +1,10 @@
 import javax.imageio.ImageIO;
 import java.io.File;
 
-public class Databaseserver extends InfrastructureComponent{
+public class Databaseserver extends Component{
 
-    public Databaseserver(String name) {
-        super(0);
-        this.imagePath = "icons/databaseserver.png";
+    public Databaseserver(int componentID) {
+        super(componentID);
+
     }
 }

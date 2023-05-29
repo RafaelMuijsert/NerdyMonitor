@@ -7,22 +7,23 @@ import java.util.ArrayList;
 
 public class EmptyDesignPanel extends JPanel implements ActionListener, MouseListener, MouseMotionListener {
 
+    private final MainFrame parentPanel;
     private ConfigurationViewPanel configurationViewPanel;
-    private final ComponentViewPanel componentViewPanel;
     private ArrayList<Component> configuration; // Gebruik dit voor de overazicht
-    private JPanel dragAndDropPanel;
-    private JPanel redirectPanel;
-    private JButton redirectButton;
-    public EmptyDesignPanel() {
+    private final JPanel dragAndDropPanel;
+    private final JPanel redirectPanel;
+    private final JButton redirectButton;
+
+    public EmptyDesignPanel(MainFrame parentPanel, ArrayList<Component> currentConfiguration ) {
+        this.parentPanel = parentPanel;
 
         setLayout(new GridLayout(1, 2));
 
         ArrayList<Component> components = ComponentRepository.findAll();
-        configuration = new ArrayList<>(); // @todo geef eventueel arraylist mee, zodat als je van overview terug gaat je design niet weg is
+        configuration = currentConfiguration; // @todo geef eventueel arraylist mee, zodat als je van overview terug gaat je design niet weg is
         dragAndDropPanel = new JPanel();
-        componentViewPanel = new ComponentViewPanel(this, components);
+        ComponentViewPanel componentViewPanel = new ComponentViewPanel(this, components);
         configurationViewPanel = new ConfigurationViewPanel(this, configuration);
-
 
         // Container for Button for alignment to the right
         redirectPanel = new JPanel();
@@ -50,7 +51,12 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == redirectButton){
-            System.out.println(" redirect");
+            InfrastructureDesign infrastructureDesign = new InfrastructureDesign(true);
+
+            infrastructureDesign.add(this.configuration);
+
+            // Redirect to costs overview page
+            this.parentPanel.setActiveBody(new OverviewPanel(infrastructureDesign, this, parentPanel));
         }
 
     }
@@ -63,7 +69,6 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     @Override
     public void mousePressed(MouseEvent e) {
         if(e.getSource() instanceof ComponentPanel) {
-            System.out.println(((ComponentPanel) e.getSource()).getParent());
             // "Drag and drop" effect
             Component component = ((ComponentPanel) e.getSource()).getComponent();
             setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
@@ -91,25 +96,16 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
                 this.refresh();
             }
         }
-
-
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {
-//        this.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-
-    }
+    public void mouseExited(MouseEvent e) {}
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
         if(e.getSource() instanceof ComponentPanel) {
                 ((ComponentPanel) e.getSource()).setLocation(e.getPoint());
         }
@@ -118,12 +114,10 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        System.out.println("TEST");
     }
 
     public void refresh(){
         this.configurationViewPanel = new ConfigurationViewPanel(this, configuration);
-
 
         // Refresh
         dragAndDropPanel.removeAll();

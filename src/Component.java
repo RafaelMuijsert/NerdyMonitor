@@ -1,5 +1,12 @@
+import java.sql.ResultSet;
+
 public class Component {
     public final static String TABLE = "Component";
+
+    public static final int FIREWALL = 1;
+    public static final int DBSERVER = 2;
+    public static final int WEBSERVER = 3;
+
 
     public int getId() {
         return id;
@@ -56,9 +63,39 @@ public class Component {
     private int componentTypesId;
     private double diskspaceInGB;
 
-    public Component() {
+    public Component() {}
 
+    public Component(int id) {
+        Database db = new Database();
+
+        try {
+            String[][] where = new String[][]{
+                new String[]{
+                        "id",
+                        "=",
+                        Integer.toString(id)
+                }
+            };
+
+            ResultSet resultset = db.find(new String[]{"*"}, "Component", where, false, 1);
+
+            if(resultset == null) {
+                return;
+            }
+
+            while (resultset.next()) {
+                this.setId(resultset.getInt("id"));
+                this.setName(resultset.getString("name"));
+                this.setAvailability(resultset.getDouble("availability"));
+                this.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
+                this.setComponentTypesId(resultset.getInt("Component_types_id"));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
+
 
     @Override
     public String toString() {

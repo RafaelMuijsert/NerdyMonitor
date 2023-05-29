@@ -1,10 +1,9 @@
 import javax.imageio.ImageIO;
 import java.io.File;
 
-public class Webserver extends InfrastructureComponent{
+public class Webserver extends Component{
 
-    public Webserver(String name) {
-        super(0);
-        imagePath = "icons/webserver.png";
+    public Webserver(int componentID) {
+        super(componentID);
     }
 }

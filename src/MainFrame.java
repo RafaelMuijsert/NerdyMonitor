@@ -24,15 +24,8 @@ public class MainFrame extends JFrame {
 		this.navBar = new NavigationBar(this);
 		add(this.navBar, BorderLayout.WEST);
 
-		InfrastructureDesign exampleDesign = new InfrastructureDesign();
-		exampleDesign.add(new Databaseserver("DB-01"));
-		exampleDesign.add(new Firewall("FW-01"));
-		exampleDesign.add(new Firewall("FW-02"));
-		exampleDesign.add(new Webserver("WS-01"));
-		exampleDesign.add(new Webserver("WS-01"));
-		exampleDesign.add(new Webserver("WS-02"));
-//		setActiveBody(new DashboardPanel());
-		setActiveBody(new OverviewPanel(exampleDesign));
+
+		setActiveBody(new DashboardPanel());
 
 		setVisible(true);
 	}

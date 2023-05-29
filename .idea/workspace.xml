@@ -4,30 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec5f8b9-cd87-4c65-bdfa-16b2bbe3dd32" name="Changes" comment="AvailabilityDesignPanel beschikbaarheidspercentage">
-      <change afterPath="$PROJECT_DIR$/src/Utils/availibility file" afterDir="false" />
+    <list default="true" id="95ddb85c-ae02-48b1-ae86-09d740ff5fa0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d74e5b92-9e47-447c-b967-55e1bac70250.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d74e5b92-9e47-447c-b967-55e1bac70250.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AvailabilityDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AvailabilityDesignPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewDesignPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QHMVlA4wfpxYR2shMTDDGjvTn9" />
+  <component name="ProjectId" id="2QHqYUQHXXZUaR1xhW4DAtjjFMm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -37,11 +38,37 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/IdeaProjects/NerdyMonitor&quot;
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenDatabaseViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL-Insert-Statements.sql.groovy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/thijmen/Code/NerdyMonitor&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\thijm\code\NerdyMonitor" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="NerdyMonitor" />
       <method v="2">
@@ -57,25 +84,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7ec5f8b9-cd87-4c65-bdfa-16b2bbe3dd32" name="Changes" comment="Open design basics" />
-      <created>1685020228573</created>
+      <changelist id="95ddb85c-ae02-48b1-ae86-09d740ff5fa0" name="Changes" comment="" />
+      <created>1685020905605</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685020228573</updated>
+      <updated>1685020905605</updated>
+      <workItem from="1685020907817" duration="176000" />
+      <workItem from="1685283185031" duration="7077000" />
+      <workItem from="1685290489906" duration="10326000" />
+      <workItem from="1685311250640" duration="4239000" />
+      <workItem from="1685347991666" duration="1463000" />
+      <workItem from="1685368367211" duration="10000" />
+      <workItem from="1685369066612" duration="545000" />
+      <workItem from="1685370862130" duration="2922000" />
     </task>
-    <task id="LOCAL-00001" summary="AvailabilityDesignPanel beschikbaarheidspercentage">
-      <created>1685094223120</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1685094223120</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update AvailabilityDesignPanel" />
-    <MESSAGE value="AvailabilityDesignPanel beschikbaarheidspercentage" />
-    <option name="LAST_COMMIT_MESSAGE" value="AvailabilityDesignPanel beschikbaarheidspercentage" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

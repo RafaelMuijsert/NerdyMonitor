@@ -10,5 +10,7 @@
     <orderEntry type="library" name="jfreechart" level="project" />
     <orderEntry type="library" name="mysql.connector.java" level="project" />
     <orderEntry type="library" name="apache.commons.text" level="project" />
+    <orderEntry type="library" name="io.github.cdimascio.java.dotenv" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
   </component>
 </module>

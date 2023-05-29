@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class NewDesignPanel extends JPanel implements ActionListener {
 	private JButton jb1;
@@ -39,7 +40,7 @@ public class NewDesignPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==jb1) {
-			this.mainFrame.setActiveBody(new EmptyDesignPanel());
+			this.mainFrame.setActiveBody(new EmptyDesignPanel(this.mainFrame, new ArrayList<>()));
 		} else if(e.getSource()==jb2) {
 			this.mainFrame.setActiveBody(new AvailabilityDesignPanel(this.mainFrame));
 		}
