@@ -96,6 +96,37 @@ public class Component {
         }
     }
 
+    public Component(String componentName) {
+        Database db = new Database();
+
+        try {
+            String[][] where = new String[][]{
+                    new String[]{
+                            "name",
+                            "=",
+                            componentName
+                    }
+            };
+
+            ResultSet resultset = db.find(new String[]{"*"}, "Component", where, false, 1);
+
+            if(resultset == null) {
+                return;
+            }
+
+            while (resultset.next()) {
+                this.setId(resultset.getInt("id"));
+                this.setName(resultset.getString("name"));
+                this.setAvailability(resultset.getDouble("availability"));
+                this.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
+                this.setComponentTypesId(resultset.getInt("Component_types_id"));
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 
     @Override
     public String toString() {

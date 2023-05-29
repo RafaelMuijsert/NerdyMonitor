@@ -10,6 +10,7 @@ public class ConfigurationViewPanel extends JPanel implements ActionListener, Mo
     private final ArrayList<Component> components;
     private final EmptyDesignPanel parent;
     private JPanel content;
+
     public ConfigurationViewPanel (
             Object parentPanel,
             ArrayList<Component> components
