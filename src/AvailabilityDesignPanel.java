@@ -64,7 +64,7 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                     String ingevoerdPercentage = String.format("%."+scale+"f", nummer);
                     System.out.println("Ingevoerd getal: " + ingevoerdPercentage);
                     // verder code naar volgend scherm
-                    this.mainFrame.setActiveBody(new OverviewPanel(exampleDesign));
+                    this.mainFrame.setActiveBody(new OverviewPanel(exampleDesign,this,this.mainFrame));
                 } else { //verkeerd getal
                     JOptionPane.showMessageDialog(this, "Voer een getal in tussen 0 en 100. \n " +
                             "Het getal mag niet meer dan vier decimalen achter de komma hebben.");
