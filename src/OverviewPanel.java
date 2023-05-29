@@ -1,24 +1,16 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import Utils.StringUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class OverviewPanel extends JPanel implements ActionListener {
 	private InfrastructureDesign infrastructureDesign;
 	private final Object goBackPanel;
 	private final MainFrame parentPanel;
-	private ArrayList<InfrastructureComponent> components;
 	private static final Font TITLE_FONT = new Font("Montserrat", Font.PLAIN, 32);
 	private JButton jbTerug;
 	private JButton jbOpslaan ;
@@ -67,19 +59,6 @@ public class OverviewPanel extends JPanel implements ActionListener {
 
 			jpCostOverview.add(new ComponentOverview(components.get(i), quantity));
 		}
-
-
-//		for(Firewall firewall: this.infrastructureDesign.getFirewalls()) {
-//			jpCostOverview.add(new ComponentOverview(firewall, 1));
-//		}
-//
-//		for(Databaseserver database: this.infrastructureDesign.getDatabases()) {
-//			jpCostOverview.add(new ComponentOverview(database, 1));
-//		}
-//
-//		for(Webserver webserver: this.infrastructureDesign.getWebservers()) {
-//			jpCostOverview.add(new ComponentOverview(webserver, 1));
-//		}
 
 		JScrollPane scrollPane = new JScrollPane(jpCostOverview);
 		scrollPane.getVerticalScrollBar().setUnitIncrement(8);
@@ -139,38 +118,34 @@ public class OverviewPanel extends JPanel implements ActionListener {
 		if(e.getSource() == jbTerug){
 			this.parentPanel.setActiveBody((JPanel) this.goBackPanel);
 		}
-		else if(e.getSource() == jbOpslaan){
+		else if(e.getSource() == jbOpslaan) {
 
-			UIManager.put("FileChooser.openButtonText","Opslaan");
-			UIManager.put("FileChooser.cancelButtonText","Annuleren");
+			UIManager.put("FileChooser.openButtonText", "Opslaan");
+			UIManager.put("FileChooser.cancelButtonText", "Annuleren");
+			UIManager.put("FileChooser.readOnly", Boolean.TRUE);
 
 			JFileChooser jFileChooser = new JFileChooser();
 			jFileChooser.setDialogTitle("Opslaan IT-infrastructuur ontwerp");
 
 			jFileChooser.showSaveDialog(this);
-
+			//
 			if(jFileChooser.getSelectedFile() == null ){
 				return;
 			}
 
-			Gson gson = new Gson();
 			try {
-				Map<String, Object> map = new HashMap<>();
-				map.put("date_created", "Thinking in Java");
-				map.put("isbn", "978-0131872486");
-				map.put("year", 1998);
-				map.put("authors", new String[]{"Bruce Eckel"});
-				gson.toJson(map);
+				this.infrastructureDesign.saveDesign(StringUtils.removeExtention(jFileChooser.getSelectedFile().getPath()));
+				JOptionPane.showMessageDialog(this, "Bestand is opgeslagen");
 
-				Gson boeie = new GsonBuilder().setPrettyPrinting().create();
-				String json = gson.toJson(map);
+				// Redirect to new design
+				this.parentPanel.setActiveBody(new NewDesignPanel(this.parentPanel));
+			}
 
-				Files.write(Path.of(jFileChooser.getSelectedFile().getPath() + ".json"), json.getBytes());			} catch (IOException ex) {
+			catch (Exception ex) {
 				throw new RuntimeException(ex);
 			}
 
 			System.out.println(jFileChooser.getSelectedFile());
-//			JOptionPane.showMessageDialog(this, jFileChooser.getSelectedFile());
 
 		}
 	}

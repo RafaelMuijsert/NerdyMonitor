@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="95ddb85c-ae02-48b1-ae86-09d740ff5fa0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmptyDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmptyDesignPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureDesign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NavigationBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NewDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewDesignPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/StringUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
