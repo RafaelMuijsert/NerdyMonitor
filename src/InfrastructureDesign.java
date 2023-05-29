@@ -57,14 +57,30 @@ public class InfrastructureDesign {
 	}
 
 	public double getTotalAvailability() {
-		int totalAvailability = 0;
-		ArrayList<Component> components = getComponents();
 
-		for (Component component : components){
-			totalAvailability += component.getAvailability();
-		}
+        double percWeb = 1;
 
-		return totalAvailability / components.size();
+        for (Webserver webserver : this.getWebservers()){
+            double perc = webserver.getAvailability()  / 100;
+            percWeb *= (1 - perc);
+        }
+        percWeb = (percWeb != 1) ? 1 - percWeb: 1; //zet het percentage om in verwachte beschikbaarheid
+
+        double percDB = 1;
+        for (Databaseserver database : this.getDatabases()){
+            double perc = database.getAvailability() / 100;
+            percDB *= (1 - perc);
+        }
+        percDB = (percDB != 1) ? 1 - percDB : 1; //zet het percentage om in verwachte beschikbaarheid
+
+        double percFirewall = 1;
+        for (Firewall firewall : this.getFirewalls()){
+            double perc = firewall.getAvailability() / 100;
+            percFirewall *= (1 - perc);
+        }
+        percFirewall = (percFirewall != 1) ? 1 - percFirewall: 1; //zet het percentage om in verwachte beschikbaarheid
+
+       return (percFirewall * percDB * percWeb) * 100;
 	}
 	public ArrayList<Component>  getComponents() {
 		return this.components;
