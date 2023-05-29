@@ -14,17 +14,16 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     private final JPanel redirectPanel;
     private final JButton redirectButton;
 
-    public EmptyDesignPanel(MainFrame parentPanel) {
+    public EmptyDesignPanel(MainFrame parentPanel, ArrayList<Component> currentConfiguration ) {
         this.parentPanel = parentPanel;
 
         setLayout(new GridLayout(1, 2));
 
         ArrayList<Component> components = ComponentRepository.findAll();
-        configuration = new ArrayList<>(); // @todo geef eventueel arraylist mee, zodat als je van overview terug gaat je design niet weg is
+        configuration = currentConfiguration; // @todo geef eventueel arraylist mee, zodat als je van overview terug gaat je design niet weg is
         dragAndDropPanel = new JPanel();
         ComponentViewPanel componentViewPanel = new ComponentViewPanel(this, components);
         configurationViewPanel = new ConfigurationViewPanel(this, configuration);
-
 
         // Container for Button for alignment to the right
         redirectPanel = new JPanel();
@@ -52,7 +51,7 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == redirectButton){
-            InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
+            InfrastructureDesign infrastructureDesign = new InfrastructureDesign(true);
 
             infrastructureDesign.add(this.configuration);
 

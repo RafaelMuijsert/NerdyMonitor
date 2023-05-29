@@ -1,15 +1,16 @@
+import Utils.StringUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class OverviewPanel extends JPanel implements ActionListener {
 	private InfrastructureDesign infrastructureDesign;
 	private final Object goBackPanel;
 	private final MainFrame parentPanel;
-	private ArrayList<InfrastructureComponent> components;
 	private static final Font TITLE_FONT = new Font("Montserrat", Font.PLAIN, 32);
 	private JButton jbTerug;
 	private JButton jbOpslaan ;
@@ -33,12 +34,30 @@ public class OverviewPanel extends JPanel implements ActionListener {
 		glCostOverview.setVgap(4);
 		jpCostOverview.setLayout(glCostOverview);
 
+
 		ArrayList<Integer> componentIds = new ArrayList<>();
-		for (Component component : this.infrastructureDesign.getComponents()) {
-			if(componentIds.get(component.getId()) == null){
-				componentIds.add(component.getId());
+		ArrayList<Component> components = this.infrastructureDesign.getComponents();
+
+		for(int i = 0; i < components.size(); i++){
+			// Only add to known components id's if not added yet or the list is still empty
+			if(componentIds.size() == 0 || !componentIds.contains(components.get(i).getId())){
+				componentIds.add(components.get(i).getId());
+			} else{
+				continue;
 			}
-			jpCostOverview.add(new ComponentOverview(component, 1));
+
+			int quantity = 0;
+			// Loop through the remaining components in the list and increment quantity if it is the same component
+			for(int x = i; x < components.size(); x++) {
+				Component current = components.get(i);
+				Component loop = components.get(x);
+
+				if(current.getId() == loop.getId()){
+					quantity++;
+				}
+			}
+
+			jpCostOverview.add(new ComponentOverview(components.get(i), quantity));
 		}
 
 		JScrollPane scrollPane = new JScrollPane(jpCostOverview);
@@ -98,6 +117,33 @@ public class OverviewPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == jbTerug){
 			this.parentPanel.setActiveBody((JPanel) this.goBackPanel);
+		}
+		else if(e.getSource() == jbOpslaan) {
+
+			UIManager.put("FileChooser.openButtonText", "Opslaan");
+			UIManager.put("FileChooser.cancelButtonText", "Annuleren");
+			UIManager.put("FileChooser.readOnly", Boolean.TRUE);
+
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.setDialogTitle("Opslaan IT-infrastructuur ontwerp");
+
+			jFileChooser.showSaveDialog(this);
+			//
+			if(jFileChooser.getSelectedFile() == null ){
+				return;
+			}
+
+			try {
+				this.infrastructureDesign.saveDesign(StringUtils.removeExtention(jFileChooser.getSelectedFile().getPath()));
+				JOptionPane.showMessageDialog(this, "Bestand is opgeslagen");
+
+				// Redirect to new design
+				this.parentPanel.setActiveBody(new NewDesignPanel(this.parentPanel));
+			}
+
+			catch (Exception ex) {
+				throw new RuntimeException(ex);
+			}
 		}
 	}
 }

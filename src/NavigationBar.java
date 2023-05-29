@@ -2,6 +2,7 @@ import Utils.ImageUtils;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -85,10 +86,39 @@ public class NavigationBar extends JPanel implements ActionListener {
 		} else if(e.getSource() == this.jbNewDesign) {
 			this.mainFrame.setActiveBody(new NewDesignPanel(this.mainFrame));
 		} else if(e.getSource() == this.jbOpenDesign) {
+
+			// Don't allow user to edit files
+			UIManager.put("FileChooser.readOnly", Boolean.TRUE);
+
 			JFileChooser jFileChooser = new JFileChooser();
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
+			jFileChooser.setFileFilter(filter);
+
 			jFileChooser.showOpenDialog(this.mainFrame);
-			JOptionPane.showMessageDialog(this.mainFrame, jFileChooser.getSelectedFile());
-			// Load the selected file
+			String fileName = jFileChooser.getSelectedFile().getPath();
+			String fileType = fileName.substring(fileName.lastIndexOf("."),fileName.length());
+
+			// We only allow JSON file types!!
+			if(!fileType.equals(".json")){
+				JOptionPane.showMessageDialog(this, "Je kan alleen JSON bestanden openen");
+				return;
+			}
+
+			// Load the existing Design
+			try{
+				InfrastructureDesign infrastructureDesign = new InfrastructureDesign(true);
+
+				boolean successfullyImported = infrastructureDesign.loadDesign(jFileChooser.getSelectedFile().getPath());
+				if(!successfullyImported){
+					JOptionPane.showMessageDialog(this.mainFrame, "Er is een fout opgetreden");
+					return;
+				}
+				this.mainFrame.setActiveBody(new EmptyDesignPanel(this.mainFrame, infrastructureDesign.getComponents()));
+			}
+			catch (Exception ex){
+				JOptionPane.showMessageDialog(this.mainFrame, "Er is een fout opgetreden");
+			}
+
 		}
 	}
 }
