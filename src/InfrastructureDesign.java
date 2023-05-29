@@ -81,8 +81,6 @@ public class InfrastructureDesign {
 				this.add(new Databaseserver(component.getId()));
 			} else if (component.getComponentTypesId() == Component.WEBSERVER) {
 				this.add(new Webserver(component.getId()));
-
-
 			}
 		}
 	}

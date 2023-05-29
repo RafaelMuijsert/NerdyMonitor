@@ -1,11 +1,8 @@
 import Utils.ImageUtils;
 
-import javax.sound.sampled.Line;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class ComponentOverview extends JPanel {
 	private Component infrastructureComponent;
@@ -16,8 +13,8 @@ public class ComponentOverview extends JPanel {
 	private JLabel jlPrice;
 	private JLabel jlQuantity;
 	private static final Font COMPONENT_DETAIL_FONT = new Font("Montserrat", Font.PLAIN, 18);
+
 	public ComponentOverview(Component infrastructureComponent, int quantity) {
-		System.out.println(infrastructureComponent);
 		// Padding
 		this.setBorder(new EmptyBorder(16, 16, 16, 16));
 
@@ -25,7 +22,7 @@ public class ComponentOverview extends JPanel {
 		this.quantity = quantity;
 		this.setLayout(new GridBagLayout());
 		this.setMaximumSize(new Dimension(0, 500));
-
+		this.setPreferredSize(new Dimension(0, 500));
 		GridBagConstraints constraints = new GridBagConstraints();
 
 		constraints.weightx = 0.5;

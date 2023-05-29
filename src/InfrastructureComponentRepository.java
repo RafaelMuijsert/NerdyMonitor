@@ -1,7 +1,12 @@
+import Utils.TimeUtils;
+
 import java.sql.ResultSet;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class InfrastructureComponentRepository {
+
     public static ArrayList<InfrastructureComponent> findAll() {
         Database db = new Database();
 
@@ -30,8 +35,25 @@ public class InfrastructureComponentRepository {
                 infrastructureComponent.setUptime(resultset.getDate("uptime"));
                 infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));
-                infrastructureComponent.setAvailable((infrastructureComponent.getUptime() != null));
                 infrastructureComponents.add(infrastructureComponent);
+
+                // Retrieve most recent measurement
+
+                if(infrastructureComponent.getUptime() != null){
+                    ArrayList<Measurement> measurement = MeasurementRepository.getAllFromComponent(infrastructureComponent.getId(), 1);
+                    if(measurement == null || measurement.size() == 0){
+                        continue;
+                    }
+                    System.out.println(infrastructureComponent.getUptime());
+                    System.out.println(infrastructureComponent.getName());
+                    System.out.println(measurement.get(0).getDate()); // @todo format
+
+                    System.out.println(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()));
+                    // Time elapsed since previous measure is less than
+                    if(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
+                        infrastructureComponent.setAvailable(true);
+                    }
+                }
             }
 
         } catch (Exception e) {

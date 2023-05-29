@@ -1,16 +1,12 @@
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
 public class ComponentViewPanel extends JPanel{
 
-	public ComponentViewPanel(
-			Object parentPanel,
-			ArrayList<Component> components
-	)
+	public ComponentViewPanel(Object parentPanel, ArrayList<Component> components)
 	{
 
 		// Could not find any monitored components
@@ -40,8 +36,5 @@ public class ComponentViewPanel extends JPanel{
 		setLayout(new GridLayout(1, 2));
 	}
 
-
-	public void remove(Component component) {
-	}
 }
 

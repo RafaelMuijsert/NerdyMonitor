@@ -9,11 +9,11 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
 
     private final MainFrame parentPanel;
     private ConfigurationViewPanel configurationViewPanel;
-    private final ComponentViewPanel componentViewPanel;
     private ArrayList<Component> configuration; // Gebruik dit voor de overazicht
-    private JPanel dragAndDropPanel;
-    private JPanel redirectPanel;
-    private JButton redirectButton;
+    private final JPanel dragAndDropPanel;
+    private final JPanel redirectPanel;
+    private final JButton redirectButton;
+
     public EmptyDesignPanel(MainFrame parentPanel) {
         this.parentPanel = parentPanel;
 
@@ -22,7 +22,7 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
         ArrayList<Component> components = ComponentRepository.findAll();
         configuration = new ArrayList<>(); // @todo geef eventueel arraylist mee, zodat als je van overview terug gaat je design niet weg is
         dragAndDropPanel = new JPanel();
-        componentViewPanel = new ComponentViewPanel(this, components);
+        ComponentViewPanel componentViewPanel = new ComponentViewPanel(this, components);
         configurationViewPanel = new ConfigurationViewPanel(this, configuration);
 
 
@@ -55,7 +55,6 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
             InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
 
             infrastructureDesign.add(this.configuration);
-            System.out.println(infrastructureDesign.getComponents());
 
             // Redirect to costs overview page
             this.parentPanel.setActiveBody(new OverviewPanel(infrastructureDesign, this, parentPanel));
@@ -71,7 +70,6 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     @Override
     public void mousePressed(MouseEvent e) {
         if(e.getSource() instanceof ComponentPanel) {
-            System.out.println(((ComponentPanel) e.getSource()).getParent());
             // "Drag and drop" effect
             Component component = ((ComponentPanel) e.getSource()).getComponent();
             setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
@@ -117,7 +115,6 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        System.out.println("TEST");
     }
 
     public void refresh(){

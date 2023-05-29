@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class ConfigurationViewPanel extends JPanel implements ActionListener, MouseListener{
     private final ArrayList<Component> components;
     private final EmptyDesignPanel parent;
-    private ArrayList<Component> boeie;
     private JPanel content;
     public ConfigurationViewPanel (
             Object parentPanel,
