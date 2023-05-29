@@ -13,8 +13,7 @@ public class InfrastructureStatusPanel extends JPanel {
 	private JLabel jlDiskSpace;
 	private JLabel jlUptime;
 
-	private int availableDiskspace, totalDiskspace;
-
+	private int availableDiskspace, totalDiskspace, avgProcessorLoad, avgProcessorTemp;
 	public InfrastructureStatusPanel(      ArrayList<InfrastructureComponent> components) {
 		// Get all components which are bweing monitored
 
@@ -40,10 +39,9 @@ public class InfrastructureStatusPanel extends JPanel {
 		chartsPanel.add(pieChart.createChart(getDataSet(components, Chart.Type.PIECHART)));
 
 		String[][] data = {
-//				{ "Processorbelasting", mostRecentMeasurement.getProcessorload(true)},
-//				{ "CPU temperatuur", mostRecentMeasurement.getTemperature() + " \u2103" },
+				{ "Gemiddelde processorbelasting", avgProcessorLoad + "%"},
+				{ "Gemiddelde CPU temperatuur", avgProcessorTemp + " \u2103" },
 				{ "Diskruimte", availableDiskspace + "GB" + "/" + totalDiskspace+"GB"},
-//				{ "Uptime", new SimpleDateFormat("dd-MM-yyyy").format(mostRecentMeasurement.getUptime()) }
 		};
 
 		JTable details = new JTable(data, new String[] { "Measurement", "Value"} );
@@ -79,8 +77,12 @@ public class InfrastructureStatusPanel extends JPanel {
 					continue;
 				}
 				for (Measurement measurement : measurements) {
+					avgProcessorLoad += measurement.getProcessorload();
+					avgProcessorTemp += measurement.getTemperature();
 					((DefaultCategoryDataset) dataset).addValue(measurement.getProcessorload(), component.getName(), measurement.getDate());
 				}
+				avgProcessorLoad /= measurements.size();
+				avgProcessorTemp /= measurements.size();
 			}
 		}
 		else if(chartType == Chart.Type.PIECHART) {
@@ -90,7 +92,6 @@ public class InfrastructureStatusPanel extends JPanel {
 				if(measurements == null || measurements.size() == 0){
 					continue;
 				}
-
 				if(component.isAvailable()){
 					this.availableDiskspace += measurements.get(0).getTotalDiskspaceInGB();
 				}
