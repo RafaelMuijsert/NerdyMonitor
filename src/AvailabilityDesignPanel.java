@@ -54,12 +54,6 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        exampleDesign.add(new Databaseserver("DB-01"));
-//        exampleDesign.add(new Firewall("FW-01"));
-//        exampleDesign.add(new Firewall("FW-02"));
-//        exampleDesign.add(new Webserver("WS-01"));
-//        exampleDesign.add(new Webserver("WS-01"));
-//        exampleDesign.add(new Webserver("WS-02"));
 
         if (e.getSource() == laatOntwerpZien) {
             try {

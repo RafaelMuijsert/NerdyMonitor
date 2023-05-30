@@ -119,6 +119,7 @@ public class InfrastructureDesign {
             Map<String, Object> componentMap = new HashMap<>();
             componentMap.put("id", components.get(i).getId());
             componentMap.put("quantity", quantity);
+
             componentsHashmap.add(componentMap);
         }
 
@@ -161,6 +162,7 @@ public class InfrastructureDesign {
         for (JsonElement element : components) {
             // Convert JsonElement to JsonObject to be able to access the attributes.
             JsonObject componentJSON = element.getAsJsonObject();
+
             if (componentJSON.has("id") && componentJSON.has("quantity")) {
                 int id = componentJSON.get("id").getAsInt();
                 int quantity = componentJSON.get("quantity").getAsInt();
@@ -170,6 +172,7 @@ public class InfrastructureDesign {
                     importComponents.add(component);
                 }
             }
+
         }
 
         add(importComponents);
