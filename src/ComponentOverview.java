@@ -45,7 +45,7 @@ public class ComponentOverview extends JPanel {
 
 		constraints.gridy = 1;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_START;
-		this.jlAvailability = new JLabel("Beschikbaarheid: " + String.format("%.2f",this.infrastructureComponent.getAvailability()) + "%");
+		this.jlAvailability = new JLabel("Beschikbaarheid: " + String.format("%.3f",this.infrastructureComponent.getAvailability()) + "%");
 		this.jlAvailability.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlAvailability, constraints);
 

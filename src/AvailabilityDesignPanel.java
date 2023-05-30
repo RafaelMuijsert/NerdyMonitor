@@ -69,11 +69,19 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                 int scale = decimal.scale();
 
                 if (nummer >= 0 && nummer <= 100 && scale <= 4) {
+
                     // maar 2 decimalen want anders rond het af
 
                     BacktrackAlgo algo = new BacktrackAlgo();
                     algo.availability = nummer / 100; //Beschikbaarheid invullen.
                     ArrayList<String> result = algo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
+
+                    if(result == null){
+
+                        JOptionPane.showMessageDialog(this, "Een configuratie met de gewenste beschikbaarheid is niet mogelijk");
+
+                        return;
+                    }
 
                     ArrayList<Component> bestConfiguration = new ArrayList<>();
                     for(String componentName : result){
