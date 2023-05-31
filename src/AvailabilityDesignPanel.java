@@ -62,9 +62,9 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                 BigDecimal decimal = BigDecimal.valueOf(nummer);
                 int scale = decimal.scale();
 
-                if (nummer >= 0 && nummer <= 100 && scale <= 4) {
+                // maar 2 decimalen want anders rond het af
+                if (nummer >= 0 && nummer <= 100 && scale <= 2) {
 
-                    // maar 2 decimalen want anders rond het af
 
                     BacktrackAlgo algo = new BacktrackAlgo();
                     algo.availability = nummer / 100; //Beschikbaarheid invullen.
@@ -93,7 +93,7 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
 
                 } else { //verkeerd getal
                     JOptionPane.showMessageDialog(this, "Voer een getal in tussen 0 en 100. \n " +
-                            "Het getal mag niet meer dan vier decimalen achter de komma hebben.");
+                            "Het getal mag niet meer dan twee decimalen achter de komma hebben.");
                     beschikbaarheidsPercentageNummer.setText("");
                 }
 
