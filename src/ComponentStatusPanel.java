@@ -50,7 +50,7 @@ public class ComponentStatusPanel extends JPanel {
 				{ "Processorbelasting", mostRecentMeasurement.getProcessorload(true)},
 				{ "CPU temperatuur", mostRecentMeasurement.getTemperature() + " \u2103" },
 				{ "Diskruimte", mostRecentMeasurement.getUsedDiskspaceInGB(true)},
-				{ "Uptime", mostRecentMeasurement.getUptime().format(formatter) }
+				{ "Uptime", mostRecentMeasurement.getUptime() }
 		};
 
 		JTable details = new JTable(data, new String[] { "Measurement", "Value"} );

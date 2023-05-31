@@ -56,11 +56,11 @@ public class Measurement{
         this.date = date;
     }
 
-    public LocalDateTime getUptime() {
+    public String getUptime() {
         return uptime;
     }
 
-    public void setUptime(LocalDateTime uptime) {
+    public void setUptime(String uptime) {
         this.uptime = uptime;
     }
 
@@ -77,7 +77,7 @@ public class Measurement{
 
     private double temperature;
     private LocalDateTime date;
-    private LocalDateTime uptime;
+    private String uptime;
     private int infrastructureComponent; // @todo eventueel updaten naar een object
 
     public double getTotalDiskspaceInGB() {

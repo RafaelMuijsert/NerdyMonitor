@@ -32,7 +32,7 @@ public class InfrastructureComponentRepository {
 
                 infrastructureComponent.setAvailability(resultset.getDouble("availability"));
                 infrastructureComponent.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
-                infrastructureComponent.setUptime(resultset.getDate("uptime"));
+                infrastructureComponent.setUptime(resultset.getString("uptime"));
                 infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));
                 infrastructureComponents.add(infrastructureComponent);

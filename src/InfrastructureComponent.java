@@ -40,7 +40,7 @@ public  class InfrastructureComponent extends Component {
         isAvailable = available;
     }
 
-    public void setUptime(Date uptime) {
+    public void setUptime(String uptime) {
         this.uptime = uptime;
     }
 
@@ -77,7 +77,7 @@ public  class InfrastructureComponent extends Component {
     private int componentNumber;
     public BufferedImage image;
     private boolean isAvailable;
-    private Date uptime;
+    private String uptime;
     private double diskSpace;
     private double diskSpaceUsed;
     private double processorLoad;
@@ -122,7 +122,7 @@ public  class InfrastructureComponent extends Component {
 
                 this.setAvailability(resultset.getDouble("availability"));
                 this.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
-                this.setUptime(resultset.getDate("uptime"));
+                this.setUptime(resultset.getString("uptime"));
                 this.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 this.setProcessorLoad(resultset.getDouble("processorload"));
                 this.setAvailable(false);
@@ -156,7 +156,7 @@ public  class InfrastructureComponent extends Component {
 
                 infrastructureComponent.setAvailability(resultset.getDouble("availability"));
                 infrastructureComponent.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
-                infrastructureComponent.setUptime(resultset.getDate("uptime"));
+                infrastructureComponent.setUptime(resultset.getString("uptime"));
                 infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));
         } catch (Exception e){
@@ -164,7 +164,7 @@ public  class InfrastructureComponent extends Component {
         }
     }
 
-    public Date getUptime() {
+    public String getUptime() {
         return uptime;
     }
 
