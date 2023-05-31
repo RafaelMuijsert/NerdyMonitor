@@ -125,7 +125,7 @@ public  class InfrastructureComponent extends Component {
                 this.setUptime(resultset.getDate("uptime"));
                 this.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 this.setProcessorLoad(resultset.getDouble("processorload"));
-                this.setAvailable((this.getUptime() != null));
+                this.setAvailable(false);
 
                 if(this.getUptime() != null){
                     ArrayList<Measurement> measurement = MeasurementRepository.getAllFromComponent(this.getId(), 1);

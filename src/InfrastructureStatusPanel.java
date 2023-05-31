@@ -77,8 +77,11 @@ public class InfrastructureStatusPanel extends JPanel {
 					continue;
 				}
 				for (Measurement measurement : measurements) {
-					avgProcessorLoad += measurement.getProcessorload();
-					avgProcessorTemp += measurement.getTemperature();
+					if(component.isAvailable()){
+						avgProcessorLoad += measurement.getProcessorload();
+						avgProcessorTemp += measurement.getTemperature();
+					}
+
 					((DefaultCategoryDataset) dataset).addValue(measurement.getProcessorload(), component.getName(), measurement.getDate());
 				}
 				avgProcessorLoad /= measurements.size();

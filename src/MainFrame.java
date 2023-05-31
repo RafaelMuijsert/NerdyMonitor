@@ -42,4 +42,20 @@ public class MainFrame extends JFrame {
 		repaint();
 		revalidate();
 	}
+
+
+	public void setActiveBody(JPanel activeBody, String confirmDialogMessage) {
+		int dialogResult = JOptionPane.showConfirmDialog (null, confirmDialogMessage,"Warning", 1);
+		if(dialogResult != JOptionPane.YES_OPTION){
+			return;
+		}
+		if(this.activeBody != null) {
+			remove(this.activeBody);
+		}
+		this.activeBody = activeBody;
+		add(this.activeBody, BorderLayout.CENTER);
+		repaint();
+		revalidate();
+
+	}
 }
