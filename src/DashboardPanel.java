@@ -21,7 +21,7 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 		this.infrastructuurViewPanel = new InfrastructureComponentViewPanel(this, components);
 		this.statusPanel = new InfrastructureStatusPanel(components);
 
-		int delay = InfrastructureComponent.MeasurementIntervalMinutes; //milliseconds
+		int delay = InfrastructureComponent.MeasurementIntervalMinutes * 1000; //milliseconds
 		ActionListener taskPerformer = evt -> {
 			updateComponentPanels();
 		};
