@@ -99,7 +99,7 @@ public class InfrastructureDesign {
         // Format components into Hashmap for JSON file
         for (int i = 0; i < components.size(); i++) {
             // Only add to known components id's if not added yet or the list is still empty
-            if (componentIds.size() > 0 || !componentIds.contains(components.get(i).getId())) {
+            if (componentIds.size() == 0 || !componentIds.contains(components.get(i).getId())) {
                 componentIds.add(components.get(i).getId());
             } else {
                 continue;
