@@ -3,7 +3,6 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -55,12 +54,6 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-//        exampleDesign.add(new Databaseserver("DB-01"));
-//        exampleDesign.add(new Firewall("FW-01"));
-//        exampleDesign.add(new Firewall("FW-02"));
-//        exampleDesign.add(new Webserver("WS-01"));
-//        exampleDesign.add(new Webserver("WS-01"));
-//        exampleDesign.add(new Webserver("WS-02"));
 
         if (e.getSource() == laatOntwerpZien) {
             try {
@@ -70,11 +63,19 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                 int scale = decimal.scale();
 
                 if (nummer >= 0 && nummer <= 100 && scale <= 4) {
+
                     // maar 2 decimalen want anders rond het af
 
                     BacktrackAlgo algo = new BacktrackAlgo();
-                    BacktrackAlgo.availability = nummer / 100; //Beschikbaarheid invullen.
-                    ArrayList<String> result = BacktrackAlgo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
+                    algo.availability = nummer / 100; //Beschikbaarheid invullen.
+                    ArrayList<String> result = algo.getServerConfiguration(); //"result" bevat nu de namen van de servers.
+
+                    if(result == null){
+
+                        JOptionPane.showMessageDialog(this, "Een configuratie met de gewenste beschikbaarheid is niet mogelijk");
+
+                        return;
+                    }
 
                     ArrayList<Component> bestConfiguration = new ArrayList<>();
                     for(String componentName : result){
@@ -83,6 +84,7 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
                         bestConfiguration.add(component);
                     }
 
+                    System.out.println(bestConfiguration);
                     // Convert Components into infrastructureDesign object
                     InfrastructureDesign infrastructureDesign = new InfrastructureDesign(false);
                     infrastructureDesign.add(bestConfiguration);
