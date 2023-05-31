@@ -15,7 +15,7 @@ public class Database {
      */
     public Database () {
         // A connection is already established.
-        if(isConnected(connection)) {
+        if(isConnected()) {
             return;
         }
 
@@ -38,9 +38,9 @@ public class Database {
      * Check if connection a connection has been established and isn't closed.
      * @return
      */
-    public boolean isConnected(Connection con) {
+    public boolean isConnected() {
         try {
-            return con != null && !con.isClosed();
+            return connection != null && !connection.isClosed();
         } catch (SQLException ignored) {
             System.out.println(ignored);
         }
@@ -58,6 +58,10 @@ public class Database {
      * @return
      */
     public ResultSet find(String[] select, String fromTable, String[][] where, boolean desc, int limit) {
+        if(!isConnected()){
+            return null;
+        }
+
         try {
             // Convert Array into String select
             String selectedCols = (select.length > 1) ? StringUtils.implode(",", select) : select[0] + " ";
@@ -125,6 +129,10 @@ public class Database {
      * @return
      */
     public ResultSet findRaw(String SQL) {
+        if(!isConnected()){
+            return null;
+        }
+
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL);
