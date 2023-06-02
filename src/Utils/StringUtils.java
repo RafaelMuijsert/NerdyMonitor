@@ -28,7 +28,7 @@ public class StringUtils {
     }
 
     /**
-     * @todo Find alternative
+     * Sanitize String against SQL injection
      * @param content
      * @return
      */
