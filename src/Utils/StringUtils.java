@@ -38,7 +38,6 @@ public class StringUtils {
     }
 
     public static String removeExtention(String filePath) {
-        // These first few lines the same as Justin's
         File f = new File(filePath);
 
         // if it's a directory, don't remove the extention

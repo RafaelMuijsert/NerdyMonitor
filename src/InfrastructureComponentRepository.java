@@ -1,9 +1,7 @@
 import Utils.TimeUtils;
 
 import java.sql.ResultSet;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class InfrastructureComponentRepository {
 
@@ -46,7 +44,7 @@ public class InfrastructureComponentRepository {
                     }
 
                     // Time elapsed since previous measure is less than
-                    if(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
+                    if(TimeUtils.getTimeDifferenceMinutes(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
                         infrastructureComponent.setAvailable(true);
                     }
                 }
