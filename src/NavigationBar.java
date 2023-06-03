@@ -109,7 +109,7 @@ public class NavigationBar extends JPanel implements ActionListener {
 
 			// Load the existing Design
 			try{
-				InfrastructureDesign infrastructureDesign = new InfrastructureDesign(true);
+				InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
 
 				boolean successfullyImported = infrastructureDesign.loadDesign(jFileChooser.getSelectedFile().getPath());
 				if(!successfullyImported){

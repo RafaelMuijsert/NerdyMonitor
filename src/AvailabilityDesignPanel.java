@@ -86,7 +86,7 @@ public class AvailabilityDesignPanel extends JPanel implements ActionListener {
 
                     System.out.println(bestConfiguration);
                     // Convert Components into infrastructureDesign object
-                    InfrastructureDesign infrastructureDesign = new InfrastructureDesign(false);
+                    InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
                     infrastructureDesign.add(bestConfiguration);
 
                     this.mainFrame.setActiveBody(new OverviewPanel(infrastructureDesign, this, this.mainFrame));

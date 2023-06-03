@@ -17,10 +17,8 @@ public class InfrastructureDesign {
     private ArrayList<Webserver> webservers;
     private ArrayList<Databaseserver> databases;
     private ArrayList<Component> components;
-    private boolean custom;
 
-    public InfrastructureDesign(boolean custom) {
-        this.custom = custom;
+    public InfrastructureDesign() {
         this.firewalls = new ArrayList<Firewall>();
         this.webservers = new ArrayList<Webserver>();
         this.databases = new ArrayList<Databaseserver>();
@@ -91,7 +89,6 @@ public class InfrastructureDesign {
         Map<String, Object> map = new HashMap<>();
 
         map.put("date_created", java.time.LocalDateTime.now().toString());
-        map.put("custom", this.custom);
 
         ArrayList<Integer> componentIds = new ArrayList<>();
         ArrayList<Map> componentsHashmap = new ArrayList<>();
@@ -155,7 +152,6 @@ public class InfrastructureDesign {
         }
 
         // Copy details from json to current Object.
-        this.custom = jsonObject.get("custom").getAsBoolean();
         JsonArray components = jsonObject.getAsJsonArray("components");
 
         // Iterate over the nested components

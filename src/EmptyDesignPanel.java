@@ -56,7 +56,7 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
                 return;
             }
 
-            InfrastructureDesign infrastructureDesign = new InfrastructureDesign(true);
+            InfrastructureDesign infrastructureDesign = new InfrastructureDesign();
 
 
             infrastructureDesign.add(this.configuration);
