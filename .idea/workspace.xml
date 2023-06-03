@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95ddb85c-ae02-48b1-ae86-09d740ff5fa0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-5-2023_19_05__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-5-2023_19_05__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-5-2023_19_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-5-2023_19_06__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AvailabilityDesignPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AvailabilityDesignPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BacktrackAlgo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BacktrackAlgo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Chart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentViewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentViewPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InfrastructureDesign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureDesign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OverviewPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OverviewPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentStatusPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentStatusPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfrastructureComponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfrastructureComponentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeasurementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeasurementRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,7 +45,7 @@
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "SQL-Insert-Statements.sql.groovy",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/thijmen/Code/NerdyMonitor",
+    "last_opened_file_path": "C:/Users/Rafael/Code/NerdyMonitor",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -55,6 +58,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rafael\Code\NerdyMonitor" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -98,5 +102,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>

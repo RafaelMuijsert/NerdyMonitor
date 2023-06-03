@@ -99,7 +99,7 @@ public class InfrastructureDesign {
         // Format components into Hashmap for JSON file
         for (int i = 0; i < components.size(); i++) {
             // Only add to known components id's if not added yet or the list is still empty
-            if (componentIds.size() > 0 || !componentIds.contains(components.get(i).getId())) {
+            if (componentIds.size() == 0 || !componentIds.contains(components.get(i).getId())) {
                 componentIds.add(components.get(i).getId());
             } else {
                 continue;
@@ -119,6 +119,7 @@ public class InfrastructureDesign {
             Map<String, Object> componentMap = new HashMap<>();
             componentMap.put("id", components.get(i).getId());
             componentMap.put("quantity", quantity);
+
             componentsHashmap.add(componentMap);
         }
 
@@ -161,6 +162,7 @@ public class InfrastructureDesign {
         for (JsonElement element : components) {
             // Convert JsonElement to JsonObject to be able to access the attributes.
             JsonObject componentJSON = element.getAsJsonObject();
+
             if (componentJSON.has("id") && componentJSON.has("quantity")) {
                 int id = componentJSON.get("id").getAsInt();
                 int quantity = componentJSON.get("quantity").getAsInt();
@@ -170,6 +172,7 @@ public class InfrastructureDesign {
                     importComponents.add(component);
                 }
             }
+
         }
 
         add(importComponents);

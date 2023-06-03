@@ -5,11 +5,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class ComponentOverview extends JPanel {
+
 	private Component infrastructureComponent;
 	private int quantity;
 	private JLabel jlComponentName;
 	private JLabel jlAvailability;
-	private JLabel jlComponentNumber;
 	private JLabel jlPrice;
 	private JLabel jlQuantity;
 	private static final Font COMPONENT_DETAIL_FONT = new Font("Montserrat", Font.PLAIN, 18);
@@ -21,8 +21,6 @@ public class ComponentOverview extends JPanel {
 		this.infrastructureComponent = infrastructureComponent;
 		this.quantity = quantity;
 		this.setLayout(new GridBagLayout());
-		this.setMaximumSize(new Dimension(0, 500));
-		this.setPreferredSize(new Dimension(0, 500));
 		GridBagConstraints constraints = new GridBagConstraints();
 
 		constraints.weightx = 0.5;
@@ -45,7 +43,7 @@ public class ComponentOverview extends JPanel {
 
 		constraints.gridy = 1;
 		constraints.anchor = GridBagConstraints.FIRST_LINE_START;
-		this.jlAvailability = new JLabel("Beschikbaarheid: " + String.format("%.2f",this.infrastructureComponent.getAvailability()) + "%");
+		this.jlAvailability = new JLabel("Beschikbaarheid: " + String.format("%.3f",this.infrastructureComponent.getAvailability()) + "%");
 		this.jlAvailability.setFont(ComponentOverview.COMPONENT_DETAIL_FONT);
 		this.add(this.jlAvailability, constraints);
 

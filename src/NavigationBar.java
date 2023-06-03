@@ -103,7 +103,7 @@ public class NavigationBar extends JPanel implements ActionListener {
 
 			// We only allow JSON file types!!
 			if(!fileType.equals(".json")){
-				JOptionPane.showMessageDialog(this, "Je kan alleen JSON bestanden openen");
+				JOptionPane.showMessageDialog(this.mainFrame, "Je kan alleen JSON bestanden openen");
 				return;
 			}
 
@@ -113,7 +113,7 @@ public class NavigationBar extends JPanel implements ActionListener {
 
 				boolean successfullyImported = infrastructureDesign.loadDesign(jFileChooser.getSelectedFile().getPath());
 				if(!successfullyImported){
-					JOptionPane.showMessageDialog(this.mainFrame, "De geselecteerde Infrastructuur ontwerp is niet in het juiste formaat!");
+					JOptionPane.showMessageDialog(this.mainFrame, "Het geselecteerde Infrastructuur ontwerp is niet in het juiste formaat!");
 					return;
 				}
 

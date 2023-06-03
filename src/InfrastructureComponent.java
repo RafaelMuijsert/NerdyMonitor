@@ -40,7 +40,7 @@ public  class InfrastructureComponent extends Component {
         isAvailable = available;
     }
 
-    public void setUptime(Date uptime) {
+    public void setUptime(String uptime) {
         this.uptime = uptime;
     }
 
@@ -77,7 +77,7 @@ public  class InfrastructureComponent extends Component {
     private int componentNumber;
     public BufferedImage image;
     private boolean isAvailable;
-    private Date uptime;
+    private String uptime;
     private double diskSpace;
     private double diskSpaceUsed;
     private double processorLoad;
@@ -122,10 +122,10 @@ public  class InfrastructureComponent extends Component {
 
                 this.setAvailability(resultset.getDouble("availability"));
                 this.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
-                this.setUptime(resultset.getDate("uptime"));
+                this.setUptime(resultset.getString("uptime"));
                 this.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 this.setProcessorLoad(resultset.getDouble("processorload"));
-                this.setAvailable((this.getUptime() != null));
+                this.setAvailable(false);
 
                 if(this.getUptime() != null){
                     ArrayList<Measurement> measurement = MeasurementRepository.getAllFromComponent(this.getId(), 1);
@@ -156,28 +156,15 @@ public  class InfrastructureComponent extends Component {
 
                 infrastructureComponent.setAvailability(resultset.getDouble("availability"));
                 infrastructureComponent.setAnnualPriceInEuro(resultset.getDouble("annual_price_in_euro"));
-                infrastructureComponent.setUptime(resultset.getDate("uptime"));
+                infrastructureComponent.setUptime(resultset.getString("uptime"));
                 infrastructureComponent.setDiskSpace(resultset.getDouble("total_diskspace_in_GB"));
                 infrastructureComponent.setProcessorLoad(resultset.getDouble("processorload"));
         } catch (Exception e){
-
+            System.out.println(e);
         }
     }
-//    public void update() {
-//        Database db = new Database();
-//        try {
-//            ResultSet resultset = db.findRaw("SELECT processorload, diskspace_in_GB, uptime" +
-//                    "FROM Measurement M JOIN Infrastructure_component IC ON IC.id=M.infrastructure_component " +
-//                    "WHERE IC.id=" + String.valueOf(this.componentNumber) + " ORDER BY M.id DESC LIMIT 1");
-//            this.uptime = resultset.getDate("uptime");
-//            this.diskSpace = resultset.getDouble("diskspace_in_GB");
-//            this.processorLoad = resultset.getDouble("processorload");
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//    }
 
-    public Date getUptime() {
+    public String getUptime() {
         return uptime;
     }
 

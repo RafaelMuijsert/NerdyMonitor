@@ -13,6 +13,7 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 	private JPanel statusPanel;
 
 	public DashboardPanel() {
+
 		setBackground(DashboardPanel.DASHBOARD_BACKGROUND_COLOR);
 		setLayout(new GridLayout(1, 2));
 		ArrayList<InfrastructureComponent> components = InfrastructureComponentRepository.findAll();
@@ -20,14 +21,52 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 		this.infrastructuurViewPanel = new InfrastructureComponentViewPanel(this, components);
 		this.statusPanel = new InfrastructureStatusPanel(components);
 
+		int delay = InfrastructureComponent.MeasurementIntervalMinutes * 1000; //milliseconds
+		ActionListener taskPerformer = evt -> {
+			updateComponentPanels();
+		};
+
+		new javax.swing.Timer(delay, taskPerformer).start();
+
 		add(this.infrastructuurViewPanel);
 		add(this.statusPanel);
+
+
+	}
+
+	// Refresh infrastructure components and current Status panel
+	public void updateComponentPanels() {
+		ArrayList<InfrastructureComponent> components = InfrastructureComponentRepository.findAll();
+
+		if(this.infrastructuurViewPanel != null){
+			remove(this.infrastructuurViewPanel);
+			remove(this.statusPanel);
+		}
+
+		this.infrastructuurViewPanel = new InfrastructureComponentViewPanel(this, components);
+
+
+		if((this.statusPanel instanceof ComponentStatusPanel)) {
+			ComponentStatusPanel componentStatusPanel = (ComponentStatusPanel) this.statusPanel;
+			InfrastructureComponent infrastructureComponent = new InfrastructureComponent(componentStatusPanel.infrastructureComponent.getId());
+			if(!infrastructureComponent.isAvailable()){
+				this.statusPanel = new InfrastructureStatusPanel(components);
+			}
+
+		}
+
+		add(this.infrastructuurViewPanel);
+		add(this.statusPanel);
+
+		this.refresh();
 	}
 
 	public void setStatusPanel(JPanel statusPanel) {
 		remove(this.statusPanel);
 		this.statusPanel = statusPanel;
 		add(this.statusPanel);
+
+		this.refresh();
 	}
 
 	@Override
@@ -65,9 +104,17 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 	}
 
 	public void updateStatusPanel(Component component){
-		setStatusPanel(new ComponentStatusPanel(component.getId()));
+
+		remove(this.statusPanel);
+		this.statusPanel = new ComponentStatusPanel(component.getId());
+		add(this.statusPanel);
+
+		this.refresh();
+	}
+	public void refresh() {
 		revalidate();
 		repaint();
+
 	}
 
 	@Override

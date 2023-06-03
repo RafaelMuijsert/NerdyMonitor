@@ -33,7 +33,7 @@ public class MeasurementRepository {
 
                 measurement.setId(resultset.getInt("id"));
                 measurement.setDate(resultset.getTimestamp("date").toLocalDateTime());
-                measurement.setUptime(resultset.getTimestamp("uptime").toLocalDateTime());
+                measurement.setUptime(resultset.getString("uptime"));
                 measurement.setUsedDiskspaceInGB(resultset.getDouble("used_diskspace_in_GB"));
                 measurement.setTotalDiskspaceInGB(resultset.getDouble("total_diskspace_in_GB"));
                 measurement.setProcessorload(resultset.getDouble("processorload"));

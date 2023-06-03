@@ -5,17 +5,20 @@ import org.jfree.data.general.DefaultPieDataset;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+
+
 public class ComponentStatusPanel extends JPanel {
+	public InfrastructureComponent infrastructureComponent;
+
+
 	public ComponentStatusPanel(int infrastructureComponentId) {
 
 		// Get Component from database
 		InfrastructureComponent infrastructureComponent = new InfrastructureComponent(infrastructureComponentId);
-
+		this.infrastructureComponent = infrastructureComponent;
 		// Retrieve all Measurements of the current Component
 		ArrayList<Measurement> measurements = MeasurementRepository.getAllFromComponent(infrastructureComponentId, 0);
 		Measurement mostRecentMeasurement = (measurements.size() >= 1) ? measurements.get(measurements.size() - 1) : null;
@@ -47,7 +50,7 @@ public class ComponentStatusPanel extends JPanel {
 				{ "Processorbelasting", mostRecentMeasurement.getProcessorload(true)},
 				{ "CPU temperatuur", mostRecentMeasurement.getTemperature() + " \u2103" },
 				{ "Diskruimte", mostRecentMeasurement.getUsedDiskspaceInGB(true)},
-				{ "Uptime", mostRecentMeasurement.getUptime().format(formatter) }
+				{ "Uptime", mostRecentMeasurement.getUptime() }
 		};
 
 		JTable details = new JTable(data, new String[] { "Measurement", "Value"} );
