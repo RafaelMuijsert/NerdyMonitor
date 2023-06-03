@@ -198,6 +198,10 @@ public class InfrastructureDesign {
 
         // Convert components to component type array
         for (Component component : components) {
+            if(component == null){
+                continue;
+            }
+            
             if (component.getComponentTypesId() == Component.FIREWALL) {
                 this.add(new Firewall(component.getId()));
             } else if (component.getComponentTypesId() == Component.DBSERVER) {

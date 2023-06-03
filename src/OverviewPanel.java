@@ -96,7 +96,6 @@ public class OverviewPanel extends JPanel implements ActionListener {
 		grOverviewSummary.setVgap(4);
 		jpOverviewSummary.setLayout(grOverviewSummary);
 
-		// @todo dynamishc
 		jpOverviewSummary.add(new JLabel("Totaalprijs"));
 		jpOverviewSummary.add(new JLabel("€ " +String.valueOf(infrastructureDesign.getTotalCost())));
 		jpOverviewSummary.add(new JLabel("Totale beschikbaarheid"));

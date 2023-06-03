@@ -31,7 +31,6 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 		add(this.infrastructuurViewPanel);
 		add(this.statusPanel);
 
-
 	}
 
 	// Refresh infrastructure components and current Status panel
@@ -44,7 +43,6 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 		}
 
 		this.infrastructuurViewPanel = new InfrastructureComponentViewPanel(this, components);
-
 
 		if((this.statusPanel instanceof ComponentStatusPanel)) {
 			ComponentStatusPanel componentStatusPanel = (ComponentStatusPanel) this.statusPanel;
@@ -114,7 +112,6 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 	public void refresh() {
 		revalidate();
 		repaint();
-
 	}
 
 	@Override

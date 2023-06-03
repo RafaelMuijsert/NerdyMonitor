@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 
 import static Utils.ImageUtils.getImageIcon;
 
@@ -134,7 +133,7 @@ public  class InfrastructureComponent extends Component {
                     }
 
                     // Time elapsed since previous measure is less than
-                    if(TimeUtils.getTimeDifference(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
+                    if(TimeUtils.getTimeDifferenceMinutes(java.time.LocalDateTime.now(), measurement.get(0).getDate()) <= InfrastructureComponent.MeasurementIntervalMinutes){
                         this.setAvailable(true);
                     }
                 }

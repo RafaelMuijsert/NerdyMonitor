@@ -51,7 +51,7 @@ public class EmptyDesignPanel extends JPanel implements ActionListener, MouseLis
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == redirectButton){
-            if(configuration.size() == 0){
+            if(configuration.size() == 0) {
                 JOptionPane.showMessageDialog(this, "Voeg teminste 1 component toe aan je ontwerp!");
                 return;
             }
