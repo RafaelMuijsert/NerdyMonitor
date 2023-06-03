@@ -81,10 +81,12 @@ public class ComponentStatusPanel extends JPanel {
 			}
 		}
 		else if(chartType == Chart.Type.PIECHART) {
+
 			dataset = new DefaultPieDataset();
 			Measurement mostRecentMeasurement = measurements.get(measurements.size() - 1);
-			((DefaultPieDataset) dataset).setValue("Used space", mostRecentMeasurement.getUsedDiskspaceInGB());
-			((DefaultPieDataset) dataset).setValue("Space left", mostRecentMeasurement.getTotalDiskspaceInGB() - mostRecentMeasurement.getUsedDiskspaceInGB());
+
+			((DefaultPieDataset) dataset).setValue("Totaal", mostRecentMeasurement.getUsedDiskspaceInGB());
+			((DefaultPieDataset) dataset).setValue("Gebruikt", mostRecentMeasurement.getTotalDiskspaceInGB() - mostRecentMeasurement.getUsedDiskspaceInGB());
 		}
 		return (AbstractDataset) dataset;
 	}

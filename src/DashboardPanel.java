@@ -50,7 +50,8 @@ public class DashboardPanel extends JPanel implements ActionListener, MouseListe
 			if(!infrastructureComponent.isAvailable()){
 				this.statusPanel = new InfrastructureStatusPanel(components);
 			}
-
+		} else{
+			this.statusPanel = new InfrastructureStatusPanel(components);
 		}
 
 		add(this.infrastructuurViewPanel);

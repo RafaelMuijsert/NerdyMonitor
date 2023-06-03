@@ -102,7 +102,7 @@ public class InfrastructureStatusPanel extends JPanel {
 				this.totalDiskspace += measurements.get(0).getTotalDiskspaceInGB();
 			}
 //			Measurement mostRecentMeasurement = measurements.get(measurements.size() - 1);
-			((DefaultPieDataset) dataset).setValue("Bruikbaar", availableDiskspace);
+			((DefaultPieDataset) dataset).setValue("Gebruikt", availableDiskspace);
 			((DefaultPieDataset) dataset).setValue("Totaal", totalDiskspace);
 		}
 		return (AbstractDataset) dataset;
